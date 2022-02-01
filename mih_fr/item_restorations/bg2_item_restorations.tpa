@@ -1,0 +1,148 @@
+DEFINE_ACTION_FUNCTION bg2_item_restorations
+BEGIN
+  // bag01 - Wolfskin Bag
+  //
+  // Issues fixed:
+  // - Set unsellable/critical flag.
+  // - Filled in name and description.
+  // - Capacity set to 20.
+  //
+  // Placed on Copper Coronet beastmaster.
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "bag01"
+    editstring	= ~say_both_names=>1 say_both_descriptions=>2 unsellable=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "bag01"
+    editstring	= ~say_name=>1 space=>20~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "beast"
+    editstring	= ~add_items=>"bag01(inv)"~
+  END
+
+
+  // boot09 - Boots of Hastened Departure
+  //
+  // Issues fixed:
+  // - Set ability icon.
+  //
+  // Added to nobleman merchant's store in Trademeet.
+  // NB: No canon name/decription found for this item, so trusting UB.
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "boot09"
+    editstring	= ~say_name=>3 say_description=>4 patch_ability_inline=>"ability_icon=>iboot09"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "trmer02"
+    editstring	= %clone_item_inline=>~match=>"item_resource = clck03" item_resource=>"boot09" item_num_in_stock=>1~%	// NB: % are string delimiters here!
+  END
+
+
+  // brac18 - Gloves of Missile Snaring
+  //
+  // Issues fixed:
+  // - Removed nonsensical (and in BG2 undocumented) use restrictions.
+  //
+  // Moved to an assassin you actually can (and have to) fight.
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "brac18"
+    editstring	= ~literal=>"WRITE_LONG 0x001e 0"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "trthf01"
+    editstring	= ~remove_items=>"brac18"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ishadft1"
+    editstring	= ~add_items=>"brac18(gloves)"~
+  END
+
+
+  // misc8j - Boots of the West
+  //
+  // Placed in ranger cabin.
+  // NB: UB fixed the strings of this item, but it appears already fixed
+  // in both oBG2 and in BG2EE, probably due to Fixpack.
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar1102"
+    editstring	= %add_item_inline=>~match=>"parent_index = 5" item_resource=>"misc8j"~%	// NB: % are string delimiters here!
+  END
+
+
+  // plat05 - Full Plate +1: 'Plate of the Dark'
+  //
+  // Added to Tazok in Firkraag's lair, replacing generic full plate +1.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "tazok"
+    editstring	= ~remove_items=>"plat14" add_items=>"plat05(armor)"~
+  END
+
+
+  // plat08 - Plate Mail +3: 'The Practical Defense'
+  //
+  // Fixed issues:
+  // - Identified name not set.
+  // - Identified string set to empty entry 23975.
+  //
+  // Added to shop of Arnolius the Dwarf in Waukeen's Promenade.
+
+  STRING_SET 23975 @0
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "plat08"
+    editstring	= ~name2_string=>3145~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "shop02"
+    editstring	= %clone_item_inline=>~match=>"item_resource = plat10" item_resource=>"plat08" item_num_in_stock=>1~%	// NB: % are string delimiters here!
+  END
+
+
+  // sw1h37 - Bastard Sword +1: 'Taragarth the Bloodbrand'
+  //
+  // Added to Simyaz, replacing ordinary bastard sword.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "udsimyaz"
+    editstring	= ~remove_items=>"sw1h01" add_items=>"sw1h35(weapon1)"~
+  END
+
+
+  // sw2h06 - Two-Handed Sword +2: 'Spider's Bane'
+  //
+  // Added to cache in Pai'Na's lair in graveyard catacombs.
+  // Note: Conceptably incompatible with Pai'Na's quest in UB.
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar0804"
+    editstring	= %add_item_inline=>~match=>"parent_index = 0" item_resource=>"sw2h06"~%	// NB: % are string delimiters here!
+  END
+END	// bg2_item_restorations
+
+

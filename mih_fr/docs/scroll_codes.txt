@@ -1,0 +1,14 @@
+scrl6b		Reveal Magic
+scrl6c		Protection Circle
+scrl88		Fog Cloud
+scrl1r		Wraithform
+scrl1v		Dimension Door
+scrl2c		Wall of Fire
+scrl7n		Monster Summoning IV
+scrl8k		Tattoos of Power
+scrl9i		Otto's Irresistible Dance
+scrl9k		Spell Invulnerability
+
+mh#curbd	Cure Blindness/Deafness
+
+

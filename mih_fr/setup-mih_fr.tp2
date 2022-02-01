@@ -1,0 +1,54 @@
+// Made in Heaven - Fixes & Restorations
+//
+// WeiDU installer
+
+BACKUP "weidu_external/backup/mih_fr"
+
+SUPPORT "https://www.gibberlings3.net/forums/topic/29992-my-new-made-in-heaven-mods/"
+VERSION "v1"
+
+//MODDER setup_tra none area_variables warn missing_extern warn missing_resref warn ict2_actions none missing_eval none overwriting_file none fun_args warn
+
+ASK_EVERY_COMPONENT
+NO_IF_EVAL_BUG
+AUTO_EVAL_STRINGS
+
+ALWAYS
+  INCLUDE "mih_fr/lib/always.tpa"
+END	// ALWAYS block
+
+
+LANGUAGE "English"
+         "english"
+	 "mih_fr/language/english/setup-mih_fr.tra"
+	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
+
+
+//
+// Restorations
+//
+
+// Item Restorations
+
+BEGIN @2
+GROUP @1
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_item_restorations"
+  location	= "item_restorations"
+END
+
+
+// Spell Restorations
+
+BEGIN @3
+GROUP @1
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_spell_restorations"
+  location	= "spell_restorations"
+END
+
+
