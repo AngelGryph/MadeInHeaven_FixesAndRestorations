@@ -23,6 +23,48 @@ LANGUAGE "English"
 	 "mih_fr/language/english/setup-mih_fr.tra"
 	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
 
+//
+// Fixpacks
+//
+
+// BG1 Fixpack
+
+BEGIN @5
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bg1_fixpack"
+  location	= "fixes/bg1"
+END
+
+
+// SoD Fixpack
+
+BEGIN @7
+
+REQUIRE_PREDICATE GAME_INCLUDES "sod" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bg1_fixpack"
+  location	= "fixes/bg1"
+END
+
+
+// BG2 Fixpack
+
+BEGIN @6
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bg2_fixpack"
+  location	= "fixes/bg2"
+END
+
 
 //
 // Restorations
@@ -36,7 +78,7 @@ GROUP @1
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_item_restorations"
-  location	= "item_restorations"
+  location	= "restorations/items"
 END
 
 
@@ -48,7 +90,19 @@ GROUP @1
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_spell_restorations"
-  location	= "spell_restorations"
+  location	= "restorations/spells"
+END
+
+
+// Xzar's Monsters
+
+BEGIN @4
+GROUP @1
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_xzars_monsters"
+  location	= "restorations/encounters"
 END
 
 

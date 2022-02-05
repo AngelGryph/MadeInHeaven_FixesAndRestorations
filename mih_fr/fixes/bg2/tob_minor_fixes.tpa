@@ -1,0 +1,26 @@
+DEFINE_ACTION_FUNCTION tob_minor_fixes
+BEGIN
+  // Correct icons for Quiver/Case of Plenty
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      icon_ground=>"gquiver0"
+    END
+  END
+  ELSE
+  BEGIN
+    MAKE_PATCH
+      icon=>"filename in [quiver01->iquiver0 quiver03->iquiver0 default->no_change]"
+      icon_ground=>"gquiver0"
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "quiver01 quiver02 quiver03 quiver04"
+    edits	= "patch_data"
+  END
+END	// tob_minor_fixes
+
+

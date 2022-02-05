@@ -1,0 +1,15 @@
+BG2
+===
+
+bag01	- Wolfskin Bag
+boot09	- Boots of Hastened Departure
+brac18	- Gloves of Missile Snaring
+clck05	- Cloak of Balduran
+misc8j	- Boots of the West
+misc9k	- Third Journal of Irenicus
+plat05	- Full Plate +1: 'Plate of the Dark'
+plat08	- Plate Mail +3: 'The Practical Defense'
+sw1h37	- Bastard Sword +1: 'Taragarth the Bloodbrand'
+sw2h06	- Two-Handed Sword +2: 'Spider's Bane'
+
+
