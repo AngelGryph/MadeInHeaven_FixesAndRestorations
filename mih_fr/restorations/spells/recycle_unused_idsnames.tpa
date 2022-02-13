@@ -31,8 +31,16 @@ BEGIN
     BEGIN
       // Skip bogus entries silently.
     END
-    "WIZARD_ALARM"
-    "WIZARD_DELETED"
+    "WIZARD_ALARM" "WIZARD_DELETED"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION log_this
+        STR_VAR
+	file	= "spell_ids_cleaning.txt"
+        input	= "Removing duplicate/broken entry %spell_name%."
+	repeat	= "no"
+      END
+    END
+    "BERESH_CHANGE" "KAISHAS_CHANGE" WHEN NOT is_bg1
     BEGIN
       LAUNCH_ACTION_FUNCTION log_this
         STR_VAR

@@ -1,5 +1,12 @@
 DEFINE_ACTION_FUNCTION setup_spell_restorations
 BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "sanitize_wizard_spell_slots"
+    locbase	= "shared/spells"
+  END
+
+
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
     ini		= "recycle_unused_idsnames"
