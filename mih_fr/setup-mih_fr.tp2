@@ -102,7 +102,19 @@ GROUP @1
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_xzars_monsters"
-  location	= "restorations/encounters"
+  location	= "restorations/bg2"
+END
+
+
+// Hell Hounds
+
+BEGIN @9
+GROUP @1
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_hell_hounds"
+  location	= "restorations/bg2"
 END
 
 

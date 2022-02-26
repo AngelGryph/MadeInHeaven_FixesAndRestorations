@@ -100,9 +100,18 @@ BEGIN
 
   // misc8j - Boots of the West
   //
+  // Issues fixed:
+  // - Removed unsellable (critical) flag
+  //
   // Placed in ranger cabin.
   // NB: UB fixed the strings of this item, but it appears already fixed
   // in both oBG2 and in BG2EE, probably due to Fixpack.
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "misc8j"
+    editstring	= "unsellable=>0"
+  END
 
   LAUNCH_ACTION_FUNCTION edit_area
     STR_VAR

@@ -3,6 +3,11 @@ BEGIN
   ACTION_IF is_bg2
   BEGIN
     // TODO: Ust'Nata fix
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "bg2_minor_fixes"
+    END
   END
 
   ACTION_IF has_tob
