@@ -237,12 +237,16 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 294 (name), 14072 (status), 14074 (status)
 - icon files: sppr316a.bam, sppr316b.bam, sppr316c.bam
 
+Deduced scroll item: scrl43 (unused)
+
 P&P source: Core spell (PHB)
 
 The functionality of this spell was added to Cure Disease, making it
 redundant.  I first decided to remove this function from Cure Disease, but
 that gave unexpected AI problems, especially in Siege of Dragonspear.  So I
-settled for altering it to a level 2 spell instead.
+settled for altering it to a level 2 spell instead.  The scroll item, scrl43,
+was actually the scratched Resist Cold scroll, but now comes in handy for
+this.
 
 
 CLERIC_HOLY_SWORD

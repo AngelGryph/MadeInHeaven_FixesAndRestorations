@@ -1,5 +1,10 @@
 DEFINE_ACTION_FUNCTION setup_item_restorations
 BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "scroll_restorations"
+  END
+
   ACTION_IF is_bg1
   BEGIN
   END
@@ -12,7 +17,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "bg2_item_restorations"
+      file	= "bg2_item_restorations bg1_items_in_bg2"
       tra	= "bg2_item_restorations"
     END
   END
