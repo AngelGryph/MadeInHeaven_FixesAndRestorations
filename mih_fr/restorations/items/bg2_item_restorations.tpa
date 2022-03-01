@@ -112,10 +112,13 @@ BEGIN
   // misc9k - Third Journal of Irenicus
   //
   // Issues fixed:
+  // - Filled in dummy description.
   // - Description BAM way off center.
   // - Removed duplicate first journal.
   //
   // Placed with the other journals on Irenicus' desk in Spellhold.
+
+  STRING_SET 49266 @0
 
   LAUNCH_ACTION_FUNCTION recenter_bam_frames
     INT_VAR

@@ -17,8 +17,14 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "bg2_item_restorations bg1_items_in_bg2"
+      file	= "bg2_item_restorations"
       tra	= "bg2_item_restorations"
+    END
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "bg1_items_in_bg2"
+      tra	= "bg1_items_in_bg2"
     END
   END
 END	// setup_item_restorations
