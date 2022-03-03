@@ -1,6 +1,0 @@
-DEFINE_ACTION_FUNCTION setup_spellhold
-BEGIN
-  
-END	// setup_spellhold
-
-

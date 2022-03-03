@@ -1,0 +1,27 @@
+DEFINE_ACTION_FUNCTION olive_slimes
+BEGIN
+  LAUNCH_ACTION_FUNCTION install_creature
+    STR_VAR
+    creature	= "jeloli01"
+    location	= "files"
+    editstring	= "say_both_names=>0"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_item
+    STR_VAR
+    item	= "jeloli01"
+    location	= "files"
+  END
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2200"
+    match	= "spawnGhaGuys"
+    swap_out1	= ~"[^"]*",\[4422\.3524\]~
+    swap_in1	= ~"jeloli01", [4422.3524]~
+    swap_out2	= ~"[^"]*",\[4052\.3574\]~
+    swap_in2	= ~"jeloli01", [4052.3574]~
+  END
+END	// olive_slimes
+
+

@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION setup_encounters_bg2
+BEGIN
+  ACTION_FOR_EACH component IN "hell_hounds olive_slimes xzars_monsters"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "%component%"
+      tra	= "%component%"
+    END
+  END
+END	// setup_encounters_bg2
+
+
