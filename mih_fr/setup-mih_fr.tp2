@@ -23,9 +23,9 @@ LANGUAGE "English"
 	 "mih_fr/language/english/setup-mih_fr.tra"
 	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
 
-//
+// ========
 // Fixpacks
-//
+// ========
 
 // BG1 Fixpack
 
@@ -66,9 +66,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-//
+// ============
 // Restorations
-//
+// ============
 
 // Item Restorations
 
@@ -94,27 +94,43 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Xzar's Monsters
+// Encounter Restorations (BG2)
 
 BEGIN @4
 GROUP @1
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_xzars_monsters"
+  file		= "setup_encounters_bg2"
   location	= "restorations/bg2"
 END
 
 
-// Hell Hounds
+// ======
+// Tweaks
+// ======
 
-BEGIN @9
-GROUP @1
+// Allies are Better Prepared
+
+BEGIN @10
+GROUP @9
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_hell_hounds"
-  location	= "restorations/bg2"
+  file		= "setup_allies"
+  location	= "tweaks/allies"
+END
+
+
+// Volume Adjustments
+
+BEGIN @11
+GROUP @9
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_sounds"
+  location	= "tweaks/sounds"
 END
 
 

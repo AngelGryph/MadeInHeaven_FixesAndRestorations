@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION setup_sounds
+BEGIN
+  LAUNCH_ACTION_FUNCTION get_directory
+    STR_VAR
+    location
+    RET
+    audio_path	= directory
+  END
+
+  LAUNCH_ACTION_FUNCTION HANDLE_AUDIO
+    STR_VAR
+    audio_path
+    oggdec_path	= "bin"
+    sox_path	= "bin"
+  END
+END	// setup_sounds
+
+

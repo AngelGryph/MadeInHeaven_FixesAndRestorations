@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION vithal
+BEGIN
+  MAKE_PATCH
+    alignment=>"lawful_neutral"
+    replace_items=>"staf12(weapon1) clck16(armor) ring07(lring) ring41(rring) amul21(amulet) clck30(cloak) boot04(boots)"
+    patch_item_inline=>~match=>"item_resource is_in [staf12 ring07 ring41 amul21 clck30 boot04]" unstealable=>1 undroppable=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "udvith"
+    edits	= "patch_data"
+  END
+END	// vithal
+
+
