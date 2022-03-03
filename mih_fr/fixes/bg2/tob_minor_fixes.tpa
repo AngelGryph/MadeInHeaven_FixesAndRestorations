@@ -1,5 +1,18 @@
 DEFINE_ACTION_FUNCTION tob_minor_fixes
 BEGIN
+  // Balthasar's "Solar Stance!" is supposed to give him flaming fists,
+  // but that part doesn't work as intended due to a missing effect file.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "balth01b.eff"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_effect
+      STR_VAR
+      effect		= "balth01b"
+      editstring	= ~opcode=>146 target=>2 timing=>1 parameter2=>1 resource=>"balth01b"~
+    END
+  END
+
+
   // Correct icons for Quiver/Case of Plenty
 
   ACTION_IF enhanced_edition

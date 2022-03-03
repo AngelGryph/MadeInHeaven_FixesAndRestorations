@@ -2,21 +2,14 @@ DEFINE_ACTION_FUNCTION setup_bg2_fixpack
 BEGIN
   ACTION_IF is_bg2
   BEGIN
-    // TODO: Ust'Nata fix
-
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "bg2_minor_fixes"
+      file	= "bg2_minor_fixes ust_natha_fixes"
     END
   END
 
   ACTION_IF has_tob
   BEGIN
-    LAUNCH_ACTION_FUNCTION run
-      STR_VAR
-      file	= "balthasar"
-    END
-
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "tob_minor_fixes"

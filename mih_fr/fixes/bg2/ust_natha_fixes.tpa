@@ -1,0 +1,31 @@
+DEFINE_ACTION_FUNCTION ust_natha_fixes
+BEGIN
+  // Fix stair polygons on upper levels
+
+  MAKE_PATCH
+    delete_trigger_vertex=>~trigger_name is_in [StairsC StairsD]~
+    patch_trigger_inline'1=>~match=>"trigger_name = StairsC" trigger_bbleft=>2119 trigger_bbtop=>1464 trigger_bbright=>2173 trigger_bbbottom=>1563~
+    add_trigger_vertex_inline'1=>~match=>"trigger_name = StairsC" number_to_add=>10 vertex_xloc=>"entry_index from [2119 2121 2124 2131 2141 2150 2158 2165 2171 2173]" vertex_yloc=>"entry_index from [1563 1539 1510 1487 1471 1464 1466 1475 1493 1523]"~
+    patch_trigger_inline'2=>~match=>"trigger_name = StairsD" trigger_bbleft=>2126 trigger_bbtop=>902 trigger_bbright=>2179 trigger_bbbottom=>988~
+    add_trigger_vertex_inline'2=>~match=>"trigger_name = StairsD" number_to_add=>10 vertex_xloc=>"entry_index from [2179 2126 2129 2132 2137 2142 2152 2166 2173 2179]" vertex_yloc=>"entry_index from [962 988 959 939 924 912 902 902 913 934]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar2200"
+    edits	= "patch_data"
+  END
+
+
+  // Ghanaudar mage appears standing in the middle of a mustard jelly
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2200"
+    match	= "spawnGhaGuys"
+    swap_out	= ~"dagmag01",\[4422\.3524\]~
+    swap_in	= ~"dagmag01", [4401.3527]~
+  END
+END	// ust_natha_fixes
+
+
