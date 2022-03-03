@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION setup_artemis
+BEGIN
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "artemis"
+    editstring	= ~remove_items=>"sw1h29 dagg20" add_items=>"sw1h28(weapon1) dagg20(shield)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "artemis.d"
+    location	= "dialogs"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION extend
+    STR_VAR
+    script	= "artemis"
+    top		= "artemis_drizzt_talk"
+    location	= "scripts"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar0809"
+    editstring	= ~delete_item=>"item_resource = sw1h28"~
+  END
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar0809"
+    bottom	= "artemis_spawn"
+    location	= "scripts"
+  END
+END	// setup_artemis
+
+

@@ -99,9 +99,25 @@ END
 BEGIN @4
 GROUP @1
 
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_encounters_bg2"
+  location	= "restorations/bg2"
+END
+
+
+// Artemis Entreri in Bodhi's Lair
+
+BEGIN @12
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_artemis"
   location	= "restorations/bg2"
 END
 
