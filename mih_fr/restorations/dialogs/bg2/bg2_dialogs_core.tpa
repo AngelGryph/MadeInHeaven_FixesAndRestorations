@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION bg2_dialogs_core
+BEGIN
+  // Deirex initiates second dialog instead of going hostile immediately.
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2207"
+    match	= ~JarlaxleHQ~
+    swap_out	= ~Enemy()~
+    swap_in	= ~StartDialogueNoSet([PC])~
+  END
+END	// bg2_dialogs_core
+
+

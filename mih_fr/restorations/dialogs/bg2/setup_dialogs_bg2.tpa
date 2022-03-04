@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION setup_dialogs_bg2
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "bg2_dialogs_core"
+  END
+
+  LAUNCH_ACTION_FUNCTION compile_all
+    STR_VAR
+    location	= "compile_this"
+  END
+END	// setup_dialogs_bg2
+
+
