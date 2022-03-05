@@ -4,9 +4,9 @@ BEGIN
 
   MAKE_PATCH
     delete_trigger_vertex=>~trigger_name is_in [StairsC StairsD]~
-    patch_trigger_inline'1=>~match=>"trigger_name = StairsC" trigger_bbleft=>2119 trigger_bbtop=>1464 trigger_bbright=>2173 trigger_bbbottom=>1563~
+    patch_trigger_inline'1=>~match=>"trigger_name = StairsC" trigger_bbleft=>2119 trigger_bbtop=>1464 trigger_bbright=>2173 trigger_bbbottom=>1563 trigger_trap_xloc=>2174 trigger_trap_yloc=>998~
     add_trigger_vertex_inline'1=>~match=>"trigger_name = StairsC" number_to_add=>10 vertex_xloc=>"entry_index from [2119 2121 2124 2131 2141 2150 2158 2165 2171 2173]" vertex_yloc=>"entry_index from [1563 1539 1510 1487 1471 1464 1466 1475 1493 1523]"~
-    patch_trigger_inline'2=>~match=>"trigger_name = StairsD" trigger_bbleft=>2126 trigger_bbtop=>902 trigger_bbright=>2179 trigger_bbbottom=>988~
+    patch_trigger_inline'2=>~match=>"trigger_name = StairsD" trigger_bbleft=>2126 trigger_bbtop=>902 trigger_bbright=>2179 trigger_bbbottom=>988 trigger_trap_xloc=>2163 trigger_trap_yloc=>1559~
     add_trigger_vertex_inline'2=>~match=>"trigger_name = StairsD" number_to_add=>10 vertex_xloc=>"entry_index from [2179 2126 2129 2132 2137 2142 2152 2166 2173 2179]" vertex_yloc=>"entry_index from [962 988 959 939 924 912 902 902 913 934]"~
   END
 

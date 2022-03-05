@@ -1,5 +1,20 @@
 DEFINE_ACTION_FUNCTION bg2_minor_fixes
 BEGIN
+  // Fix wrong door polygon in Spellhold Maze.
+
+  MAKE_PATCH
+    delete_door_vertex_open=>"door_name = Door15"
+    patch_door_inline=>~match=>"door_name = Door15" door_open_bb_left=>950 door_open_bb_top=>1630 door_open_bb_right=>980 door_open_bb_bottom=>1719~
+    add_door_vertex_open_inline=>~match=>"door_name = Door15" number_to_add=>9 vertex_xloc=>"entry_index from [950 980 980 977 973 968 960 955 950]" vertex_yloc=>"entry_index from [1702 1719 1638 1635 1633 1631 1630 1631 1636]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar1514"
+    edits	= "patch_data"
+  END
+
+
   // Remove all shadow barriers after defeating the Shade Lord.
 
   LAUNCH_ACTION_FUNCTION extend_area_script
@@ -7,6 +22,15 @@ BEGIN
     area	= "ar1401"
     bottom	= "remove_shadow_barriers"
     location	= "scripts"
+  END
+
+
+  // Poison Mist is marked as summoned but used for random encounters.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "mistpo01"
+    editstring	= "gender=>neither"
   END
 END	// bg2_minor_fixes
 

@@ -5,9 +5,18 @@ BEGIN
     file	= "bg2_dialogs_core"
   END
 
-  LAUNCH_ACTION_FUNCTION compile_all
+  LAUNCH_ACTION_FUNCTION install
     STR_VAR
-    location	= "compile_this"
+    file	= "all"
+    postfix	= "d"
+    location	= "dialogs"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "all"
+    postfix	= "baf"
+    location	= "scripts"
   END
 END	// setup_dialogs_bg2
 
