@@ -12,7 +12,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "vithal"
+      file	= "vampire_hunters vithal"
     END
   END
 END	// setup_allies
