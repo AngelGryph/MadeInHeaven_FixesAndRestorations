@@ -67,6 +67,7 @@ BEGIN
       edits	= "patch_data"
     END
 
+
     MAKE_PATCH
       literal'1=>~ADD_STORE_ITEM "scrl6b" BEFORE "scrl79" #1 #1 #0 "identified" #2~
       literal'2=>~ADD_STORE_ITEM "scrl6c" BEFORE "scrl73" #1 #1 #0 "identified" #2~
@@ -81,6 +82,7 @@ BEGIN
       store	= "sto0703"
       edits	= "patch_data"
     END
+
 
     MAKE_PATCH
       literal=>~ADD_STORE_ITEM "scrl43" AFTER "scrl42" #1 #0 #0 "identified" #3~
@@ -117,8 +119,7 @@ BEGIN
       literal'4=>~ADD_STORE_ITEM "scrl1r" AFTER "scrl1q" #1 #1 #0 "identified" #6~
       literal'5=>~ADD_STORE_ITEM "scrl1v" AFTER "scrla8" #1 #1 #0 "identified" #6~
       literal'6=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl2a" #1 #1 #0 "identified" #6~
-      literal'7=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl2h" #1 #1 #0 "identified" #1~
-      literal'8=>~ADD_STORE_ITEM "scrl43" AFTER "scrl42" #1 #0 #0 "identified" #3~
+      literal'7=>~ADD_STORE_ITEM "scrl43" AFTER "scrl42" #1 #0 #0 "identified" #3~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
@@ -147,7 +148,8 @@ BEGIN
       literal'4=>~ADD_STORE_ITEM "scrl1r" AFTER "scrl1q" #1 #1 #0 "identified" #4~
       literal'5=>~ADD_STORE_ITEM "scrl1v" AFTER "scrl1u" #1 #1 #0 "identified" #2~
       literal'6=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl2b" #1 #1 #0 "identified" #2~
-      literal'7=>~ADD_STORE_ITEM "scrl7n" AFTER "scrlal" #1 #1 #0 "identified" #2~
+      literal'7=>~ADD_STORE_ITEM "scrl7a" AFTER "scrlal" #1 #1 #0 "identified" #2~
+      literal'8=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl6t" #1 #1 #0 "identified" #2~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
@@ -170,15 +172,18 @@ BEGIN
   ACTION_IF has_tob
   BEGIN
     MAKE_PATCH
-      literal'1=>~ADD_STORE_ITEM "scrl6b" BEFORE "scrla6" #1 #1 #0 "identified" #3~
-      literal'2=>~ADD_STORE_ITEM "scrl6c" BEFORE "scrl73" #1 #1 #0 "identified" #3~
-      literal'3=>~ADD_STORE_ITEM "scrl88" AFTER "scrla2" #1 #1 #0 "identified" #2~
-      literal'4=>~ADD_STORE_ITEM "scrl1r" AFTER "scrl1l" #1 #1 #0 "identified" #2~
-      literal'5=>~ADD_STORE_ITEM "scrl1v" AFTER "scrla8" #1 #1 #0 "identified" #2~
-      literal'5=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl6r" #1 #1 #0 "identified" #2~
-      literal'7=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl6m" #1 #1 #0 "identified" #2~
-      literal'8=>~ADD_STORE_ITEM "scrl9i" AFTER "scrl9c" #1 #1 #0 "identified" #2~
-      literal'9=>~ADD_STORE_ITEM "scrl9k" AFTER "scrl9n" #1 #1 #0 "identified" #2~
+      literal'01=>~ADD_STORE_ITEM "scrl6b" BEFORE "scrla6" #1 #1 #0 "identified" #3~
+      literal'02=>~ADD_STORE_ITEM "scrl6c" BEFORE "scrl73" #1 #1 #0 "identified" #3~
+      literal'03=>~ADD_STORE_ITEM "scrl88" AFTER "scrla2" #1 #1 #0 "identified" #2~
+      literal'04=>~ADD_STORE_ITEM "scrl1r" AFTER "scrl1l" #1 #1 #0 "identified" #2~
+      literal'05=>~ADD_STORE_ITEM "scrl1v" AFTER "scrla8" #1 #1 #0 "identified" #2~
+      literal'06=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl6r" #1 #1 #0 "identified" #2~
+      literal'07=>~ADD_STORE_ITEM "scrl7a" AFTER "scrl6m" #1 #1 #0 "identified" #2~
+      literal'08=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl7e" #1 #1 #0 "identified" #2~
+      literal'09=>~ADD_STORE_ITEM "scrl9i" AFTER "scrl9g" #1 #1 #0 "identified" #2~
+      literal'10=>~ADD_STORE_ITEM "scrl9k" AFTER "scrl9c" #1 #1 #0 "identified" #2~
+      literal'11=>~ADD_STORE_ITEM "scrl9o" AFTER "scrl9n" #1 #1 #0 "identified" #2~
+      literal'12=>~ADD_STORE_ITEM "scrlb3" AFTER "scrlb1" #1 #1 #0 "identified" #2~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
@@ -186,6 +191,7 @@ BEGIN
       store	= "25spell"
       edits	= "patch_data"
     END
+
 
     MAKE_PATCH
       literal=>~ADD_STORE_ITEM "scrl43" AFTER "scrl42" #1 #0 #0 "identified" #3~

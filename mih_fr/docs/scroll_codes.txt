@@ -4,11 +4,14 @@ scrl88		Fog Cloud
 scrl1r		Wraithform
 scrl1v		Dimension Door
 scrl2c		Wall of Fire
+scrl7a		Tattoos of Power
 scrl7n		Monster Summoning IV
-scrl8k		Tattoos of Power
-scrl9i		Otto's Irresistible Dance
-scrl9k		Spell Invulnerability
+scrl8k		Monster Summoning V
+scrl9i		Monster Summoning VI
+scrl9k		Otto's Irresistible Dance
+scrl9o		Spell Invulnerability
+scrlb3		Monster Summoning VII
 
-mh#curbd	Cure Blindness/Deafness
+scrl43		Cure Blindness/Deafness
 
 

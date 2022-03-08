@@ -1,4 +1,7 @@
 2DA V1.0
 *
 RESREF		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	PARAMETER4	DICENUM	DICESZ	RESOURCE	VVC
-spmon4		127	8		-1		0		0		0	0	monsum04	spmonsum
+spmon4		127	5		-1		0		0		0	0	monsum04	spmonsum
+spmon5		127	6		-1		0		0		0	0	monsum05	spmonsum
+spmon6		127	6		-1		0		0		0	0	monsum06	spmonsum
+spmon7		127	7		-1		0		0		0	0	monsum07	spmonsum

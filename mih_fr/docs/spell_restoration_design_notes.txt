@@ -9,7 +9,7 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 4653 (name), 25869 (name), 25870 (incomplete desc)
 - working opcode #225 Reveal Magic
 
-Deduced scroll item: scrl6b (logical order)
+Unused scroll ID assigned: scrl6b
 
 P&P source: Canon FR spell (Wizard's Compendium)
 
@@ -25,7 +25,7 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 4654 (name), 34643 (incomplete desc)
 - mentioned in description of Breach (25915)
 
-Deduced scroll item: scrl6c (logical order)
+Unused scroll ID assigned: scrl6c
 
 P&P source: Not found
 
@@ -105,7 +105,7 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 12063 (name), 12064 (name), 12093 (name), 12183 (desc),
   12218 (desc, cleric version), 12942 (name), 13006 (name), 13076 (name)
 
-Deduced scroll item: scrl2c (logical order)
+Unused scroll ID assigned: scrl2c
 
 P&P source: Core spell (PHB)
 
@@ -130,7 +130,7 @@ Proof that the spell was meant to be in the game:
 - table file: monsum04.2da
 - dialog.tlk entries: 16156 (name), 16165 (desc), 34580 (name)
 
-Deduced scroll item: scrl7n (logical order)
+Unused scroll ID assigned: scrl7n
 
 P&P source: Core spell (PHB)
 
@@ -149,7 +149,7 @@ Proof that the spell was meant to be in the game:
 - spell.ids entry: 2709
 - dialog.tlk entries: 25949 (name), 25950 (partial desc), 34601 (name)
 
-Deduced scroll item: scrl8k (logical order)
+Unused scroll ID assigned: scrl7a
 
 P&P source: Not found.
 
@@ -161,13 +161,35 @@ Since this is another "container" spell and 7th level already has Spell
 Sequencer, I decided to change its level to 6th.
 
 
+WIZARD_MONSTER_SUMMONING_5
+
+Proof that the spell was meant to be in the game:
+- table file: monsum05.2da
+- dialog.tlk entries: 16158 (name), 16170 (desc)
+
+P&P source: Core spell (PHB)
+
+Unused scroll ID assigned: scrl8k
+
+
+WIZARD_MONSTER_SUMMONING_6
+
+Proof that the spell was meant to be in the game:
+- table file: monsum06.2da
+- dialog.tlk entries: 16159 (name), 16358 (desc)
+
+P&P source: Core spell (PHB)
+
+Unused scroll ID assigned: scrl9i
+
+
 WIZARD_OTTOS_IRRESISTABLE_DANCE
 
 Proof that the spell was meant to be in the game:
 - spell.ids entry: 2814
-- dialog.tlk entries: 26274 (name), 34624 (name)
+- dialog.tlk entries: 26274 (name), 26282 (status message), 34624 (name)
 
-Deduced scroll item: scrl9i (logical order)
+Unused scroll ID assigned: scrl9k
 
 P&P source: Core spell (PHB)
 
@@ -183,12 +205,23 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 26294 (name), 26296 (partial desc), 26301 (status
   message), 34626 (name)
 
-Deduced scroll item: scrl9k (logical order)
+Unused scroll ID assigned: scrl9o
 
 P&P source: Not found.
 
 The biggest challenge for this one was deciding what to make it do as I had
 literally nothing to go on.  I may still change my mind on it.
+
+
+WIZARD_MONSTER_SUMMONING_7
+
+Proof that the spell was meant to be in the game:
+- table file: monsum07.2da
+- dialog.tlk entries: 16160 (name), 16359 (desc)
+
+P&P source: Core spell (PHB)
+
+Unused scroll ID assigned: scrlb3
 
 
 CLERIC_CIRCLE_OF_PROTECTION
@@ -237,7 +270,7 @@ Proof that the spell was meant to be in the game:
 - dialog.tlk entries: 294 (name), 14072 (status), 14074 (status)
 - icon files: sppr316a.bam, sppr316b.bam, sppr316c.bam
 
-Deduced scroll item: scrl43 (unused)
+Unused scroll ID assigned: scrl43
 
 P&P source: Core spell (PHB)
 

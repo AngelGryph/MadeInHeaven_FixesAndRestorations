@@ -34,7 +34,18 @@ BEGIN
 
   ACTION_IF NOT GAME_IS "bgee"
   BEGIN
-    STRING_SET 25870 @20 34643 @16 25950 @22 26296 @5 25868 @18 38565 @7 12183 @27
+    STRING_SET 25870 @20 34643 @16 25950 @22 26296 @5 25868 @18 38565 @7 12183 @27 16165 @3 16170 @29 16358 @31 16359 @33
+  END
+
+
+  // Tables for Monster Summoning V-VII are botched,
+  // provide correct ones filled with existing monsters.
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "monsum05 monsum06 monsum07"
+    postfix	= "2da"
+    location	= "tables"
   END
 END	// spell_restorations_preproc
 
