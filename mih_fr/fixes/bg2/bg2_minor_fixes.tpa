@@ -30,7 +30,16 @@ BEGIN
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
     creature	= "mistpo01"
-    editstring	= "gender=>neither"
+    editstring	= "gender=>niether"
+  END
+
+
+  // Drizzt's botched dual wielding
+
+  MAKE_PATCH
+    remove_items=>"sw1h15 sw1h16 drizzts"
+    add_items=>"sw1h15(weapon1) sw1h16(shield)"
+    set_profienciency=>"2weapon=>3"
   END
 END	// bg2_minor_fixes
 

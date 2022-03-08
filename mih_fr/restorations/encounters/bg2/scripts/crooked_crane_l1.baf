@@ -1,0 +1,10 @@
+IF
+  GlobalTimerExpired("BonnieClydeTimer", "GLOBAL")
+  Global("RilmiRespawn", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("RilmiRespawn", "MYAREA", 1)
+    CreateCreature("crthf03", [690.249], 14)	// ~Rilmi~
+END
+
+

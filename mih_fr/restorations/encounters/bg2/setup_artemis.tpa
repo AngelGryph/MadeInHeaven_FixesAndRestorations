@@ -25,11 +25,12 @@ BEGIN
     editstring	= ~delete_item=>"item_resource = sw1h28"~
   END
 
-  LAUNCH_ACTION_FUNCTION extend_area_script
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
     STR_VAR
-    area	= "ar0809"
-    bottom	= "artemis_spawn"
-    location	= "scripts"
+    script	= "ar0809"
+    match	= "ArtemisSpawn"
+    swap_out	= "bodfgt01"
+    swap_in	= "artemis"
   END
 END	// setup_artemis
 
