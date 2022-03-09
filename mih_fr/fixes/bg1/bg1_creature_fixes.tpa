@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION bg1_creature_fixes
+BEGIN
+  // Ankheg has wrong HD count (should be 8)
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ankheg ankhegf ankhegg ankhegq"
+    editstring	= "level1=>8"
+  END
+END	// bg1_creature_fixes
+
+

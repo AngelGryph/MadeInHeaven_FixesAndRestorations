@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION bg2_creature_fixes
+BEGIN
+  // Ankheg has wrong HD count (should be 8)
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ankheg01"
+    editstring	= "level1=>8"
+  END
+
+
+  // Poison Mist is marked as summoned but used for random encounters.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "mistpo01"
+    editstring	= "gender=>niether"
+  END
+
+
+  // Drizzt's botched dual wielding
+
+  MAKE_PATCH
+    remove_items=>"sw1h15 sw1h16 drizzts"
+    add_items=>"helmnoan(helmet) sw1h16(weapon1) sw1h15(shield)"
+    set_profienciency=>"2weapon=>3"
+  END
+END	// bg2_creature_fixes
+
+

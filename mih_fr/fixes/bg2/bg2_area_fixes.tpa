@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg2_minor_fixes
+DEFINE_ACTION_FUNCTION bg2_area_fixes
 BEGIN
   // Fix wrong door polygon in Spellhold Maze.
 
@@ -23,24 +23,6 @@ BEGIN
     bottom	= "remove_shadow_barriers"
     location	= "scripts"
   END
-
-
-  // Poison Mist is marked as summoned but used for random encounters.
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "mistpo01"
-    editstring	= "gender=>niether"
-  END
-
-
-  // Drizzt's botched dual wielding
-
-  MAKE_PATCH
-    remove_items=>"sw1h15 sw1h16 drizzts"
-    add_items=>"sw1h15(weapon1) sw1h16(shield)"
-    set_profienciency=>"2weapon=>3"
-  END
-END	// bg2_minor_fixes
+END	// bg2_area_fixes
 
 

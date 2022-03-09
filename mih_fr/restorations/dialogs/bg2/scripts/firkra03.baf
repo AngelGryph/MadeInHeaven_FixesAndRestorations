@@ -1,0 +1,9 @@
+IF
+  See(Player1)
+  !ActuallyInCombat()
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+
