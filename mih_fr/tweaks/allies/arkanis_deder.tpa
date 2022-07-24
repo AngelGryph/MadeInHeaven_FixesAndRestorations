@@ -1,11 +1,5 @@
 DEFINE_ACTION_FUNCTION arkanis_deder
 BEGIN
-  LAUNCH_ACTION_FUNCTION install
-    STR_VAR
-    file	= "arkanis_deder.d"
-    location	= "dialog"
-  END
-
   MAKE_PATCH
     xp_value=>650
     class=>"fighter"

@@ -18,12 +18,20 @@ BEGIN
   END
 
 
-  // Drizzt's botched dual wielding
+  // Correct BG2 Drizzt's proficiencies and make him dual-wield properly.
+  // (using BG1EE's version as the correct one)
 
   MAKE_PATCH
     remove_items=>"sw1h15 sw1h16 drizzts"
     add_items=>"helmnoan(helmet) sw1h16(weapon1) sw1h15(shield)"
-    set_profienciency=>"2weapon=>3"
+    wipe_proficiencies=>null
+    set_proficiencies=>"longsword=>2 scimitarwakisashininjato=>2 dagger=>2 shortbow=>2 2weapon=>3"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "drizzt c6drizz c6drizz2 c6drizz3"
+    edits	= "patch_data"
   END
 END	// bg2_creature_fixes
 

@@ -27,42 +27,14 @@ LANGUAGE "English"
 // Fixpacks
 // ========
 
-// BG1 Fixpack
+// MiH Fixpacks
 
 BEGIN @5
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
-
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_bg1_fixpack"
-  location	= "fixes/bg1"
-END
-
-
-// SoD Fixpack
-
-BEGIN @7
-
-REQUIRE_PREDICATE GAME_INCLUDES "sod" @8
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_bg1_fixpack"
-  location	= "fixes/bg1"
-END
-
-
-// BG2 Fixpack
-
-BEGIN @6
-
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_bg2_fixpack"
-  location	= "fixes/bg2"
+  file		= "setup_mih_fixpacks"
+  location	= "fixes"
 END
 
 

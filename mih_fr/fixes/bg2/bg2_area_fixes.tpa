@@ -54,7 +54,7 @@ BEGIN
     STR_VAR
     area	= "ar1401"
     bottom	= "remove_shadow_barriers"
-    location	= "scripts"
+    location	= "bg2/scripts"
   END
 
 
