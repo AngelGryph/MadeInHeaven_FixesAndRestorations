@@ -4,14 +4,17 @@ BEGIN
     STR_VAR
     location
     RET
-    audio_path	= directory
+    directory
   END
 
-  LAUNCH_ACTION_FUNCTION HANDLE_AUDIO
-    STR_VAR
-    audio_path
-    oggdec_path	= "bin"
-    sox_path	= "bin"
+  ACTION_IF is_bg2
+  BEGIN
+    LAUNCH_ACTION_FUNCTION HANDLE_AUDIO
+      STR_VAR
+      audio_path	= "%directory%/bg2"
+      oggdec_path	= "bin"
+      sox_path		= "bin"
+    END
   END
 END	// setup_sounds
 

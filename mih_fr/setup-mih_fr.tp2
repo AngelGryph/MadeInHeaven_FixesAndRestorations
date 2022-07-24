@@ -82,7 +82,7 @@ END
 
 // Artemis Entreri in Bodhi's Lair
 
-BEGIN @12
+BEGIN @6
 GROUP @1
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
@@ -96,7 +96,7 @@ END
 
 // Minor Dialog Restorations (BG2)
 
-BEGIN @13
+BEGIN @7
 GROUP @1
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
@@ -133,6 +133,18 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_sounds"
   location	= "tweaks/sounds"
+END
+
+
+// More Obvious Quest Items
+
+BEGIN @12
+GROUP @9
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_quest_items"
+  location	= "tweaks/quest_items"
 END
 
 
