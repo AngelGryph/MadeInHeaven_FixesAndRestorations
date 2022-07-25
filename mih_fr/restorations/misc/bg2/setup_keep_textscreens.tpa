@@ -22,16 +22,22 @@ BEGIN
     swap_out2	= ~DisplayString(Myself,40104)~
   END
 
-  LAUNCH_ACTION_FUNCTION swap_text
+  LAUNCH_ACTION_FUNCTION set_table_default
     STR_VAR
-    files	= "kplose.2da kprevolt.2da"
-    swaps	= ~9=>ChptSara~
+    file	= "kplose"
+    arguments	= "ChptSara"
   END
 
-  LAUNCH_ACTION_FUNCTION swap_text
+  LAUNCH_ACTION_FUNCTION set_table_default
     STR_VAR
-    files	= "kpwin.2da"
-    swaps	= ~9=>Ch03aMon~
+    file	= "kprevolt"
+    arguments	= "ChptSara"
+  END
+
+  LAUNCH_ACTION_FUNCTION set_table_default
+    STR_VAR
+    file	= "kpwin"
+    arguments	= "Ch03aMon"
   END
 END	// setup_keep_textscreens
 
