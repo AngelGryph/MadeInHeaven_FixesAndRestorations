@@ -108,6 +108,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Restored d'Arnise Keep Text Screens
+
+BEGIN @13
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_keep_textscreens"
+  location	= "restorations/misc/bg2"
+END
+
+
 // ======
 // Tweaks
 // ======

@@ -1,0 +1,38 @@
+DEFINE_ACTION_FUNCTION setup_keep_textscreens
+BEGIN
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "cut32l"
+    swap_out	= ~FadeToColor(\[30.0\],0)~
+    swap_in	= ~TextScreen("kplose") FadeToColor([30.0],0)~
+  END
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "cut32m"
+    swap_out	= ~FadeToColor(\[30.0\],0)~
+    swap_in	= ~TextScreen("kpwin") FadeToColor([30.0],0)~
+  END
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "cut32n"
+    swap_out1	= ~FadeToColor(\[30.0\],0)~
+    swap_in1	= ~TextScreen("kprevolt") FadeToColor([30.0],0)~
+    swap_out2	= ~DisplayString(Myself,40104)~
+  END
+
+  LAUNCH_ACTION_FUNCTION swap_text
+    STR_VAR
+    files	= "kplose.2da kprevolt.2da"
+    swaps	= ~9=>ChptSara~
+  END
+
+  LAUNCH_ACTION_FUNCTION swap_text
+    STR_VAR
+    files	= "kpwin.2da"
+    swaps	= ~9=>Ch03aMon~
+  END
+END	// setup_keep_textscreens
+
+
