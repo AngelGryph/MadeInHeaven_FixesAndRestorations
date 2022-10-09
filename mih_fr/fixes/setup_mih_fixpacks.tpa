@@ -1,14 +1,5 @@
 DEFINE_ACTION_FUNCTION setup_mih_fixpacks
 BEGIN
-  // Shared by BG1 and BG2
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "wisdom_bonus_spells"
-    location	= "common"
-  END
-
-
   // BG1 exclusive
 
   ACTION_IF is_bg1
@@ -57,6 +48,15 @@ BEGIN
       file	= "tob_minor_fixes"
       location	= "bg2"
     END
+  END
+
+
+  // Shared by BG1 and BG2
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "summon_fixes wisdom_bonus_spells"
+    location	= "common"
   END
 END	// setup_mih_fixpacks
 

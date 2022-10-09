@@ -4,8 +4,48 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "ankheg ankhegf ankhegg ankhegq"
+    creature	= "%tutu_var%ankheg %tutu_var%ankhegf %tutu_var%ankhegg %tutu_var%ankhegq"
     editstring	= "level1=>8"
+  END
+
+
+  // Gnolls do not have enough strengh to wield their halberds
+  // and in BGT/Tutu some are not labeled chaotic evil.
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "flind1"
+    editstring	= %patch_effect_inline=>~match=>"opcode = 54 and parameter1 = 4" parameter1=>-4~%	// %-signs are string delimiters here!
+  END
+
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    creature	= "%tutu_var%gnoll %tutu_var%gnoll_a %tutu_var%gnoll_b gnoll_bb %tutu_var%gnoll_c %tutu_var%gnoll_d %tutu_var%gnoll_e gnoll_eb %tutu_var%gnoll02 %tutu_var%gnoll03 %tutu_var%gnoll04 %tutu_var%gnoll05 %tutu_var%gnoll2 %tutu_var%gnoll3 %tutu_var%gnoll5 %tutu_var%gnoll5a %tutu_var%gnolld %tutu_scriptg%nollper %tutu_var%gnollsu gnoltal1 gnoltal2 gnoltal3 gnoltal4"
+    editstring	= ~strengthGT=>13 alignment=>"if gender = summoned then neutral else chaotic_evil"~
+  END
+
+
+  // Poison Mist is unused in BGEE, but let's fix its gender just in case.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "mistpo01"
+    editstring	= "gender=>niether"
+  END
+
+
+  // Some skeletons do not have their correct damage resistances.
+  // (BGT/Tutu mostly, seems to be fixed in EE.)
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    creature	= "%tutu_var%iskelet %tutu_scripts%kelet02 %tutu_scripts%kelet03 %tutu_var%skeletb %tutu_var%skelets %tutu_var%skelmel %tutu_scripts%kelpetr"
+    editstring	= "resist_slashing=>50 resist_piercing=>50 resist_missile=>90"
   END
 END	// bg1_creature_fixes
 

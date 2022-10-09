@@ -1,0 +1,19 @@
+DEFINE_ACTION_FUNCTION summon_fixes
+BEGIN
+  // Summoned monsters should not leave corpses or items, or give XP.
+
+  MAKE_PATCH
+    match=>~gender is_in [summoned summoned_demon]~
+    xp_value=>0
+    gold=>0
+    no_corpse=>1
+    patch_item_inline=>~undroppable=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_all_creatures
+    STR_VAR
+    edits	= "patch_data"
+  END
+END
+
+

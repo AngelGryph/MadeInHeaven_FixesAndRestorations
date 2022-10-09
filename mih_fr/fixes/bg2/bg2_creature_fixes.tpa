@@ -1,6 +1,6 @@
 DEFINE_ACTION_FUNCTION bg2_creature_fixes
 BEGIN
-  // Ankheg has wrong HD count (should be 8)
+  // Ankheg HD fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
@@ -9,12 +9,66 @@ BEGIN
   END
 
 
-  // Poison Mist is marked as summoned but used for random encounters.
+  // Gnoll strength and alignment fix
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "flind1"
+    editstring	= %patch_effect_inline=>~match=>"opcode = 54 and parameter1 = 4" parameter1=>-4~%	// %-signs are string delimiters here!
+  END
+
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    creature	= "aegnoll chevil05 dagnoll gnlcap01 gnleli01 gnlsla01 gnlvet01 gnlwar01 gnoll01 gnollhp1 gnollsu"
+    editstring	= ~strengthGT=>13 alignment=>"if gender = summoned then neutral else chaotic_evil"~
+  END
+
+
+  // Mummy race fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "mistpo01"
-    editstring	= "gender=>niether"
+    creature	= "fsmumm fsmumm2 fsmumm3 mumgre01 mummy mummy01 riftcr03"
+    editstring	= "race=>mummy class=>no_class"
+  END
+
+
+  // Poison Mist can be both summoned and randomly encountered in BG2.
+  // so we need both gender=>summoned and genter=>neither versions.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "mistposu.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "mistpo01=>mistposu"
+      editstring	= "gender=>summoned"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_creature
+      STR_VAR
+      creature		= "mistpo01"
+      editstring	= "gender=>niether"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_effect
+      STR_VAR
+      effect		= "sppois"
+      editstring	= "resource=>mistposu"
+    END
+  END
+
+
+  // Greater Water Elemental class fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    creature	= "elemhydr elwatg01 ohbwat01"
+    editstring	= "class=>elemental_water"
   END
 
 
