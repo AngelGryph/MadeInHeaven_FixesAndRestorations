@@ -55,7 +55,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "summon_fixes wisdom_bonus_spells"
+    file	= "spear_damage_fix summon_fixes wisdom_bonus_spells"
     location	= "common"
   END
 END	// setup_mih_fixpacks

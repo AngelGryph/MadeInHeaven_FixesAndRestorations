@@ -1,0 +1,59 @@
+DEFINE_ACTION_FUNCTION spear_damage_fix
+BEGIN
+  MAKE_PATCH
+    description1_string=>16283
+    patch_ability_inline=>~match=>"ability_type = 1" damage_bonus=>"enchantment + 1"~
+  END
+
+  COPY_EXISTING_REGEXP "^.*\.itm$" "override"
+    LAUNCH_PATCH_FUNCTION ITM_read_category
+      RET
+      item_type		= value
+    END
+
+    LAUNCH_PATCH_FUNCTION ITM_read_proficiency_code
+      RET
+      proficiency_code	= value
+    END
+
+    PATCH_IF item_type == 0x1d AND proficiency_code = 0x62
+    BEGIN
+      LAUNCH_PATCH_FUNCTION apply_patches
+        STR_VAR
+        file_ext	= "ITM"
+        edits		= "patch_data"
+      END
+      
+      LAUNCH_PATCH_FUNCTION ITM_read_description2_string
+        RET
+	desc_strref	= value
+      END
+
+      LAUNCH_PATCH_FUNCTION ITM_read_enchantment
+        RET
+	enchantment	= value
+      END
+
+      SET damage_bonus	= enchantment + 1
+
+      PATCH_IF desc_strref >= 0 AND desc_strref < NEXT_STRREF
+      BEGIN
+        READ_STRREF IDENTIFIED_DESC old_desc
+
+        INNER_PATCH_SAVE new_desc ~%old_desc%~
+	BEGIN
+	  REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
+	   ": \(1 ?[dD] ?6\+ ?\)%enchantment%" ": \1%damage_bonus%"
+	END
+	
+	INNER_ACTION
+	BEGIN
+	  STRING_SET_EVALUATE desc_strref ~%new_desc%~
+	END
+      END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// spear_damage_fix
+
+
