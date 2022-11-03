@@ -5,7 +5,7 @@
 
 ALTER_TRANS "orphan1"
 BEGIN 3 END	// State(s)
-BEGIN 2 END	// Transaction(s)
+BEGIN 1 END	// Transaction(s)
 BEGIN
   "TRIGGER"
   ~Name("Jaheira", LastTalkedToBy(Myself))
