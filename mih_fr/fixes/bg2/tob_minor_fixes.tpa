@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION tob_minor_fixes
 BEGIN
+  // ## FIXED IN EEFP ##
   // Balthasar's "Solar Stance!" is supposed to give him flaming fists,
   // but that part doesn't work as intended due to a missing effect file.
 
@@ -13,6 +14,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Correct icons for Quiver/Case of Plenty
 
   ACTION_IF enhanced_edition
@@ -33,6 +35,15 @@ BEGIN
     STR_VAR
     item	= "quiver01 quiver02 quiver03 quiver04"
     edits	= "patch_data"
+  END
+
+
+  // Dialog fixes, see the dialog file for details.
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file        = "tob_fixes.d"
+    location    = "bg2/dialogs"
   END
 END	// tob_minor_fixes
 

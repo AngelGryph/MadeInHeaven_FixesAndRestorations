@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION bg2_area_fixes
 BEGIN
+  // ## FIXED IN EEFP ##
   // Add missing door open polygon in Copper Coronet
 
   MAKE_PATCH
@@ -15,6 +16,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Add missing door open polygon in Athkatla mind flayer lair
 
   MAKE_PATCH
@@ -30,6 +32,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Fix wrong door polygons in King Strohm III's Tomb (Firkraag's Lair).
 
   MAKE_PATCH
@@ -47,6 +50,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Remove all remaining shadow barriers in Temple Ruins
   // after defeating the Shade Lord.
 
@@ -58,6 +62,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Add missing door open polygons in d'Arnise Keep.
 
   MAKE_PATCH
@@ -86,6 +91,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Fix wrong door polygon in Spellhold Maze.
 
   MAKE_PATCH
@@ -97,6 +103,21 @@ BEGIN
   LAUNCH_ACTION_FUNCTION edit_area
     STR_VAR
     area	= "ar1514"
+    edits	= "patch_data"
+  END
+
+
+  // Add missing door open polygon in Saradush castle basement
+
+  MAKE_PATCH
+    delete_door_vertex_open=>"door_name = Door01"	// Play it safe.
+    patch_door_inline=>~match=>"door_name = Door01" door_open_bb_left=>373 door_open_bb_top=>716 door_open_bb_right=>416 door_open_bb_bottom=>810~
+    add_door_vertex_open_inline=>~match=>"door_name = Door01" number_to_add=>8 vertex_xloc=>"entry_index from [416 373 373 383 396 408 411 416]" vertex_yloc=>"entry_index from [810 788 722 716 716 726 729 745]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar5007"
     edits	= "patch_data"
   END
 END	// bg2_area_fixes

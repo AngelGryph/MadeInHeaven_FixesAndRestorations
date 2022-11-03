@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION bg2_compat_fixes
+BEGIN
+  // Dialog fixes, see the dialog file for details.
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file        = "bg2_compat_fixes.d"
+    location    = "bg2/dialogs"
+  END
+END	// bg2_compat_fixes
+
+

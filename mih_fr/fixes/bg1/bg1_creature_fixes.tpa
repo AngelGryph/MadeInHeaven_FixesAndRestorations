@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION bg1_creature_fixes
 BEGIN
+  // ## FIXED IN EEFP ##
   // Ankheg has wrong HD count (should be 8)
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -28,7 +29,8 @@ BEGIN
   END
 
 
-  // Poison Mist is unused in BGEE, but let's fix its gender just in case.
+  // ## FIXED IN EEFP ##
+  // Poison Mist is unused in BGEE/BGT, but let's fix its gender just in case.
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
@@ -46,6 +48,15 @@ BEGIN
     STR_VAR
     creature	= "%tutu_var%iskelet %tutu_scripts%kelet02 %tutu_scripts%kelet03 %tutu_var%skeletb %tutu_var%skelets %tutu_var%skelmel %tutu_scripts%kelpetr"
     editstring	= "resist_slashing=>50 resist_piercing=>50 resist_missile=>90"
+  END
+
+
+  // xvart2 and xvarth have wrong HD count for their xp value
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%xvart2 %tutu_var%xvarth"
+    editstring	= ~level1=>2 enforce_thac0=>at_worst enforce_saves=>at_worst enforce_hp=>at_worst~
   END
 END	// bg1_creature_fixes
 

@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION bg2_creature_fixes
 BEGIN
+  // ## FIXED IN EEFP ##
   // Ankheg HD fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -9,6 +10,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Gnoll strength and alignment fix
 
   LAUNCH_ACTION_FUNCTION edit_item
@@ -36,6 +38,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Poison Mist can be both summoned and randomly encountered in BG2.
   // so we need both gender=>summoned and genter=>neither versions.
 
@@ -61,6 +64,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Greater Water Elemental class fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -72,6 +76,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Correct BG2 Drizzt's proficiencies and make him dual-wield properly.
   // (using BG1EE's version as the correct one)
 

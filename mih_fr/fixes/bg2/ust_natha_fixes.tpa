@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION ust_natha_fixes
 BEGIN
+  // ## FIXED IN EEFP ##
   // Fix stair polygons on upper levels
 
   MAKE_PATCH
@@ -17,6 +18,7 @@ BEGIN
   END
 
 
+  // ## FIXED IN EEFP ##
   // Ghanaudar mage appears standing in the middle of a mustard jelly
 
   LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
