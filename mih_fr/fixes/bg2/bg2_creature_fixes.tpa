@@ -53,7 +53,7 @@ BEGIN
     LAUNCH_ACTION_FUNCTION edit_creature
       STR_VAR
       creature		= "mistpo01"
-      editstring	= "gender=>niether"
+      editstring	= "gender=>neither"
     END
 
     LAUNCH_ACTION_FUNCTION edit_effect
@@ -91,6 +91,24 @@ BEGIN
     STR_VAR
     creature	= "drizzt c6drizz c6drizz2 c6drizz3"
     edits	= "patch_data"
+  END
+
+
+  // Green dragon class fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "fsdragon"
+    editstring	= "class=>green_dragon"
+  END
+
+
+  // Shambling Mound almost-everything fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "globsham hgmnd2 hgmound smound01 smoundsu"
+    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
 END	// bg2_creature_fixes
 

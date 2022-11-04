@@ -35,7 +35,7 @@ BEGIN
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
     creature	= "mistpo01"
-    editstring	= "gender=>niether"
+    editstring	= "gender=>neither"
   END
 
 
@@ -57,6 +57,17 @@ BEGIN
     STR_VAR
     creature	= "%tutu_var%xvart2 %tutu_var%xvarth"
     editstring	= ~level1=>2 enforce_thac0=>at_worst enforce_saves=>at_worst enforce_hp=>at_worst~
+  END
+
+
+  // Shambling Mound almost-everything fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    creature	= "bdshamb bpshamb globsham smoundsu"
+    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
 END	// bg1_creature_fixes
 
