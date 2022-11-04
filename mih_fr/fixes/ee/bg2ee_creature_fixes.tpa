@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION bg2ee_creature_fixes
+BEGIN
+  // ## FIXED IN EEFP ##
+  // Greater Water Elemental class fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ohbwat01"
+    editstring	= "class=>elemental_water"
+  END
+END	// bg2ee_creature_fixes
+
+

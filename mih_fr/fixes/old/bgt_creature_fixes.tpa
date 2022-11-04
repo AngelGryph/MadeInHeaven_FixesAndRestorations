@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION bgt_creature_fixes
+BEGIN
+  // Some skeletons do not have their correct damage resistances.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%iskelet %tutu_scripts%kelet02 %tutu_scripts%kelet03 %tutu_var%skeletb %tutu_var%skelets %tutu_scripts%kelpetr"
+    editstring	= "resist_slashing=>50 resist_piercing=>50 resist_missile=>90"
+  END
+END	// bgt_creature_fixes
+
+

@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION sod_creature_fixes
+BEGIN
+  // Shambling Mound almost-everything fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "bdshamb"
+    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
+  END
+
+
+  // Consistently label myconoids as plants
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "bddeadm bddyingm bdmyc01 bdmycbl bdmyceld bdmycrd bdmycsu1"
+    editstring	= "general=>plant"
+  END
+END	// sod_creature_fixes
+
+

@@ -5,7 +5,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "%tutu_var%ankheg %tutu_var%ankhegf %tutu_var%ankhegg %tutu_var%ankhegq"
+    creature	= "%tutu_var%ankheg %tutu_var%ankhegg %tutu_var%ankhegq"
     editstring	= "level1=>8"
   END
 
@@ -21,32 +21,18 @@ BEGIN
 
 
   LAUNCH_ACTION_FUNCTION edit_creature
-    INT_VAR
-    allow_missing	= 1
     STR_VAR
-    creature	= "%tutu_var%gnoll %tutu_var%gnoll_a %tutu_var%gnoll_b gnoll_bb %tutu_var%gnoll_c %tutu_var%gnoll_d %tutu_var%gnoll_e gnoll_eb %tutu_var%gnoll02 %tutu_var%gnoll03 %tutu_var%gnoll04 %tutu_var%gnoll05 %tutu_var%gnoll2 %tutu_var%gnoll3 %tutu_var%gnoll5 %tutu_var%gnoll5a %tutu_var%gnolld %tutu_scriptg%nollper %tutu_var%gnollsu gnoltal1 gnoltal2 gnoltal3 gnoltal4"
+    creature	= "%tutu_var%gnoll %tutu_var%gnoll_a %tutu_var%gnoll_b %tutu_var%gnoll_c %tutu_var%gnoll_d %tutu_var%gnoll_e %tutu_var%gnoll02 %tutu_var%gnoll03 %tutu_var%gnoll3 %tutu_var%gnoll5 %tutu_var%gnoll5a %tutu_var%gnolld %tutu_scriptg%nollper %tutu_var%gnollsu "
     editstring	= ~strengthGT=>13 alignment=>"if gender = summoned then neutral else chaotic_evil"~
   END
 
 
-  // ## FIXED IN EEFP ##
-  // Poison Mist is unused in BGEE/BGT, but let's fix its gender just in case.
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "mistpo01"
-    editstring	= "gender=>neither"
-  END
-
-
   // Some skeletons do not have their correct damage resistances.
-  // (BGT/Tutu mostly, seems to be fixed in EE.)
+  // (BGT/Tutu only, confirmed already fixed in EE.)
 
   LAUNCH_ACTION_FUNCTION edit_creature
-    INT_VAR
-    allow_missing	= 1
     STR_VAR
-    creature	= "%tutu_var%iskelet %tutu_scripts%kelet02 %tutu_scripts%kelet03 %tutu_var%skeletb %tutu_var%skelets %tutu_var%skelmel %tutu_scripts%kelpetr"
+    creature	= "%tutu_var%iskelet %tutu_scripts%kelet02 %tutu_scripts%kelet03 %tutu_var%skeletb %tutu_var%skelets %tutu_scripts%kelpetr"
     editstring	= "resist_slashing=>50 resist_piercing=>50 resist_missile=>90"
   END
 
@@ -57,17 +43,6 @@ BEGIN
     STR_VAR
     creature	= "%tutu_var%xvart2 %tutu_var%xvarth"
     editstring	= ~level1=>2 enforce_thac0=>at_worst enforce_saves=>at_worst enforce_hp=>at_worst~
-  END
-
-
-  // Shambling Mound almost-everything fix
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    INT_VAR
-    allow_missing	= 1
-    STR_VAR
-    creature	= "bdshamb bpshamb globsham smoundsu"
-    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
 END	// bg1_creature_fixes
 
