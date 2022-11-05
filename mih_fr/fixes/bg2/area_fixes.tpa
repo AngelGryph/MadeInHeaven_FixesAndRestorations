@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg2_area_fixes
+DEFINE_ACTION_FUNCTION area_fixes
 BEGIN
   // ## FIXED IN EEFP ##
   // Add missing door open polygon in Copper Coronet
@@ -120,6 +120,6 @@ BEGIN
     area	= "ar5007"
     edits	= "patch_data"
   END
-END	// bg2_area_fixes
+END	// area_fixes
 
 

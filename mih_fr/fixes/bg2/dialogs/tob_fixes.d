@@ -1,3 +1,4 @@
+// FIXED IN EEFP
 // It's possible to have the Blessed Bracers when encountering the boy in
 // Saradush whose father just died, but the dialog does not offer the option
 // to actually use it.  Let's add it.
@@ -21,6 +22,7 @@ EXTEND_TOP "orphan1" 3 #3
 END
 
 
+// FIXED IN EEFP
 // When the party first talks to Karthis al-Hezzar, they can ask about either
 // the haunted glade or the fire giants.  But when they talk to him again,
 // they can only ask about the haunted glade even though they should still be

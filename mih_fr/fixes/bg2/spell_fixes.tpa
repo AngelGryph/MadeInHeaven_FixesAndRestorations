@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION spell_fixes
+BEGIN
+  // Defensive warrior HLAs are not spells.  They should not have
+  // a school or secondary type.  Most don't, but some do, making
+  // them incorrectly vulnerable to spells like Breach or Pierce Magic.
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spcl904 spcl907 spcl913 spcl914 spcl917"
+    editstring	= "primary=>0 school_code=>0 secondary=>0"
+  END
+END	// spell_fixes
+
+

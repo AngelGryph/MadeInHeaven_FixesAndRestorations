@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg2_creature_fixes
+DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
   // ## FIXED IN EEFP ##
   // Ankheg HD fix
@@ -106,6 +106,6 @@ BEGIN
     creature	= "globsham hgmnd2 hgmound smound01 smoundsu"
     editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
-END	// bg2_creature_fixes
+END	// creature_fixes
 
 

@@ -23,7 +23,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "bg1_creature_fixes"
+      file	= "creature_fixes"
       location	= "bg1"
     END
   END
@@ -35,7 +35,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "sod_creature_fixes"
+      file	= "creature_fixes"
       location	= "sod"
     END
   END
@@ -65,7 +65,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "bg2_creature_fixes bg2_area_fixes ust_natha_fixes"
+      file	= "area_fixes creature_fixes spell_fixes ust_natha_fixes"
       location	= "bg2"
     END
   END

@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg1_creature_fixes
+DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
   // ## FIXED IN EEFP ##
   // Ankheg has wrong HD count (should be 8)
@@ -44,6 +44,6 @@ BEGIN
     creature	= "%tutu_var%xvart2 %tutu_var%xvarth"
     editstring	= ~level1=>2 enforce_thac0=>at_worst enforce_saves=>at_worst enforce_hp=>at_worst~
   END
-END	// bg1_creature_fixes
+END	// creature_fixes
 
 
