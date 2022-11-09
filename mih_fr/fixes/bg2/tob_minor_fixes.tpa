@@ -1,43 +1,5 @@
 DEFINE_ACTION_FUNCTION tob_minor_fixes
 BEGIN
-  // ## FIXED IN EEFP ##
-  // Balthasar's "Solar Stance!" is supposed to give him flaming fists,
-  // but that part doesn't work as intended due to a missing effect file.
-
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "balth01b.eff"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION make_effect
-      STR_VAR
-      effect		= "balth01b"
-      editstring	= ~opcode=>146 target=>2 timing=>1 parameter2=>1 resource=>"balth01b"~
-    END
-  END
-
-
-  // ## FIXED IN EEFP ##
-  // Correct icons for Quiver/Case of Plenty
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    MAKE_PATCH
-      icon_ground=>"gquiver0"
-    END
-  END
-  ELSE
-  BEGIN
-    MAKE_PATCH
-      icon=>"filename in [quiver01->iquiver0 quiver03->iquiver0 default->no_change]"
-      icon_ground=>"gquiver0"
-    END
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_item
-    STR_VAR
-    item	= "quiver01 quiver02 quiver03 quiver04"
-    edits	= "patch_data"
-  END
-
-
   // Dialog fixes, see the dialog file for details.
 
   LAUNCH_ACTION_FUNCTION install

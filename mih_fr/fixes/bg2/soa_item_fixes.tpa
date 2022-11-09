@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION item_fixes
+DEFINE_ACTION_FUNCTION soa_item_fixes
 BEGIN
   // CLCK25 - Cloak of Stars
   //
@@ -9,6 +9,6 @@ BEGIN
     item	= "clck25"
     editstring	= %add_effect_global_inline=>~number_to_add=>5 opcode=>"entry_index from [33 34 35 36 37]" target=>1 timing=>2 parameter1=>1~%
   END
-END	// item_fixes
+END	// soa_item_fixes
 
 

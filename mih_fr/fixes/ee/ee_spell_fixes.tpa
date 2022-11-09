@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION ee_only_spell_fixes
+DEFINE_ACTION_FUNCTION ee_spell_fixes
 BEGIN
   // SPWI812 - Horrid Wilting
   //
@@ -21,6 +21,6 @@ BEGIN
     spell	= "spwi812"
     edits	= "patch_data"
   END
-END	// ee_only_spell_fixes
+END	// ee_spell_fixes
 
 

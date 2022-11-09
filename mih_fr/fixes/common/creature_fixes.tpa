@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION summon_fixes
+DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
   // Summoned monsters should not leave corpses or items, or give XP.
 
@@ -14,6 +14,15 @@ BEGIN
     STR_VAR
     edits	= "patch_data"
   END
-END
+
+
+  // Some planetars regenerate at an insane rate.  Tone it down a notch.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "planevil plangood planwish"
+    editstring	= %patch_effect_inline=>~match=>"opcode = 98" parameter1=>1~%
+  END
+END	// creature_fixes
 
 

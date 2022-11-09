@@ -8,6 +8,15 @@ BEGIN
     creature	= "ohbwat01"
     editstring	= "class=>elemental_water"
   END
+
+
+  // Some planetars regenerate at an insane rate.  Tone it down a notch.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ohdplanb ohdsplan"
+    editstring	= %patch_effect_inline=>~match=>"opcode = 98" parameter1=>1~%
+  END
 END	// bg2ee_creature_fixes
 
 

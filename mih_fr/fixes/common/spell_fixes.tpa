@@ -7,7 +7,6 @@ BEGIN
   // SPPR514 - Mass Cure
   //
   // SPIN101 - Cure Light Wounds (Bhaalspawn innate)
-  // SPIN200 - Cure Serious Wounds (Imoen innate)
   //
   // SPIN958 - Cure Serious Wounds (ulitharid innate)
   //
@@ -17,20 +16,19 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "sppr103 sppr315 sppr401 sppt502 sppr514 spin101 spin200 spin958"
+    spell	= "sppr103 sppr315 sppr401 sppr502 sppr514 spin101 spin958"
     editstring	= ~delete_effect=>"opcode = 164"~
   END
 
 
   // SPPR404 - Neutralize Poison
-  // SPIN201 - Neutralize Poison (Imoen innate?)
   //
   // Slow Poison cures drunkeness, but Neutralize Poison does not.  Let's
   // fix this oversight, shall we?
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "sppr404 spin201"
+    spell	= "sppr404"
     editstring	= %clone_effect_inline=>~match=>"opcode = 11" opcode=>164~%
   END
 END	// spell_fixes

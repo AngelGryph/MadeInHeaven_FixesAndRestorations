@@ -23,7 +23,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "creature_fixes"
+      file	= "saga_creature_fixes"
       location	= "bg1"
     END
   END
@@ -35,8 +35,8 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "creature_fixes"
-      location	= "sod"
+      file	= "sod_creature_fixes"
+      location	= "bg1"
     END
   END
 
@@ -65,7 +65,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "area_fixes creature_fixes item_fixes spell_fixes ust_natha_fixes"
+      file	= "soa_area_fixes soa_creature_fixes soa_item_fixes ust_natha_fixes"
       location	= "bg2"
     END
   END
@@ -77,7 +77,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "tob_minor_fixes"
+      file	= "tob_area_fixes tob_creature_fixes tob_item_fixes tob_minor_fixes tob_spell_fixes"
       tra	= "tob_fixes"
       location	= "bg2"
     END
@@ -88,7 +88,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "item_fixes spell_fixes summon_fixes wisdom_bonus_spells"
+    file	= "creature_fixes item_fixes spell_fixes wisdom_bonus_spells"
     location	= "common"
   END
 
@@ -96,7 +96,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "ee_only_spell_fixes"
+      file	= "ee_spell_fixes"
       location	= "ee"
     END
   END

@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION creature_fixes
+DEFINE_ACTION_FUNCTION soa_creature_fixes
 BEGIN
   // ## FIXED IN EEFP ##
   // Ankheg HD fix
@@ -22,7 +22,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "aegnoll chevil05 dagnoll gnlcap01 gnleli01 gnlsla01 gnlvet01 gnlwar01 gnoll01 gnollhp1 gnollsu"
+    creature	= "aegnoll dagnoll gnlcap01 gnleli01 gnlsla01 gnlvet01 gnlwar01 gnoll01 gnollhp1 gnollsu"
     editstring	= ~strengthGT=>13 alignment=>"if gender = summoned then neutral else chaotic_evil"~
   END
 
@@ -31,7 +31,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "fsmumm fsmumm2 fsmumm3 mumgre01 mummy mummy01 riftcr03"
+    creature	= "mumgre01 mummy mummy01 riftcr03"
     editstring	= "race=>mummy class=>no_class"
   END
 
@@ -63,16 +63,6 @@ BEGIN
 
 
   // ## FIXED IN EEFP ##
-  // Greater Water Elemental class fix
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "elemhydr elwatg01"
-    editstring	= "class=>elemental_water"
-  END
-
-
-  // ## FIXED IN EEFP ##
   // Correct BG2 Drizzt's proficiencies and make him dual-wield properly.
   // (using BG1EE's version as the correct one)
 
@@ -90,20 +80,11 @@ BEGIN
   END
 
 
-  // Green dragon class fix
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "fsdragon"
-    editstring	= "class=>green_dragon"
-  END
-
-
   // Shambling Mound almost-everything fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "globsham hgmnd2 hgmound smound01 smoundsu"
+    creature	= "smound01 smoundsu"
     editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
 END	// creature_fixes

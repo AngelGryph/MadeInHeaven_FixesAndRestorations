@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION creature_fixes
+DEFINE_ACTION_FUNCTION sod_creature_fixes
 BEGIN
   // Shambling Mound almost-everything fix
 
@@ -16,6 +16,6 @@ BEGIN
     creature	= "bddeadm bddyingm bdmyc01 bdmycbl bdmyceld bdmycrd bdmycsu1"
     editstring	= "general=>plant"
   END
-END	// creature_fixes
+END	// sod_creature_fixes
 
 

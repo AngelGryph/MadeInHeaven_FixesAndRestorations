@@ -7,17 +7,17 @@ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME "#curebld.spl"
   BEGIN
     MAKE_PATCH
-      litvar_cure_spells=>"#curebld #curedef"
+      litvar_cure_spells=>"[#curebld #curedef]"
       clone_effect_inline=>~match=>"opcode = 146" number_to_add=>"length cure_spells" resource=>"entry_index from cure_spells"~
     END
   END
   ELSE
   BEGIN
     MAKE_PATCH
-      litvar_cures_list=>"75 79 81"
-      litvar_icons_list=>"2 6 8 48 112"
-      clone_effect'1=>~match=>"opcode = 11" number_to_add=>"length cures_list" opcode=>"entry_index from cures_list"~
-      clone_effect'2=>~match=>"opcode = 240" number_to_add=>"length icons_list" parameter2=>"entry_index from icons_list"~
+      litvar_cures_list=>"[75 79 81]"
+      litvar_icons_list=>"[2 6 8 48 112]"
+      clone_effect_inline'1=>~match=>"opcode = 11" number_to_add=>"length cures_list" opcode=>"entry_index from cures_list"~
+      clone_effect_inline'2=>~match=>"opcode = 240" number_to_add=>"length icons_list" parameter2=>"entry_index from icons_list"~
     END
   END
 

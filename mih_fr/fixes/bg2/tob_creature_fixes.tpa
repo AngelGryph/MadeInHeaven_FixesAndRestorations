@@ -1,0 +1,50 @@
+DEFINE_ACTION_FUNCTION tob_creature_fixes
+BEGIN
+  // ## FIXED IN EEFP ##
+  // Gnoll strength and alignment fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "chevil05"
+    editstring	= ~strengthGT=>13 alignment=>"if gender = summoned then neutral else chaotic_evil"~
+  END
+
+
+  // Mummy race fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "fsmumm fsmumm2 fsmumm3"
+    editstring	= "race=>mummy class=>no_class"
+  END
+
+
+  // ## FIXED IN EEFP ##
+  // Greater Water Elemental class fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elemhydr elwatg01"
+    editstring	= "class=>elemental_water"
+  END
+
+
+  // Green dragon class fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "fsdragon"
+    editstring	= "class=>green_dragon"
+  END
+
+
+  // Shambling Mound almost-everything fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "globsham hgmnd2 hgmound"
+    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
+  END
+END	// tob_creature_fixes
+
+
