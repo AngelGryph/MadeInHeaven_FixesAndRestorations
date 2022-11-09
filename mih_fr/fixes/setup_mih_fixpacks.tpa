@@ -65,7 +65,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "area_fixes creature_fixes spell_fixes ust_natha_fixes"
+      file	= "area_fixes creature_fixes item_fixes spell_fixes ust_natha_fixes"
       location	= "bg2"
     END
   END
@@ -84,12 +84,21 @@ BEGIN
   END
 
 
-  // Shared by all games
+  // Fixes for resources shared by BG1 and BG2.
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "spear_damage_fix summon_fixes wisdom_bonus_spells"
+    file	= "item_fixes spell_fixes summon_fixes wisdom_bonus_spells"
     location	= "common"
+  END
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "ee_only_spell_fixes"
+      location	= "ee"
+    END
   END
 END	// setup_mih_fixpacks
 

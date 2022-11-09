@@ -1,0 +1,26 @@
+DEFINE_ACTION_FUNCTION ee_only_spell_fixes
+BEGIN
+  // SPWI812 - Horrid Wilting
+  //
+  // The description says that water elementals and plant-based creature
+  // save at -2 against this spell, but it's actually not so.  I try to
+  // make it work here, but it's very experimental and hard to test.
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "spwi812w"
+    editstring	= "opcode=>37 timing=>1 parameter1=>-2 parameter2=>3"
+  END
+
+  MAKE_PATCH
+    clone_effect_inline=>~number_to_add=>2 clone_at_top=>1 match=>"opcode = 12" opcode=>37 timing=>0 duration=>0 opcode=>177 parameter1=>"entry_index from [7 219]" parameter2=>"entry_index from [3 5]" save_vs_spell=>0 resist_dispel=>0 resource=>"spwi812w"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi812"
+    edits	= "patch_data"
+  END
+END	// ee_only_spell_fixes
+
+
