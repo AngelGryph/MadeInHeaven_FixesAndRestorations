@@ -1,0 +1,79 @@
+DEFINE_ACTION_FUNCTION restored_bhaalspawn_powers
+BEGIN
+  // ===============================================================
+  // First, we need to apply some fixes to the existing spell files.
+  // ===============================================================
+
+  // BHAAL1B - Regeneration
+  // - Wrong 3D effect in level 15 header.
+  // - Even levels add no progress, delete them.
+
+  MAKE_PATCH
+    delete_ability=>"ability_min_level is_in [16 18]"
+    patch_effect_inline=>~match=>"opcode = 215" resource=>"ICWRATI"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "bhaal1b"
+    edits	= "patch_data"
+  END
+
+
+  // BHAAL2A - Draw Upon Holy Might
+  // - Headers missing for level 27 and 30. (No Mystra's Ban here!)
+
+  MAKE_PATCH
+    clone_ability_inline=>~match=>"ability_min_level = 24" number_to_add=>2 at_end=>1 ability_min_level=>"entry_index from [27 30]"~
+    patch_ability_inline=>~match=>"opcode = 132 and ability_min_level > 24" parameter2=>"ability_min_level / 3"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "bhaal2a"
+    edits	= "patch_data"
+  END
+
+
+  // BHAAL2B - Dark Taint
+  // - Level headers for level 19 and 21 add no progresion, delete them.
+  // - At level 25 it becomes an area effect but still uses a single
+  //   target projectile, so not really.
+  // - Saving throw penalties are inconsistently set for different effects.
+
+  MAKE_PATCH
+    delete_ability=>"ability_min_level is_in [19 21]"
+    patch_ability_inline=>~match=>"ability_min_level = 25" projectile=>237~
+    patch_effect_inline=>~match=>"save_vs_poison = 1" save_bonus=>"if ability_min_level > 16 then -4 else -2"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "bhaal2b"
+    edits	= "patch_data"
+  END
+
+
+  // BHAAL3B - Hand of Murder
+  // - Required effect files are missing.
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "bh3b1 bh3b2 bh3b3 bh3b4 bh3b5"
+    editstring	= "opcode=>146 target=>2 timing=>1 parameter2=>1 resource=>filename"
+  END
+
+
+  // ===============================
+  // Now Let's add them to the game.
+  // ===============================
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar4500"
+    top		= "ar4500"
+    location	= "scripts"
+  END
+END	// restored_bhaalspawn_powers
+
+

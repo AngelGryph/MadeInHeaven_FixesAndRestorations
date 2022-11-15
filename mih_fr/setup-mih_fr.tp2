@@ -54,6 +54,21 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// BG1 items in BG2
+
+BEGIN @14
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "bg1_items_in_bg2"
+  tra		= "bg1_items_in_bg2"
+  location	= "restorations/items"
+END
+
+
 // Spell Restorations
 
 BEGIN @3
@@ -62,6 +77,20 @@ GROUP @1
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_spell_restorations"
+  location	= "restorations/spells"
+END
+
+
+// Restored Bhaalspawn Powers
+
+BEGIN @15
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "tob" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "restored_bhaalspawn_powers"
   location	= "restorations/spells"
 END
 
