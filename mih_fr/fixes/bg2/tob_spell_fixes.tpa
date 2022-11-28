@@ -1,13 +1,14 @@
 DEFINE_ACTION_FUNCTION tob_spell_fixes
 BEGIN
-  // Warrior and rogue HLAs are not spells.  They should not have
+  // Many innates and HLAs are not spells.  They should not have
   // a school or secondary type.  Most don't, but some do, making
   // them incorrectly vulnerable to spells like Breach or Pierce Magic.
+  // In addition, many can incorrectly trigger wild surges.
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "spcl904 spcl907 spcl913 spcl914 spcl916 spcl917"
-    editstring	= "primary=>0 school_code=>0 secondary=>0"
+    spell	= "spcl751 spcl801 spcl811 spcl812 spcl813 spcl814 spcl816 spcl817 spcl818 spcl819 spcl820 spcl900 spcl901 spcl902 spcl903 spcl904 spcl905 spcl906 spcl907 spcl908 spcl909 spcl910 spcl911 spcl912 spcl913 spcl914 spcl915 spcl916 spcl917 spcl918 spcl919 spcl920 spcl921 spcl922 spcl924 spcl925 spcl926 spcl927 spcl928 spcl929 spcl930 spcl931 spcl932 spcl933 spcl934"
+    editstring	= "primary=>0 school_code=>0 secondary=>0 not_wild_dead=>1 not_wild_surge=>1"
   END
 
 
@@ -40,7 +41,7 @@ BEGIN
 
   // SPIN201 - Neutralize Poison (Imoen innate?)
   //
-  // Slow Poison cures drunkeness, but Neutralize Poison does not.  Let's
+  // Slow Poison cures drunkenness, but Neutralize Poison does not.  Let's
   // fix this oversight, shall we?
 
   LAUNCH_ACTION_FUNCTION edit_spell

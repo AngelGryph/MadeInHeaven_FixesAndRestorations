@@ -10,7 +10,7 @@ BEGIN
   //
   // SPIN958 - Cure Serious Wounds (ulitharid innate)
   //
-  // These all have the undocumented effect of during drunkeness.
+  // These all have the undocumented effect of during drunkenness.
   // This makes no real sense whatsoever.
   // NB: Paladin Lay on Hands already doesn't do this.
 
@@ -21,9 +21,24 @@ BEGIN
   END
 
 
+  // SPPR108 - Remove Fear
+  // SPCL222 - Remove Fear (Cavalier innate)
+  //
+  // Unlike the wizardly Resist Fear, these have the NON-COMBAT secondary
+  // type instead of SPECIFICPROTECTIONS, resulting in inconsistent interaction
+  // with spells like Breach.  This is likely an oversight, there are hints
+  // these spells originally would not have a duration.
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "sppr108 spcl222"
+    editstring	= "secondary=>2"
+  END
+
+
   // SPPR404 - Neutralize Poison
   //
-  // Slow Poison cures drunkeness, but Neutralize Poison does not.  Let's
+  // Slow Poison cures drunkenness, but Neutralize Poison does not.  Let's
   // fix this oversight, shall we?
 
   LAUNCH_ACTION_FUNCTION edit_spell
