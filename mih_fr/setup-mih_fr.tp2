@@ -95,6 +95,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Minor Encounter Restorations (BG1)
+
+BEGIN @16
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_encounters_bg1"
+  location	= "restorations/encounters/bg1"
+END
+
+
 // Minor Encounter Restorations (BG2)
 
 BEGIN @4
