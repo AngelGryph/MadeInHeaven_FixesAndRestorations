@@ -205,3 +205,15 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Obscure Items Tweaks
+
+BEGIN @17
+GROUP @9
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_obscure_items"
+  location	= "tweaks/obscure_items"
+END
+
+

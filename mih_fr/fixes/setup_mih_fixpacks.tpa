@@ -16,7 +16,7 @@ BEGIN
     BEGIN
       LAUNCH_ACTION_FUNCTION run
         STR_VAR
-        file		= "bgt_creature_fixes"
+        file		= "bg1_large_shield_fixes bgt_creature_fixes"
         location	= "old"
       END
     END
