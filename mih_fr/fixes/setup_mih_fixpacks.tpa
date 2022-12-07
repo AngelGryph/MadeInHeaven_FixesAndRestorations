@@ -16,7 +16,7 @@ BEGIN
     BEGIN
       LAUNCH_ACTION_FUNCTION run
         STR_VAR
-        file		= "bg1_large_shield_fixes bgt_creature_fixes"
+        file		= "bgt_creature_fixes bgt_large_shield_fixes"
         location	= "old"
       END
     END
@@ -96,7 +96,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "ee_spell_fixes"
+      file	= "ee_spell_fixes ee_text_update"
       location	= "ee"
     END
   END

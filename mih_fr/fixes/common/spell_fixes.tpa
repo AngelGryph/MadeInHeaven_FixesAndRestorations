@@ -46,6 +46,20 @@ BEGIN
     spell	= "sppr404"
     editstring	= %clone_effect_inline=>~match=>"opcode = 11" opcode=>164~%
   END
+
+
+  // SPWI213 - Stinking Cloud
+  // SPWI004 - Stinking Cloud (Trap)
+  // SPWM187 - Stinking Cloud (Wild Surge)
+  // SPIN940 - Stinking Cloud (Mephit innate)
+  //
+  // Spell gives a +2 bonus on saves, but it should not.
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi213 spwi004 spwm187 spin940"
+    editstring	= %patch_effect_inline=>~match=>"save_vs_poison = 1" save_bonus=>0~%
+  END
 END	// spell_fixes
 
 

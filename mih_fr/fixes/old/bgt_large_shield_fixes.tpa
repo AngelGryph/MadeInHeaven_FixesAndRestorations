@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg1_large_shield_fixes
+DEFINE_ACTION_FUNCTION bgt_large_shield_fixes
 BEGIN
   // Replace illogical stacks of large shields +1 in mundane stores.
 
@@ -39,6 +39,6 @@ BEGIN
     store	= "%tutu_var%inn3351"
     edits	= "patch_data"
   END
-END	// bg1_large_shield_fixes
+END	// bgt_large_shield_fixes
 
 
