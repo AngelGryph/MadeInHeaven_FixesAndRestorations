@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION candlekeep
+DEFINE_ACTION_FUNCTION bg1_candlekeep
 BEGIN
   // Restore doppleganger Erik
 
@@ -19,6 +19,6 @@ BEGIN
     area	= "%Candlekeep_Catacombs_L2%"
     editstring	= %add_actor_inline'01=>~actor_name=>"{literal:Doppleganger Erik}" actor_resource=>"erik3" actor_x_coord=>1430 actor_y_coord=>260 actor_orientation=>14~%	// NB: % signs are string delimiters here!
   END
-END	// candlekeep
+END	// bg1_candlekeep
 
 

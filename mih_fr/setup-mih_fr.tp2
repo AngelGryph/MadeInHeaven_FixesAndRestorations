@@ -95,7 +95,7 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Minor Encounter Restorations (BG1)
+// Encounter Restorations (BG1)
 
 BEGIN @16
 GROUP @1
@@ -104,12 +104,26 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_encounters_bg1"
-  location	= "restorations/encounters/bg1"
+  file		= "setup_bg1_encounters"
+  location	= "restorations/encounters"
 END
 
 
-// Minor Encounter Restorations (BG2)
+// Store Restorations (BG1)
+
+BEGIN @18
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bg1_stores"
+  location	= "restorations/stores"
+END
+
+
+// Encounter Restorations (BG2)
 
 BEGIN @4
 GROUP @1
@@ -118,8 +132,8 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_encounters_bg2"
-  location	= "restorations/encounters/bg2"
+  file		= "setup_bg2_encounters"
+  location	= "restorations/encounters"
 END
 
 
@@ -133,11 +147,11 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_artemis"
-  location	= "restorations/encounters/bg2"
+  location	= "restorations/encounters"
 END
 
 
-// Minor Dialog Restorations (BG2)
+// Dialog Restorations (BG2)
 
 BEGIN @7
 GROUP @1
@@ -146,8 +160,8 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_dialogs_bg2"
-  location	= "restorations/dialogs/bg2"
+  file		= "setup_bg2_dialogs"
+  location	= "restorations/dialogs"
 END
 
 
@@ -161,7 +175,7 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @8
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_keep_textscreens"
-  location	= "restorations/misc/bg2"
+  location	= "restorations/misc"
 END
 
 

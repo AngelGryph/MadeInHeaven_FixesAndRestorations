@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION crooked_crane
+DEFINE_ACTION_FUNCTION bg2_crooked_crane
 BEGIN
   MAKE_PATCH
     add_actor_inline'1=>~actor_name=>"{literal:Carmine of the Wheel}" actor_resource=>"crogam01" actor_x_coord=>548 actor_y_coord=>454 actor_orientation=>"SSW"~
@@ -26,6 +26,6 @@ BEGIN
     bottom	= "crooked_crane_l2"
     location	= "scripts"
   END
-END	// crooked_crane
+END	// bg2_crooked_crane
 
 

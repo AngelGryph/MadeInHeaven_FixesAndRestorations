@@ -8,6 +8,12 @@ BEGIN
     match	= ~JarlaxleHQ~
   END
 
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "jarlich.baf"
+    location	= "scripts"
+  END
+
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
     creature	= "jarlich"
@@ -16,6 +22,12 @@ BEGIN
 
 
   // Firkraag's taunts
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "firkra03.baf"
+    location	= "scripts"
+  END
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
@@ -33,7 +45,7 @@ BEGIN
     STR_VAR
     area	= "ar1202"
     bottom	= "firkraags_lair"
-    location	= "extends"
+    location	= "scripts"
   END
 END	// bg2_dialogs_core
 

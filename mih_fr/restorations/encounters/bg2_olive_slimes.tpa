@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION olive_slimes
+DEFINE_ACTION_FUNCTION bg2_olive_slimes
 BEGIN
   LAUNCH_ACTION_FUNCTION install_creature
     STR_VAR
@@ -22,6 +22,6 @@ BEGIN
     swap_out2	= ~"[^"]*",\[4052\.3574\]~
     swap_in2	= ~"jeloli01", [4052.3574]~
   END
-END	// olive_slimes
+END	// bg2_olive_slimes
 
 

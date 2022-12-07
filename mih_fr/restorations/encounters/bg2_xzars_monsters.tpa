@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION xzars_monsters
+DEFINE_ACTION_FUNCTION bg2_xzars_monsters
 BEGIN
   // A few patches to make Xzar's creatures work correctly.
 
@@ -42,6 +42,6 @@ BEGIN
     area	= "ar0407"
     edits	= "patch_data"
   END
-END	// xzars_monsters
+END	// bg2_xzars_monsters
 
 

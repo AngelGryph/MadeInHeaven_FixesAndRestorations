@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION firkraags_lair
+DEFINE_ACTION_FUNCTION bg2_firkraags_lair
 BEGIN
   // Restore three unused monsters in King Strohm's Tomb.
   
@@ -45,6 +45,6 @@ BEGIN
     store	= "bernard2"
     editstring	= ~delete_item=>"item_resource = ax1h12"~
   END
-END	// firkraags_lair
+END	// bg2_firkraags_lair
 
 

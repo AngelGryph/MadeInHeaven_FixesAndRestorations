@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION taverns
+DEFINE_ACTION_FUNCTION bg1_taverns
 BEGIN
   // Restore unused Friendly Arm Inn serving wench
   // (Discovered by CamDawg.)
@@ -42,6 +42,6 @@ BEGIN
     area	= "%EBaldursGate_ElfsongTavern_L1%"
     editstring	= %add_actor_inline=>~actor_name=>"{literal: Male Townsfolk}" actor_resource=>"mtob5" actor_x_coord=>495 actor_y_coord=>700 actor_orientation=>11~%
   END
-END	// taverns
+END	// bg1_taverns
 
 
