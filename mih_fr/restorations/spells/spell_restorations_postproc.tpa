@@ -149,7 +149,6 @@ BEGIN
       literal'5=>~ADD_STORE_ITEM "scrl1v" AFTER "scrl1u" #1 #1 #0 "identified" #2~
       literal'6=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl2b" #1 #1 #0 "identified" #2~
       literal'7=>~ADD_STORE_ITEM "scrl7a" AFTER "scrlal" #1 #1 #0 "identified" #2~
-      literal'8=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl6t" #1 #1 #0 "identified" #2~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
@@ -179,11 +178,8 @@ BEGIN
       literal'05=>~ADD_STORE_ITEM "scrl1v" AFTER "scrla8" #1 #1 #0 "identified" #2~
       literal'06=>~ADD_STORE_ITEM "scrl2c" AFTER "scrl6r" #1 #1 #0 "identified" #2~
       literal'07=>~ADD_STORE_ITEM "scrl7a" AFTER "scrl6m" #1 #1 #0 "identified" #2~
-      literal'08=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl7e" #1 #1 #0 "identified" #2~
-      literal'09=>~ADD_STORE_ITEM "scrl9i" AFTER "scrl9g" #1 #1 #0 "identified" #2~
       literal'10=>~ADD_STORE_ITEM "scrl9k" AFTER "scrl9c" #1 #1 #0 "identified" #2~
       literal'11=>~ADD_STORE_ITEM "scrl9o" AFTER "scrl9n" #1 #1 #0 "identified" #2~
-      literal'12=>~ADD_STORE_ITEM "scrlb3" AFTER "scrlb1" #1 #1 #0 "identified" #2~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
