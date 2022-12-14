@@ -1,0 +1,58 @@
+@0   = ~Monster Summoning IV~
+@1   = ~Monster Summoning IV
+(Conjuration/Summoning)
+
+Level: 6
+Range: 120 ft.
+Duration: 5 rounds + 1 round/level
+Casting Time: 6
+Area of Effect: Special
+Saving Throw: None
+
+This spell is much like the 3rd-level monster summoning I spell, except that this spell summons 6-HD monsters. There is a 60% chance of receiving one monster and a 40% chance of receiving two monsters. These monster(s) appear within spell range and attack the caster's opponents until the spell duration expires or until they are slain.~
+@2   = ~Monster Summoning V~
+@3   = ~Monster Summoning V
+(Conjuration/Summoning)
+
+Level: 7
+Range: 120 ft.
+Duration: 6 rounds + 1 round/level
+Casting Time: 7
+Area of Effect: Special
+Saving Throw: None
+
+This spell is much like the 3rd-level monster summoning I spell, except that this spell summons 7-HD monsters. There is a 60% chance of receiving one monster and a 40% chance of receiving two monsters. These monster(s) appear within spell range and attack the caster's opponents until the spell duration expires or until they are slain.~
+@4   = ~Monster Summoning VI~
+@5   = ~Monster Summoning VI
+(Conjuration/Summoning)
+
+Level: 8
+Range: 120 ft.
+Duration: 7 rounds + 1 round/level
+Casting Time: 8
+Area of Effect: Special
+Saving Throw: None
+
+This spell is much like the 3rd-level monster summoning I spell, except that this spell summons 8-HD monsters. There is a 60% chance of receiving one monster and a 40% chance of receiving two monsters. These monster(s) appear within spell range and attack the caster's opponents until the spell duration expires or until they are slain.~
+@6   = ~Monster Summoning VII~
+@7   = ~Monster Summoning VII
+(Conjuration/Summoning)
+
+Level: 9
+Range: 120 ft.
+Duration: 8 rounds + 1 round/level
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+This spell is much like the 3rd-level monster summoning I spell, except that this spell summons 9-HD monsters. There is a 60% chance of receiving one monster and a 40% chance of receiving two monsters. These monster(s) appear within spell range and attack the caster's opponents until the spell duration expires or until they are slain.~
+@8    = ~Ettin~
+@9    = ~Hell Hound~
+@10   = ~Neo Otyugh~
+@11   = ~Otyugh~
+@12   = ~Giant Snake~
+@13   = ~Umber Hulk~
+@14   = ~Minotaur~
+@15   = ~Giant Troll~
+
+

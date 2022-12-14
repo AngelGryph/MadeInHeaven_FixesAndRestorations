@@ -27,6 +27,43 @@ BEGIN
   END
 
 
+  // Invisible Stalker can be both summoned and randomly encountered in BG2.
+  // so we need both gender=>summoned and genter=>neither versions.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "stalkesu.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "stalke=>stalkesu"
+      editstring	= "xp_value=>0 gender=>summoned"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_creature
+      STR_VAR
+      creature		= "stalke"
+      editstring	= "xp_value=>3000 gender=>neither"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_effect
+      STR_VAR
+      effect		= "spstalk"
+      editstring	= "resource=>stalkesu"
+    END
+  END
+
+
+  // Minotaur race/class/HD/gender fix
+  //
+  // Minotaurs have 4 HD, but otherwise have the stats of 8-HD elders.
+  // Race is all over the place: gnoll, ogre or umber hulk.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "icmin01 uhogre03"
+    editstring	= "xp_value=>3000 level1GT=>8 race=>minotaur class=>fighter gender=>male"
+  END
+
+
   // Mummy race fix
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -45,13 +82,13 @@ BEGIN
     LAUNCH_ACTION_FUNCTION clone_creature
       STR_VAR
       creature		= "mistpo01=>mistposu"
-      editstring	= "gender=>summoned"
+      editstring	= "xp_value=>0 gender=>summoned"
     END
 
     LAUNCH_ACTION_FUNCTION edit_creature
       STR_VAR
       creature		= "mistpo01"
-      editstring	= "gender=>neither"
+      editstring	= "xp_value=>3500 gender=>neither"
     END
 
     LAUNCH_ACTION_FUNCTION edit_effect

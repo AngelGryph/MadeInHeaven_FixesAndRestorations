@@ -81,6 +81,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Restored Monster Summoning Spells/Tables
+
+BEGIN @19
+GROUP @1
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_summon_restorations"
+  location	= "restorations/summons"
+END
+
+
 // Restored Bhaalspawn Powers
 
 BEGIN @15
@@ -90,8 +102,8 @@ REQUIRE_PREDICATE GAME_INCLUDES "tob" @8
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "restored_bhaalspawn_powers"
-  location	= "restorations/spells"
+  file		= "setup_bhaalspawn_powers"
+  location	= "restorations/bhaalspawn_powers"
 END
 
 

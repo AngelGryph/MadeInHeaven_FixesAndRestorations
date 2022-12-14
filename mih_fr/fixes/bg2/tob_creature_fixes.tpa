@@ -10,6 +10,27 @@ BEGIN
   END
 
 
+  // Sendai's Invisible Stalkers are not summoned.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "senstalk"
+    editstring	= "xp_value=>3000 gender=>neither"
+  END
+
+
+  // Minotaur race/class/HD/gender fix
+  //
+  // Minotaurs have 4 HD, but otherwise have the stats of 8-HD elders.
+  // Race is all over the place: gnoll, ogre or umber hulk.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "amminot"
+    editstring	= "xp_value=>3000 level1GT=>8 race=>minotaur class=>fighter gender=>male"
+  END
+
+
   // Mummy race fix
 
   LAUNCH_ACTION_FUNCTION edit_creature

@@ -1,0 +1,50 @@
+DEFINE_ACTION_FUNCTION summon_restorations_postproc
+BEGIN
+  // Add new spell scrolls to shops
+
+  ACTION_IF has_sod
+  BEGIN
+    MAKE_PATCH
+      literal=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl5n scrl2h" #1 #1 #0 "identified" #1~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "bdsorcsc bdbeleg3"
+      edits	= "patch_data"
+    END
+  END
+
+  ACTION_IF is_bg2
+  BEGIN
+    MAKE_PATCH
+      literal'1=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl75" #1 #1 #0 "identified" #1~
+      literal'2=>~ADD_STORE_ITEM "scrl8k" AFTER "scrla4" #1 #1 #0 "identified" #1~
+      literal'3=>~ADD_STORE_ITEM "scrl9i" AFTER "scrlal" #1 #1 #0 "identified" #1~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "scrolls"
+      edits	= "patch_data"
+    END
+  END
+
+  ACTION_IF has_tob
+  BEGIN
+    MAKE_PATCH
+      literal'1=>~ADD_STORE_ITEM "scrl7n" AFTER "scrl7k" #1 #1 #0 "identified" #2~
+      literal'2=>~ADD_STORE_ITEM "scrl8k" AFTER "scrl8w" #1 #1 #0 "identified" #2~
+      literal'3=>~ADD_STORE_ITEM "scrl9i" AFTER "scrl9e" #1 #1 #0 "identified" #2~
+      literal'4=>~ADD_STORE_ITEM "scrlb3" AFTER "scrlb2" #1 #1 #0 "identified" #2~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "25spell"
+      edits	= "patch_data"
+    END
+  END
+END	// summon_restorations_postproc
+
+
