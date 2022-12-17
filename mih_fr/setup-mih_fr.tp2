@@ -243,3 +243,27 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Optional "Intelligence 19" Rule
+
+BEGIN @20
+GROUP @9
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_int_19_rule"
+  location	= "tweaks/misc"
+END
+
+
+// Cespenar Skips Mutually Exclusive Upgrades
+
+BEGIN @21
+GROUP @9
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_cespenar_hush"
+  location	= "tweaks/misc"
+END
+
+

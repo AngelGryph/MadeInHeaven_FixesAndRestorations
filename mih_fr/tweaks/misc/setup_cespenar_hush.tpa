@@ -1,0 +1,34 @@
+DEFINE_ACTION_FUNCTION setup_cespenar_hush
+BEGIN
+<<<<<<<< .../stratagems-inline/cespenar_hush.d
+ADD_TRANS_ACTION "botsmith"
+BEGIN 8 26 END	// State(s)
+BEGIN 1 END	// Transaction
+  ~SetGlobal("mh#HeartOfTheDamned_used", "GLOBAL", 1)~
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 22 30 END	// State(s)
+BEGIN 1 END	// Transaction
+  ~SetGlobal("mh#EyeOfTyr_used", "GLOBAL", 1)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw1h64")~ ~PartyHasItem("sw1h64") OR(2) PartyHasItem("compon02") Global("mh#EyeOfTyr_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw2h10")~ ~PartyHasItem("sw2h10") OR(2) PartyHasItem("compon02") Global("mh#EyeOfTyr_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw1h58")~ ~PartyHasItem("sw1h58") OR(2) PartyHasItem("compon15") Global("mh#HeartOfTheDamned_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw2h17")~ ~PartyHasItem("sw2h17") OR(2) PartyHasItem("compon15") Global("mh#HeartOfTheDamned_used", "GLOBAL", 0)~
+>>>>>>>>
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "cespenar_hush.d"
+    inline	= "yes"
+  END
+END	// setup_cespenar_hush
+
+

@@ -10,8 +10,18 @@ Area of Effect: 15-foot radius
 Saving Throw: None
 
 This spell creates a cloud of thick billowing fog.  Visibility within the cloud is practically zero; beings caught within are effectively blinded and invisible.~
-//@2   = ~~
-//@3   = ~~
+@2   = ~Sandform~
+@3   = ~Sandform
+(Necromancy)
+
+Level: 9
+Range: 120 ft.
+Duration: 1 hour
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+With this spell, the wizard temporarily animates a golem made of sand.  This powerful servant will remain under the caster's control until destroyed in combat or the duration expires.~
 @4   = ~Spell Invulnerability~
 @5   = ~Spell Invulnerability
 (Abjuration)
@@ -63,7 +73,7 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 By laying <PRO_HISHER> hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
-//@12  = ~The selected character is cured of blindness and deafness.~
+@12   = ~Sand Golem~
 @13   = ~Otto's Irresistible Dance~
 @14   = ~Otto's Irresistible Dance
 (Enchantment/Charm)
