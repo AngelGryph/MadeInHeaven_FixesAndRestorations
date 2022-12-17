@@ -55,7 +55,7 @@ END
 IF
   Global("AscBhaal3", "AR4500", 0)
   GlobalGT("Bhaal25Dream3", "GLOBAL", 0)
-  NumDead("chalcy02", 3)
+  NumDeadGT("chalcy02", 2)
   CombatCounter(0)
 THEN
   RESPONSE #100
@@ -67,7 +67,7 @@ END
 IF
   Global("AscBhaal3", "AR4500", 0)
   !GlobalGT("Bhaal25Dream3", "GLOBAL", 0)
-  NumDead("chalcy02", 3)
+  NumDeadGT("chalcy02", 2)
   CombatCounter(0)
 THEN
   RESPONSE #100

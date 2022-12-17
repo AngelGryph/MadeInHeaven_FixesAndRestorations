@@ -54,6 +54,27 @@ BEGIN
   END
 
 
+  // BHAAL3A - Immunity to level drain & 5% MR
+  // BHAAL4B - 25% resistance to physical damage
+  // - Tell the player what happened.
+
+  WITH_TRA "%scs_tra_loc%/english/bhaalspawn_powers.tra" "%scs_tra_loc%/%LANGUAGE%/bhaalspawn_powers.tra"
+  BEGIN
+    OUTER_SET bhaal3a = RESOLVE_STR_REF (@0)
+    OUTER_SET bhaal4b = RESOLVE_STR_REF (@1)
+  END
+
+  MAKE_PATCH
+    add_effect_inline=>~opcode=>139 target=>1 timing=>1 parameter1=>"object_index from [%bhaal3a% %bhaal4b%]"~
+  END
+  
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "bhaal3a bhaal4b"
+    edits	= "patch_data"
+  END
+
+
   // BHAAL3B - Hand of Murder
   // - Required effect files are missing.
 
