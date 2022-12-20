@@ -35,3 +35,18 @@ EXTEND_TOP "hgkar01" 8 #1
 END
 
 
+// Skipping Tome of Golems upgrades can leave useless items in the player's
+// inventory.  This will make Cespenar confiscate any "lesser" pages that
+// can no longer be used.
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 112 114 END	// State(s)
+BEGIN 1 END		// Transaction
+  ~TakePartyItemNum("tome02a", 1) DestroyItem("tome02a")~
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 114 END		// State(s)
+BEGIN 1 END		// Transaction
+  ~TakePartyItemNum("tome03a", 1) DestroyItem("tome03a")~
+
+

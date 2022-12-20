@@ -54,7 +54,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "fsdragon"
+    creature	= "bazdra03 fsdragon"
     editstring	= "class=>green_dragon"
   END
 
