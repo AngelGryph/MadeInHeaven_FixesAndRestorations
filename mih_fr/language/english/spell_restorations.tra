@@ -160,3 +160,33 @@ Area of Effect: Target creature
 Saving Throw: 1/2
 
 When the wizard calls down a wall of fire spell, a vertical column of fire roars downward striking the exact location called for by the caster. The target must roll a saving throw vs. spell. Failure means the creature sustains 1d8 points of damage per level of the caster; otherwise, the damage is halved.~
+@28   = ~Energy Drain
+(Necromancy) 
+
+Level: 7
+Sphere:  Necromantic
+Range: Touch
+Duration: Permanent
+Casting Time: 7
+Area of Effect: Target Creature
+Saving Throw: None 
+
+This is the reverse of the spell restoration.  The casting of this spell opens a channel between the caster's plane and the Negative Energy plane.  The caster of the spell acts as a conduit between the two planes, sucking life from a victim and transferring it to the Negative energy plane, draining the victim of one level of experience.  The target of this spell loses Hit Dice, hit points, and abilities permanently.  The levels may only be regained through adventuring or through the spell restoration.~
+@29   = ~Spacewarp~
+@30   = ~Spacewarp
+(Alteration)
+
+Sphere: Numbers
+Range: 150 ft.
+Duration: 1 turn
+Casting Time: 7
+Area of Effect: 25-ft. radius sphere
+Saving Throw: None
+
+According to one view of the universe, what we perceive as gravity is actually a localized warping of the fabric of space-time. The Spacewarp spell creates a temporary but very intense warping in a limited area.
+
+When the priest casts this spell, <PRO_HESHE> selects a specific point to be the center of effect. This point may be anywhere within 150 feet of the caster, including in midair.
+
+When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 50 feet of this center that is not attached to something immovable will fall toward the selected point.
+
+This localized gravity affects only loose objects and creatures capable of movement (i.e., not trees, whose roots are buried in the ground). It does not affect the ground itself - soil, plants, desert sand, lake water, etc. are immune to the effect.~
