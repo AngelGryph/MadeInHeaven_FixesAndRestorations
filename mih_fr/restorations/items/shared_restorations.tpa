@@ -1,0 +1,69 @@
+DEFINE_ACTION_FUNCTION shared_restorations
+BEGIN
+  // misc03 - Small Box
+
+  MAKE_PATCH
+    price=>10
+    category=>0x24
+    unsellable=>1
+    say_both_descriptions=>5
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "misc03"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_store
+    STR_VAR
+    store	= "misc03"
+    location	= "stores"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "imisc03.bam"
+    location	= "bams"
+  END
+
+
+  // Tutu/BGT hacks
+
+  ACTION_IF GAME_IS "tutu tutu_totsc bgt"
+  BEGIN
+    COPY_EXISTING "misc03.itm" "override/%tutu_scriptbg%misc03.itm"
+    COPY_EXISTING "misc03.sto" "override/%tutu_scriptbg%misc03.sto"
+  END
+
+
+  // Install into game(s)
+
+  ACTION_IF is_bg1
+  BEGIN
+    MAKE_PATCH
+      add_item_inline=>~item_resource=>"%tutu_scriptbg%misc03" item_num_in_stock=>1 state_identified=>1~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "friend"
+      edits	= "patch_data"
+    END
+  END
+
+  ACTION_IF is_bg2
+  BEGIN
+    MAKE_PATCH
+      add_item_inline=>~item_resource=>"misc03" item_num_in_stock=>1 state_identified=>1~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "shop01"
+      edits	= "patch_data"
+    END
+  END
+END	// shared_restorations
+
+
