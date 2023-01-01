@@ -60,6 +60,23 @@ BEGIN
     spell	= "spwi213 spwi004 spwm187 spin940"
     editstring	= %patch_effect_inline=>~match=>"save_vs_poison = 1" save_bonus=>0~%
   END
+
+
+  // SPWI313 - Skull Trap
+  //
+  // This spell is supposed to do 2d4 + 1d4/level damage, and under
+  // Mystra's Ban should cap at 12d4.
+
+  MAKE_PATCH
+    delete_ability=>~ability_min_level > 10~
+    patch_effect_inline=>~match=>"opcode = 12" dicenum=>"dicenum + enhanced_edition + 1" dicesize=>4~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi313"
+    edits	= "patch_data"
+  END
 END	// spell_fixes
 
 

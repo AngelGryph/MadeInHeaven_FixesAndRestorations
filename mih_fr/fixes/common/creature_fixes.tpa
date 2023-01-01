@@ -23,6 +23,30 @@ BEGIN
     creature	= "planevil plangood planwish"
     editstring	= %patch_effect_inline=>~match=>"opcode = 98" parameter1=>1~%
   END
+
+
+  // Correct wraith spider bite to the actual P&P effects:
+  // - 1d4 cold damage
+  // - drains one level
+  // - damages constitution
+  // Effects are permanent until cured with Cure Disease and Restoration.
+
+  MAKE_PATCH
+    ability_dicenum=>0
+    ability_dicesize=>0
+    delete_effect=>null
+    add_effect_inline'12=>~opcode=>12 target=>2 timing=>1 parameter2=>0x00020000 dicenum=>1 dicesize=>4~
+    add_effect_inline'78=>~opcode=>78 target=>2 timing=>1 parameter1=>3 parameter2=>6~
+    add_effect_inline'139=>~number_to_add=>2 opcode=>139 target=>2 timing=>1 parameter1=>"if enhanced_edition and not is_bg2 then entry_index from [25802 26453] else entry_index from [39752 41495]"~
+    add_effect_inline'142=>~opcode=>142 target=>2 timing=>1 parameter2=>7~
+    add_effect_inline'216=>~opcode=>216 target=>2 timing=>1 parameter1=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "spidwr1"
+    edits	= "patch_data"
+  END
 END	// creature_fixes
 
 
