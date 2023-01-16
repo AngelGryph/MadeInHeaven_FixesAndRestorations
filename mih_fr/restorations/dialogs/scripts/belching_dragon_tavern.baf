@@ -1,0 +1,27 @@
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_3%)
+  !Dead("VOLO")
+  Exists("VOLO")
+  Global("VoloLeave", "MYAREA", 0)
+THEN 
+  RESPONSE #100
+    SetGlobal("VoloLeave", "MYAREA", 1)
+    ActionOverride("VOLO", DestroySelf())
+END
+
+IF
+  GlobalLT("Chapter", "GLOBAL", %bg1_chapter_4%)
+  GlobalGT("NashkelAdventures", "GLOBAL", 0)
+  !Dead("VOLO")
+  Exists("VOLO")
+  Global("VoloLeave", "MYAREA", 0)
+THEN 
+  RESPONSE #100
+    SetGlobal("VoloLeave", "MYAREA", 1)
+    //DisplayStringHead("VOLO", @0)
+    ActionOverride("VOLO", EscapeAreaDestroy(30))
+    SmallWait(2)
+    CreateCreature("volose", [660.345], SW)
+END
+
+

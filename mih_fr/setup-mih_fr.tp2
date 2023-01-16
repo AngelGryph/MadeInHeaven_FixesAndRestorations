@@ -121,6 +121,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Volo's Travels
+
+BEGIN @22
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_volos_travels"
+  location	= "restorations/dialogs"
+END
+
+
 // Store Restorations (BG1)
 
 BEGIN @18
@@ -259,6 +273,8 @@ END
 
 BEGIN @21
 GROUP @9
+
+REQUIRE_PREDICATE GAME_INCLUDES "tob" @8
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR

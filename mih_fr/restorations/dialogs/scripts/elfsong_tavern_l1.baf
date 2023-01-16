@@ -1,0 +1,12 @@
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_6%)
+  !Dead("VOLO")
+  !Exists("VOLO")
+  Global("SpawnVolo", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnVolo", "MYAREA", 1)
+    CreateCreature("volo", [730.710], E)
+END
+
+
