@@ -27,6 +27,15 @@ BEGIN
   END
 
 
+  // wraith spiders are not marked as undead
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%spidwr"
+    editstring	= "general=>undead"	// TODO: Check cold resistance
+  END
+
+
   // Some skeletons do not have their correct damage resistances.
   // (BGT/Tutu only, confirmed already fixed in EE.)
 
