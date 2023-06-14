@@ -8,6 +8,11 @@ BEGIN
 
   ACTION_IF is_bg1
   BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "bg1_item_restorations"
+      tra	= "item_restorations"
+    END
   END
 
   ACTION_IF has_sod

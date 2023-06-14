@@ -32,9 +32,9 @@ BEGIN
   // replacing the pathetic goblins.
 
   MAKE_PATCH
-    patch_actor_inline'1=>~match=>"actor_resource = icgob01" actor_name=>"Ghast" actor_resource=>"xghast1"~
-    patch_actor_inline'2=>~match=>"actor_resource = icgob02" actor_name=>"Flesh Golem" actor_resource=>"xgolem"~
-    patch_actor_inline'3=>~match=>"actor_resource = icgob03" actor_name=>"Ghast" actor_resource=>"xghast2"~
+    patch_actor_inline'1=>~match=>"actor_resource = icgob01" actor_name=>"{literal:Ghast}" actor_resource=>"xghast1"~
+    patch_actor_inline'2=>~match=>"actor_resource = icgob02" actor_name=>"{literal:Flesh Golem}" actor_resource=>"xgolem"~
+    patch_actor_inline'3=>~match=>"actor_resource = icgob03" actor_name=>"{literal:Ghast}" actor_resource=>"xghast2"~
   END
 
   LAUNCH_ACTION_FUNCTION edit_area
