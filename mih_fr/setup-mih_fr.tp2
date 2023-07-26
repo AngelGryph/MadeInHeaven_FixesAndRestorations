@@ -121,6 +121,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Dialog Restorations (BG1)
+
+BEGIN @23
+GROUP @1
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @8
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bg1_dialogs"
+  location	= "restorations/dialogs"
+END
+
+
 // Volo's Travels
 
 BEGIN @22
