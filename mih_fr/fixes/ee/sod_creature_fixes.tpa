@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION sod_creature_fixes
+BEGIN
+  // Consistently label myconoids as plants
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "bddeadm bddyingm bdmyc01 bdmycbl bdmyceld bdmycrd bdmycsu1"
+    editstring	= "general=>plant"
+  END
+
+
+  // Shambling Mound almost-everything fix
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "bdshamb"
+    editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
+  END
+
+
+  // Skeleton Warrior race and immunity fixes
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "bdskgr08"
+    editstring	= ~race=>skeleton resist_slashing=>50 add_effect_inline=>"opcode=>297 target=>1 timing=>1 parameter2=>1"~
+  END
+END	// sod_creature_fixes
+
+

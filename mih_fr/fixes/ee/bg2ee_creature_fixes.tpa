@@ -17,6 +17,15 @@ BEGIN
     creature	= "ohdplanb ohdsplan"
     editstring	= %patch_effect_inline=>~match=>"opcode = 98" parameter1=>1~%
   END
+
+
+  // Skeleton Warrior race and immunity fixes
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "skelsu01 skelsu07 skelsu11"
+    editstring	= ~race=>skeleton resist_slashing=>50 add_effect_inline=>"opcode=>297 target=>1 timing=>1 parameter2=>1"~
+  END
 END	// bg2ee_creature_fixes
 
 

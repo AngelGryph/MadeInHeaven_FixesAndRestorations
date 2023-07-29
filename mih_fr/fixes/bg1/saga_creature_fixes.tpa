@@ -46,6 +46,15 @@ BEGIN
   END
 
 
+  // Skeleton Warrior race and immunity fixes
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%bg1_skeleton_warrior% %bg1_skeleton_warrior2% %bg1_skeleton_warrior3%"
+    editstring	= ~race=>skeleton resist_slashing=>50 add_effect_inline=>"opcode=>297 target=>1 timing=>1 parameter2=>1"~
+  END
+
+
   // xvart2 and xvarth have wrong HD count for their xp value
 
   LAUNCH_ACTION_FUNCTION edit_creature

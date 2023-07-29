@@ -28,7 +28,7 @@ BEGIN
 
 
   // Invisible Stalker can be both summoned and randomly encountered in BG2.
-  // so we need both gender=>summoned and genter=>neither versions.
+  // so we need both gender=>summoned and gender=>neither versions.
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "stalkesu.cre"
   BEGIN
@@ -123,6 +123,15 @@ BEGIN
     STR_VAR
     creature	= "smound01 smoundsu"
     editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
+  END
+
+
+  // Skeleton Warrior race and immunity fixes
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "ar18skel ceskel01 endske01 endske02 endske03 endske04 firmon02 grskel1 grskel2 grtomb01 hgskl04 nevm2 riftcr02 rskel02 sahskel skelwa skelwa01 skelwa02 skelwa03 skelwasu suundead tanskw1"
+    editstring	= ~race=>skeleton resist_slashing=>50 add_effect_inline=>"opcode=>297 target=>1 timing=>1 parameter2=>1"~
   END
 END	// creature_fixes
 

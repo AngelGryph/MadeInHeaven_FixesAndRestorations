@@ -36,7 +36,7 @@ BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "sod_creature_fixes"
-      location	= "bg1"
+      location	= "ee"
     END
   END
 
