@@ -48,6 +48,20 @@ BEGIN
   END
 
 
+  // SPPR707 - Sunray
+  //
+  // Spell does base 1000 damage to undead instead of using a slay effect
+  // like the Mace of Disruption does, this looks kinda silly in the log
+  // and bypasses Slay immunity, providing a loophole for an easy demi-lich
+  // kill.  Change it to work like the Mace of Disruption.
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "sppr707"
+    editstring	= %patch_effect_inline=>~match=>"resource = unddeath" resource=>"die"~ clone_effect_inline=>~match=>"resource = die" resource=>"mesdie"~%
+  END
+
+
   // SPWI213 - Stinking Cloud
   // SPWI004 - Stinking Cloud (Trap)
   // SPWM187 - Stinking Cloud (Wild Surge)

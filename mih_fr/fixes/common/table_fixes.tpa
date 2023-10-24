@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION table_fixes
+BEGIN
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "all"
+    extention	= "2da"
+    location	= "common/tables"
+  END
+
+
+  ACTION_FOR_EACH macro IN thac0
+  BEGIN
+    PRINT ~Reading in data: %macro%~
+
+    SILENT
+    LAUNCH_ACTION_MACRO ~read_in_%macro%~
+  END
+END	// table_fixes
+
+

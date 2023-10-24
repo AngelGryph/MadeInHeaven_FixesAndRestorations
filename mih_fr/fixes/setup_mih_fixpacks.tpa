@@ -65,7 +65,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "soa_area_fixes soa_creature_fixes soa_item_fixes ust_natha_fixes"
+      file	= "soa_area_fixes soa_creature_fixes soa_item_fixes soa_minor_fixes ust_natha_fixes"
       location	= "bg2"
     END
   END
@@ -88,7 +88,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "creature_fixes item_fixes spell_fixes wisdom_bonus_spells"
+    file	= "creature_fixes item_fixes spell_fixes table_fixes"
     location	= "common"
   END
 
