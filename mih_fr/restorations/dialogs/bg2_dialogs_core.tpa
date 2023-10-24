@@ -2,10 +2,10 @@ DEFINE_ACTION_FUNCTION bg2_dialogs_core
 BEGIN
   // Deirex initiates second dialog instead of going hostile immediately.
 
-  LAUNCH_ACTION_FUNCTION DELETE_SCRIPT_BLOCK
+  LAUNCH_ACTION_FUNCTION install
     STR_VAR
-    script	= "ar2207"
-    match	= ~JarlaxleHQ~
+    file	= "deirex_battle.d"
+    location	= "dialogs"
   END
 
   LAUNCH_ACTION_FUNCTION install
@@ -20,8 +20,20 @@ BEGIN
     editstring	= ~swap_script=>"shoutdlg=>jarlich"~
   END
 
+  LAUNCH_ACTION_FUNCTION DELETE_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2207"
+    match	= ~JarlaxleHQ~
+  END
+
 
   // Firkraag's taunts
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "firkraag_taunts.d"
+    location	= "dialogs"
+  END
 
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
