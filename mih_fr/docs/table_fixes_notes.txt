@@ -1,0 +1,70 @@
+- mxsplbrd.2da
+  - Extended to level 50.
+  - P&P corrections for levels 21-30 (DM's Option: High Level Campaigns)
+  - P&P corrections: Added level 7 & level 8 spell slots.
+
+- mxspldd.2da
+  - Extended to level 50.
+  - I have no source that describes 2e Dragon Disciples.
+
+- mxspldru.2da
+  - Extended to level 50.
+  - P&P corrections for levels 21-30 (DM's Option: High Level Campaigns)
+  - I have no source that provides a different spell progression for druids,
+    so this is a copy of mxsplprs.2da
+
+- mxsplpal.2da
+  - Extended to level 50.
+
+- mxsplprs.2da
+  - Extended to level 50.
+  - P&P corrections for levels 21-30. (DM's Option: High Level Campaigns)
+
+- mxsplran.2da
+  - Extended to level 50.
+
+- mxsplshm.2da
+  - Extended to level 50.
+  - I have no 2e source for Shamans at all.
+
+- mxsplsrc.2da
+  - Extended to level 50.
+  - I have no 2e source for Sorcerers at all.
+
+- mxsplwis.2da
+  - Corrected an obvious mistake that gave too few third level spells and
+    too many fourth level ones.  (PHB)
+
+- mxsplwiz.2da
+  - Extended to level 50.
+  - P&P corrections for levels 21-30. (DM's Option: High Level Campaigns)
+
+- savemonk.2da
+  - Extended to level 50.
+
+- saveprs.2da
+  - Extended to level 50.
+
+- saverog.2da
+  - Extended to level 50.
+
+- savewar.2da
+  - Extended to level 50.
+
+- savewiz.2da
+  - Extended to level 50.
+
+- thac0.2da
+  - Extended to level 50.
+  - Implemented correct thac0 caps per class. (DM's Option: High Level
+    Campaigns)
+
+- wspatck.2da
+  - Extended to level 50.
+  - Corrected APR for grand mastery. (Player's Option: Combat & Tactics)
+
+- xplevel.2da
+  - Extended to level 50.
+  - Completely revised druid's XP table as neither the in-game one nor the PHB
+    one could be properly extended to level 50.  This removes the ridiculous
+    "speed bump" druids encountered at levels 14 and 15.

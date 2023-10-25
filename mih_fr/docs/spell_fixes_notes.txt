@@ -1,0 +1,15 @@
+- Warrior HLAs are not spells and cannot be interrupted or trigger wild
+  surges.
+- Cure spells should not cure drunkenness.
+- Slow/Neutralizes Poison should cure drunkenness.
+- Remove Fear should have secondary type SPECIFICPROTECIONS, not NON-COMBAT.
+- Sunray's undead destroying effect was implemented by it doing ridiculous
+  damage instead of an actual disruption effect.  Changed to a disruption
+  effect like the Mace of Disruption.
+- Stinking Cloud was giving an undocumented +2 bonus on saves, PHB says it
+  should not.
+- Skull Trap used both the wrong damage dice and wasn't properly capped.
+- Horrid Wilting should give water elementals and floral creatures a -2 to
+  saves.  (This could only be implemented on EE.)
+
+
