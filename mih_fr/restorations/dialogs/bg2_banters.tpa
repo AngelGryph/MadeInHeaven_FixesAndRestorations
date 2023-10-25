@@ -1,0 +1,24 @@
+DEFINE_ACTION_FUNCTION bg2_banters
+BEGIN
+  LAUNCH_ACTION_FUNCTION extend
+    STR_VAR
+    script	= "minsc"
+    bottom	= "minsc_banter"
+    location	= "scripts"
+  END
+
+  LAUNCH_ACTION_FUNCTION extend
+    STR_VAR
+    script	= "yoshimo"
+    bottom	= "yoshimo_banter"
+    location	= "scripts"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "bg2_banter.d"
+    location	= "dialogs"
+  END
+END	// bg2_banters
+
+
