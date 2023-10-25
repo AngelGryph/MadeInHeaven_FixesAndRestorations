@@ -9,6 +9,21 @@ BEGIN
     item	= "clck25"
     editstring	= %add_effect_global_inline=>~number_to_add=>5 opcode=>"entry_index from [33 34 35 36 37]" target=>1 timing=>2 parameter1=>1~%
   END
+
+
+  // MISC5X - Harper Pin
+
+  // Neither ToBEx nor EE use item_use.2da for this item, even though it
+  // seems designed for it.
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    APPEND "item_use.2da" "MISC5X  JAHEIRA 9382    2       9382    -1" UNLESS "MISC5X"
+  END
+  ELSE
+  BEGIN
+    APPEND "item_use.2da" "MISC5X  JAHEIRA 9382    2       9382    -1      -1      -1      -1      -1" UNLESS "MISC5X"
+  END
 END	// soa_item_fixes
 
 

@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION soa_minor_fixes
+BEGIN
+  // Dialog fixes, see the dialog file for details.
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file        = "soa_fixes.d"
+    location    = "bg2/dialogs"
+  END
+END	// soa_minor_fixes
+
+
