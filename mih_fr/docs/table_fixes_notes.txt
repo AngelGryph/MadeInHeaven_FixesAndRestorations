@@ -53,6 +53,7 @@
 
 - savewiz.2da
   - Extended to level 50.
+  - Spell slots cap at 12 since the engine cannot handle more than this.
 
 - thac0.2da
   - Extended to level 50.
@@ -65,6 +66,7 @@
 
 - xplevel.2da
   - Extended to level 50.
+  - Wizard level progression implemented from Complete Wizards' Handbook.
   - Completely revised druid's XP table as neither the in-game one nor the PHB
     one could be properly extended to level 50.  This removes the ridiculous
     "speed bump" druids encountered at levels 14 and 15.
