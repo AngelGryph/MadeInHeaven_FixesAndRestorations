@@ -8,7 +8,7 @@ BEGIN
     BEGIN
       LAUNCH_ACTION_FUNCTION run
         STR_VAR
-        file		= "bg1ee_creature_fixes"
+        file		= "bg1ee_creature_fixes bg1ee_class_fixes"
         location	= "ee"
       END
     END
