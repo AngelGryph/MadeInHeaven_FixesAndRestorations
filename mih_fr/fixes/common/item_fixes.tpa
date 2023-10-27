@@ -1,6 +1,21 @@
 DEFINE_ACTION_FUNCTION item_fixes
 BEGIN
-  // POTN17 - Exixir of Health
+  // Externalize potion abilities to spells, if some other mod hasn't, already.
+
+  ACTION_FOR_EACH potion IN "potn02" "potn03" "potn04" "potn05" "potn06" "potn07" "potn08" "potn09" "potn10" "potn11" "potn12" "potn13" "potn14" "potn15" "potn16" "potn17" "potn18" "potn19" "potn20" "potn21" "potn22" "potn23" "potn24" "potn25" "potn26" "potn27" "potn28" "potn29" "potn30" "potn31" "potn32" "potn33" "potn34" "potn35" "potn36" "potn37" "potn38" "potn39" "potn40" "potn41" "potn42" "potn43" "potn44" "potn45" "potn46" "potn47" "potn48" "potn52" "potn55" "ipotn08" "ttpot08"
+  BEGIN
+    ACTION_IF FILE_EXISTS_IN_GAME "%potion%.itm"
+      AND NOT FILE_EXISTS_IN_GAME "%potion%.spl"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION externalise_item_ability
+        STR_VAR
+        item    = "%potion%"
+      END
+    END
+  END
+
+
+  // POTN17 - Elixir of Health
   //
   // Elixir of Health does not cure blindness or deafness, but it should.
 
@@ -21,9 +36,9 @@ BEGIN
     END
   END
 
-  LAUNCH_ACTION_FUNCTION edit_item
+  LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    item	= "potn17"
+    spell	= "potn17"
     edits	= "patch_data"
   END
 
@@ -32,16 +47,41 @@ BEGIN
   // POTN47 - Marek's Poison Antidote
   //
   // Contrary to what Hull seems to think, antidotes do not actually cure
-  // drunkeness.  Let's have mercy on him and fix that oversight.
+  // drunkenness.  Let's have mercy on him and fix that oversight.
 
-  LAUNCH_ACTION_FUNCTION edit_item
+  LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    item	= "potn17"
+    spell	= "potn20 potn47"
     editstring	= %clone_effect_inline=>~match=>"opcode = 11" opcode=>164~%
   END
 
 
-  // SPERXX - All spears
+  // SW1H03 - Kondar +1
+  //
+  // It's supposed to be +3 versus shapeshifters, but in practice the bonus
+  // only works against dopplegangers and lycanthropes.  Extend the bonus
+  // to other natural shapeshifters like druids, rakshasa and vampires.
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "sw1h03dr sw1h03du sw1h03rk sw1h03vm"
+    editstring	= ~opcode=>178 timing=>1 parameter1=>"object_index from [146 11 128 125]" parameter3=>2 parameter2=>"object_index from [4 5 4 4]"~
+  END
+
+  MAKE_PATCH
+    clone_effect_global_inline'1=>~match=>"opcode = 177 and resource = lycanhit" number_to_add=>4 resource=>"entry_index from [sw1h03dr sw1h03du sw1h03rk sw1h03vm]~
+    clone_effect_global_inline'2=>~match=>"opcode = 344 and parameter1 = 106" number_to_add=>4 parameter1=>"entry_index from [146 11 128 125]" parameter2=>"entry_index from [4 5 4 4]"~
+    clone_effect_inline=>~match=>"opcode = 177 and resource = cdsw1h03" number_to_add=>4 parameter1=>"entry_index from [146 11 128 125]" parameter2=>"entry_index from [4 5 4 4]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "sw1h03"
+    edits	= "patch_data"
+  END
+
+
+  // SPERxx - All spears
   //
   // Spears in BG games are all two-handed and as such should do
   // a base damage of 1d6+1, not 1d6.
@@ -108,7 +148,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_item
     STR_VAR
-    item	= "wand02"
+    item	= "wand03"
     editstring	= ~patch_ability_inline=>"projectile=>69"~
   END
 END	// item_fixes
