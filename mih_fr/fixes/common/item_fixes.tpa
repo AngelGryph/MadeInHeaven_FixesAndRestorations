@@ -15,6 +15,31 @@ BEGIN
   END
 
 
+  // POTN02 - Potion of Fire Resistance
+  // POTN09 - Potion of Heroism
+  // POTN18 - Potion of Absorption
+  // POTN22 - Potion of Cold Resistance
+  // POTN31 - Potion of Insulation
+  // POTN34 - Potion of Magic Protection
+  // POTN35 - Potion of Magic Shielding
+  // POTN36 - Potion of Master Thievery
+  // POTN37 - Potion of Mind Focussing
+  // POTN39 - Potion of Perception
+  // POTN41 - Potion of Power
+  // POTN42 - Potion of Regeneration
+  //
+  // These potions are all cumulative with themselves, leading to absurd
+  // bonuses if more than one is taken.  Prevent this effect stacking.
+
+  ACTION_FOR_EACH potion IN "potn02" "potn09" "potn18" "potn22" "potn31" "potn34" "potn35" "potn36" "potn37" "potn39" "potn41" "potn42"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
+      STR_VAR
+      spell_list	= "%potion%"
+    END
+  END
+
+
   // POTN17 - Elixir of Health
   //
   // Elixir of Health does not cure blindness or deafness, but it should.
