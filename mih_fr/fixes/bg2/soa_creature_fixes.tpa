@@ -27,6 +27,44 @@ BEGIN
   END
 
 
+  // Some elementals are not using the right "paws".
+  //
+  // NB: Correct enchantment level for paws is set in common fixes.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elairl01"
+    editstring	= ~replace_items=>"elairl(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elearl01 elearsu1 mekear01"
+    editstring	= ~replace_items=>"elearl(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elearsu kearth mdearth1 mdearth2 shearth"
+    editstring	= ~replace_items=>"elear(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elefel01 elfirl01"
+    editstring	= ~replace_items=>"fireelel(weapon1)"~
+  END
+
+
+  // Some greater elementals have wrong HD number
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "udelda udelde udeldf obsfir06 suelew1 suelew2"
+    editstring	= "levelGT=>16"
+  END
+
+
   // Invisible Stalker can be both summoned and randomly encountered in BG2.
   // so we need both gender=>summoned and gender=>neither versions.
 

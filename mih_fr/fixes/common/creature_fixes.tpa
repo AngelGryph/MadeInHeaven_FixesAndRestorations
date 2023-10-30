@@ -1,5 +1,76 @@
 DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
+  // Some greater earth elementals have wrong HD number
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elearg01"
+    editstring	= "levelGT=>16"
+  END
+
+
+  // Elemental paw enchantments are a bit all over the place.
+  // We try to systemetically fix it here.
+  // lesser elementals => +2
+  // normal and greater => +3
+  // princes (in tob) => +4
+
+  // BGEE lacks elair.itm and elearl.itm for some reason, so we create them
+  // if needed so the whole batch can be patched in one single place.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elearl.itm"
+  BEGIN
+    COPY_EXISTING "elear.itm" "elearl.itm"
+  END
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elair.itm"
+  BEGIN
+    COPY_EXISTING "elairl.itm" "elair.itm"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "elair elairl elear elearl fireelel fireelem"
+    editstring	= ~enchantment=>"object_index from [3 2 3 2 2 3]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elairsu1 elairsuw sumelair"
+    editstring	= ~replace_items=>"elairl(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elairsu2 elairsu3 elairsu4 swaair01 swaair02"
+    editstring	= ~replace_items=>"elair(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elearsuw sumelear"
+    editstring	= ~replace_items=>"elearl(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elearpr elearpr2 elearpr3 elearsu2 elearsu3 elearsu4 shearth swaear01 swaear02"
+    editstring	= ~replace_items=>"elear(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "elfirsu1 elfirsuw"
+    editstring	= ~replace_items=>"fireelel(weapon1)"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "shfire"
+    editstring	= ~replace_items=>"fireelem(weapon1)"~
+  END
+
+
   // Summoned monsters should not leave corpses or items, or give XP.
 
   MAKE_PATCH

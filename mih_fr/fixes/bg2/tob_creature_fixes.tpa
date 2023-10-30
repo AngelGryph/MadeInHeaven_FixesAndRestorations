@@ -40,6 +40,27 @@ BEGIN
   END
 
 
+  // Elemental weapon enchantment fixes
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "waterele"
+    editstring	= "enchantment=>3"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "elemchan elemcryo elemhydr elemimix elemogre elemsunn elemyanc elemzaam"
+    editstring	= "enchantment=>4"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "gorair01"
+    editstring	= ~replace_items=>"elairl(weapon1)"~
+  END
+
+
   // ## FIXED IN EEFP ##
   // Greater Water Elemental class fix
 
