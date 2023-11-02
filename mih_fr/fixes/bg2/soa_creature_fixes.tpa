@@ -112,32 +112,6 @@ BEGIN
 
 
   // ## FIXED IN EEFP ##
-  // Poison Mist can be both summoned and randomly encountered in BG2.
-  // so we need both gender=>summoned and genter=>neither versions.
-
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "mistposu.cre"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION clone_creature
-      STR_VAR
-      creature		= "mistpo01=>mistposu"
-      editstring	= "xp_value=>0 gender=>summoned"
-    END
-
-    LAUNCH_ACTION_FUNCTION edit_creature
-      STR_VAR
-      creature		= "mistpo01"
-      editstring	= "xp_value=>3500 gender=>neither"
-    END
-
-    LAUNCH_ACTION_FUNCTION edit_effect
-      STR_VAR
-      effect		= "sppois"
-      editstring	= "resource=>mistposu"
-    END
-  END
-
-
-  // ## FIXED IN EEFP ##
   // Correct BG2 Drizzt's proficiencies and make him dual-wield properly.
   // (using BG1EE's version as the correct one)
 

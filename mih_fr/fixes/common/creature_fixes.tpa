@@ -1,5 +1,21 @@
 DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
+  // Summoned monsters should not leave corpses or items, or give XP.
+
+  MAKE_PATCH
+    match=>~gender is_in [summoned summoned_demon]~
+    xp_value=>0
+    gold=>0
+    no_corpse=>1
+    patch_item_inline=>~undroppable=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_all_creatures
+    STR_VAR
+    edits	= "patch_data"
+  END
+
+
   // Some greater earth elementals have wrong HD number
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -71,19 +87,29 @@ BEGIN
   END
 
 
-  // Summoned monsters should not leave corpses or items, or give XP.
+  // ## FIXED IN EEFP ##
+  // Poison Mist can be both summoned and randomly encountered,
+  // so we need both gender=>summoned and genter=>neither versions.
 
-  MAKE_PATCH
-    match=>~gender is_in [summoned summoned_demon]~
-    xp_value=>0
-    gold=>0
-    no_corpse=>1
-    patch_item_inline=>~undroppable=>1~
-  END
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "mistposu.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "mistpo01=>mistposu"
+      editstring	= "xp_value=>0 gender=>summoned"
+    END
 
-  LAUNCH_ACTION_FUNCTION edit_all_creatures
-    STR_VAR
-    edits	= "patch_data"
+    LAUNCH_ACTION_FUNCTION edit_creature
+      STR_VAR
+      creature		= "mistpo01"
+      editstring	= "xp_value=>3500 gender=>neither"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_effect
+      STR_VAR
+      effect		= "sppois"
+      editstring	= "resource=>mistposu"
+    END
   END
 
 

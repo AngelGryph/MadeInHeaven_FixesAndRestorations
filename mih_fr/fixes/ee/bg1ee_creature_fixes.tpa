@@ -20,16 +20,6 @@ BEGIN
   END
 
 
-  // ## FIXED IN EEFP ##
-  // Poison Mist gender fix
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "mistpo01"
-    editstring	= "gender=>neither"
-  END
-
-
   // Consistently label myconoids as plants
 
   LAUNCH_ACTION_FUNCTION edit_creature
