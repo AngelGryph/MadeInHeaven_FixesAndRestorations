@@ -45,7 +45,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
-    creature	= "elearsu kearth mdearth1 mdearth2 shearth"
+    creature	= "elearsu kearth mdearth mdearth2 shearth"
     editstring	= ~replace_items=>"elear(weapon1)"~
   END
 
@@ -144,6 +144,48 @@ BEGIN
     STR_VAR
     creature	= "ar18skel ceskel01 endske01 endske02 endske03 endske04 firmon02 grskel1 grskel2 grtomb01 hgskl04 nevm2 riftcr02 rskel02 sahskel skelwa skelwa01 skelwa02 skelwa03 skelwasu suundead tanskw1"
     editstring	= ~race=>skeleton resist_slashing=>50 add_effect_inline=>"opcode=>297 target=>1 timing=>1 parameter2=>1"~
+  END
+
+
+  // Mind flayer resistances correction
+  //
+  // Some mind flayers are immune to all elements, but it's not consistently
+  // applied to all of them.  There is no reason for this, and they have enough
+  // magic resistance already without it.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature    = "mindfl01"
+    editstring  = ~resist_fire=>0 resist_cold=>0 resist_electricity=>0 resist_acid=>0 resist_magic_fire=>0 resist_magic_cold=>0~
+  END
+
+
+  // Ulitharid statistics corrections
+  //
+  // Ulitharids should have 11 hd, thac0 9, intelligence 20
+  // and be worth 11,000 xp.  All instances in the game got
+  // at least one of them wrong.
+  //
+  // Ulitharid are also using the generic mind flayer psionic
+  // blast instead of their own stronger one.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature    = "mindul01 ppmind01"
+    editstring  = ~level1=>11 xp_value=>11000 thac0=>9 intelligence=>20~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "%MIND_FLAYER_PSIONIC_BLAST%=>%ULITHARID_PSIONIC_BLAST%"
+    editstring	= ~patch_effect_inline=>"save_bonus=>-4 duration_if_variable=>120~
+  END
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "flayer02"
+    swap_out	= "MIND_FLAYER_PSIONIC_BLAST"
+    swap_in	= "ULITHARID_PSIONIC_BLAST"
   END
 END	// creature_fixes
 

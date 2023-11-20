@@ -87,6 +87,28 @@ BEGIN
     creature	= "globsham hgmnd2 hgmound"
     editstring	= ~general=>plant race=>shambling_mound class=>no_class gender=>"if gender = female then neither else no_change" sex=>4~
   END
+
+
+  // Mind flayer resistances corrections
+  //
+  // Some mind flayers are immune to all elements, but it's not consistently
+  // applied to all of them.  There is no reason for this, and they have enough
+  // magic resistance already without it.
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature    = "gorminc1 gorminc2 gorminc3"
+    editstring  = ~resist_fire=>0 resist_cold=>0 resist_electricity=>0 resist_acid=>0 resist_magic_fire=>0 resist_magic_cold=>0~
+  END
+
+
+  // Ulitharid HD/XP/thac0 corrections
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature    = "gormind"
+    editstring  = ~level1=>11 xp_value=>11000 thac0=>9~
+  END
 END	// tob_creature_fixes
 
 
