@@ -1,0 +1,33 @@
+DEFINE_ACTION_FUNCTION bg1_durlags_tower
+BEGIN
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      add_door_inline'1=>~door_name=>"Door001" door_id=>"DOOR001" door_linked=>1 door_icon=>30 door_open_bb_left=>3377 door_open_bb_top=>352 door_open_bb_right=>3415 door_open_bb_bottom=>430 door_closed_bb_left=>3380 door_closed_bb_top=>382 door_closed_bb_right=>3422 door_closed_bb_bottom=>465 door_x_coord_front=>3433 door_y_coord_front=>352 door_x_coord_back=>3357 door_y_coord_back=>430 door_trap_xloc=>3668 door_trap_yloc=>660~
+      add_door_vertex_open_inline'1=>~match=>"door_id = DOOR001" number_to_add=>7 vertex_xloc=>"entry_index from [3415 3377 3377 3385 3398 3412 3415]" vertex_yloc=>"entry_index from [430 405 358 352 355 368 381]"~
+      add_door_vertex_closed_inline'1=>~match=>"door_id = DOOR001" number_to_add=>7 vertex_xloc=>"entry_index from [3422 3422 3408 3393 3383 3380 3380]" vertex_yloc=>"entry_index from [436 386 382 387 399 414 465]"~
+      add_door_vertex_open_impeded_inline'1=>~match=>"door_id = DOOR001" number_to_add=>5 vertex_xloc=>"entry_index from [211 212 212 213 212]" vertex_yloc=>"entry_index from [33 33 34 34 35]"~
+      add_door_vertex_closed_impeded_inline'1=>~match=>"door_id = DOOR001" number_to_add=>5 vertex_xloc=>"entry_index from [212 213 212 213 212]" vertex_yloc=>"entry_index from [37 37 38 38 39]"~
+      add_door_inline'2=>~door_name=>"Door008" door_id=>"DOOR008" door_locked=>1 door_detect_trap=>1 door_linked=>1 door_icon=>30 door_open_bb_left=>2355 door_open_bb_top=>2317 door_open_bb_right=>2391 door_open_bb_bottom=>2394 door_closed_bb_left=>2391 door_closed_bb_top=>2310 door_closed_bb_right=>2439 door_closed_bb_bottom=>2376 door_x_coord_front=>2413 door_y_coord_front=>2404 door_x_coord_back=>2448 door_y_coord_back=>2300 door_script=>"CTLB" door_lock_difficulty=>50 door_trap_detection_difficulty=>50 door_trap_removal_difficulty=>60 door_is_trapped=>1 door_trap_xloc=>2708 door_trap_yloc=>2324~
+      add_door_vertex_open_inline'2=>~match=>"door_id = DOOR008" number_to_add=>7 vertex_xloc=>"entry_index from [2391 2355 2355 2362 2371 2382 2391]" vertex_yloc=>"entry_index from [2368 2394 2346 2332 2323 2317 2319]"~
+      add_door_vertex_closed_inline'2=>~match=>"door_id = DOOR008" number_to_add=>8 vertex_xloc=>"entry_index from [2391 2439 2439 2435 2424 2412 2399 2391]" vertex_yloc=>"entry_index from [2362 2376 2336 2325 2316 2311 2310 2317]"~
+      add_door_vertex_open_impeded_inline'2=>~match=>"door_id = DOOR008" number_to_add=>6 vertex_xloc=>"entry_index from [149 147 148 149 148 149]" vertex_yloc=>"entry_index from [198 199 199 199 200 200]"~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_area
+      STR_VAR
+      area	= "%DurlagsTower_D4%"
+      edits	= "patch_data"
+    END
+
+
+    COPY_EXISTING "%DurlagsTower_D4%.wed" "override"
+      LAUNCH_PATCH_FUNCTION add_wed_door
+        STR_VAR
+	name	= "DOOR001"
+	tiles	= "533=>4400 534=>4401 613=>4402 614=>4403"
+      END
+  END
+END	// bg1_durlags_tower
+
+
