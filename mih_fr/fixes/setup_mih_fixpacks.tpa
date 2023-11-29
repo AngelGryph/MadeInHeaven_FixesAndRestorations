@@ -88,7 +88,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "creature_fixes item_fixes spell_fixes table_fixes"
+    file	= "creature_fixes item_fixes kit_fixes spell_fixes table_fixes"
     location	= "common"
   END
 
