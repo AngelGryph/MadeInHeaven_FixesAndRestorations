@@ -85,18 +85,32 @@ BEGIN
   //
   // It's supposed to be +3 versus shapeshifters, but in practice the bonus
   // only works against dopplegangers and lycanthropes.  Extend the bonus
-  // to other natural shapeshifters like druids, rakshasa and vampires.
+  // to other natural shapeshifters like druids, fiends, rakshasa and vampires.
+
+  MAKE_PATCH
+    litvar_effects=>"[sw1h03dr sw1h03du sw1h03fd sw1h03rk sw1h03vm]"
+    litvar_ids_entries=>"[146 11 121 128 125]"
+    litvar_ids_files=>"[4 5 4 4 4]"
+    opcode=>178
+    timing=>1
+    parameter1=>"object_index from ids_entries"
+    parameter2=>"object_index from ids_files"
+    parameter3=>2
+  END
 
   LAUNCH_ACTION_FUNCTION make_effect
     STR_VAR
-    effect	= "sw1h03dr sw1h03du sw1h03rk sw1h03vm"
-    editstring	= ~opcode=>178 timing=>1 parameter1=>"object_index from [146 11 128 125]" parameter3=>2 parameter2=>"object_index from [4 5 4 4]"~
+    effect	= "sw1h03dr sw1h03du sw1h03fd sw1h03rk sw1h03vm"
+    edits	= "patch_data"
   END
 
   MAKE_PATCH
-    clone_effect_global_inline'1=>~match=>"opcode = 177 and resource = lycanhit" number_to_add=>4 resource=>"entry_index from [sw1h03dr sw1h03du sw1h03rk sw1h03vm]~
-    clone_effect_global_inline'2=>~match=>"opcode = 344 and parameter1 = 106" number_to_add=>4 parameter1=>"entry_index from [146 11 128 125]" parameter2=>"entry_index from [4 5 4 4]"~
-    clone_effect_inline=>~match=>"opcode = 177 and resource = cdsw1h03" number_to_add=>4 parameter1=>"entry_index from [146 11 128 125]" parameter2=>"entry_index from [4 5 4 4]"~
+    litvar_effects=>"[sw1h03dr sw1h03du sw1h03fd sw1h03rk sw1h03vm]"
+    litvar_ids_entries=>"[146 11 121 128 125]"
+    litvar_ids_files=>"[4 5 4 4 4]"
+    clone_effect_global_inline'1=>~match=>"opcode = 177 and resource = lycanhit" number_to_add=>"length effects" resource=>"entry_index from effects"~
+    clone_effect_global_inline'2=>~match=>"opcode = 344 and parameter1 = 106" number_to_add=>"length ids_entries" parameter1=>"entry_index from ids_entries" parameter2=>"entry_index from ids_files"~
+    clone_effect_inline=>~match=>"opcode = 177 and resource = cdsw1h03" number_to_add=>"length ids_files" parameter1=>"entry_index from ids_entries" parameter2=>"entry_index from ids_files"~
   END
 
   LAUNCH_ACTION_FUNCTION edit_item
