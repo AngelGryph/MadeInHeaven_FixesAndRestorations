@@ -2,18 +2,81 @@ DEFINE_ACTION_FUNCTION creature_fixes
 BEGIN
   // Summoned monsters should not leave corpses or items, or give XP.
 
-  MAKE_PATCH
-    match=>~gender is_in [summoned summoned_demon]~
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_fix
+  BEGIN
     xp_value=>0
     gold=>0
     no_corpse=>1
     patch_item_inline=>~undroppable=>1~
   END
 
-  LAUNCH_ACTION_FUNCTION edit_all_creatures
-    STR_VAR
-    edits	= "patch_data"
+  // Apply giant humanoid racial penalty to hit
+  // dwarves/gnome/halflings consistently.
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY giant_fix
+  BEGIN
+    delete_effect=>"resource is_in [giant1 giant2 giant3]"
+    add_effect_inline=>~number_to_add=>3 opcode=>177 target=>1 timing=>9 parameter2=>2 resource=>"entry_index from [giant1 giant2 giant3]"~
   END
+
+  // Apply the above fixes
+
+  COPY_EXISTING_REGEXP "^.*\.cre$" "override"
+    LAUNCH_PATCH_FUNCTION FJ_CRE_VALIDITY
+      INT_VAR
+      do_message	= 1
+      RET valid
+    END
+
+    PATCH_IF valid
+    BEGIN
+      LAUNCH_PATCH_FUNCTION CRE_read_gender
+        RET
+        gender	= value
+      END
+
+      PATCH_MATCH "%gender%"
+      WITH
+        "summoned"
+        "summoned_demon"
+        BEGIN
+          PATCH_PRINT "%SOURCE_RES% is a summoned creature, applying fixes."
+
+          LAUNCH_PATCH_FUNCTION apply_patches
+	    STR_VAR
+	    file_ext	= "CRE"
+	    edits 	= "summon_fix"
+          END
+        END
+        DEFAULT
+      END
+
+      LAUNCH_PATCH_FUNCTION CRE_read_general
+        RET
+        general	= value
+      END
+
+      PATCH_MATCH "%general%"
+      WITH
+        "gianthumanoid"
+        BEGIN
+          PATCH_PRINT "%SOURCE_RES% is a giant humanoid, applying fixes."
+
+          LAUNCH_PATCH_FUNCTION apply_patches
+	    STR_VAR
+	    file_ext	= "CRE"
+	    edits 	= "giant_fix"
+	  END
+        END
+        DEFAULT
+      END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  ACTION_CLEAR_ARRAY summon_fix
+  ACTION_CLEAR_ARRAY giant_fix
 
 
   // Some greater earth elementals have wrong HD number
