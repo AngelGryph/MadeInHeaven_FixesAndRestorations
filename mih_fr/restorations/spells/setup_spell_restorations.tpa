@@ -2,24 +2,10 @@ DEFINE_ACTION_FUNCTION setup_spell_restorations
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "sanitize_wizard_spell_slots"
-    locbase	= "shared/spells"
-  END
-
-
-  LAUNCH_ACTION_FUNCTION check_ini
-    STR_VAR
-    ini		= "recycle_unused_idsnames"
-    RET
-    recycle_unused_idsnames	= value
-  END
-
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
     file	= "spell_restorations_preproc"
     tra		= "spell_restorations"
   END
+
 
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
@@ -30,18 +16,17 @@ BEGIN
   OUTER_SET macro_spellcodes_read=0
   LAUNCH_ACTION_MACRO read_in_spellcodes
 
+
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
     file	= "spell_restorations_postproc"
     tra		= "spell_restorations"
   END
 
-  ACTION_IF recycle_unused_idsnames AND NOT is_eet
-  BEGIN
-    LAUNCH_ACTION_FUNCTION run
-      STR_VAR
-      file	= "recycle_unused_idsnames"
-    END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "clean_up_spell_ids"
   END
 END	// setup_spell_restorations
 
