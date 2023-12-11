@@ -2,13 +2,13 @@ DEFINE_ACTION_FUNCTION bg1_mini_quests
 BEGIN
   // Dialog additions and fixes
 
-  ADD_JOURNAL @2 @3 @4 @5 @6 @7
-
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
     file	= "bg1_mini_quests.d"
     location	= "dialogs"
   END
+
+  ADD_JOURNAL @2 @3 @4 @5 @6 @7
 
   LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
     STR_VAR

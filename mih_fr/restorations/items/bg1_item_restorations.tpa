@@ -1,9 +1,11 @@
 DEFINE_ACTION_FUNCTION bg1_item_restorations
 BEGIN
   MAKE_PATCH
-    litvar_after_these=>"[bow01 bow03 bow05 xbow01 xbow04]"
-    litvar_item_list=>"[bow02 bow04 bow06 xbow02 xbow05]"
-    clone_item_inline=>~match=>"item_resource is_in after_these" item_resource=>"entry_index from item_list" item_num_in_stock=>1~
+    clone_item_inline'1=>~match=>"item_resource = bow01" item_resource=>"bow02" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'2=>~match=>"item_resource = bow03" item_resource=>"bow04" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'3=>~match=>"item_resource = bow05" item_resource=>"bow06" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'4=>~match=>"item_resource = xbow01" item_resource=>"xbow02" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'5=>~match=>"item_resource = xbow04" item_resource=>"xbow05" item_num_in_stock=>1 state_identified=>1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -14,9 +16,13 @@ BEGIN
 
 
   MAKE_PATCH
-    litvar_after_these=>"[bow01 bow03 chan04 hamm01 helm01 sper01 xbow06]"
-    litvar_item_list=>"[bow02 bow04 chan05 hamm02 helm06 sper02 xbow02]"
-    clone_item_inline=>~match=>"item_resource is_in after_these" item_resource=>"entry_index from item_list" item_num_in_stock=>1~
+    clone_item_inline'1=>~match=>"item_resource = bow01" item_resource=>"bow02" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'2=>~match=>"item_resource = bow03" item_resource=>"bow04" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'3=>~match=>"item_resource = chan04" item_resource=>"chan05" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'4=>~match=>"item_resource = hamm01" item_resource=>"hamm02" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'5=>~match=>"item_resource = helm01" item_resource=>"helm06" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'6=>~match=>"item_resource = sper01" item_resource=>"sper02" item_num_in_stock=>1 state_identified=>1~
+    clone_item_inline'7=>~match=>"item_resource = xbow06" item_resource=>"xbow02" item_num_in_stock=>1 state_identified=>1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store

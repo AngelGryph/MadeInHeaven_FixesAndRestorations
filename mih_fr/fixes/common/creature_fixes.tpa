@@ -99,12 +99,12 @@ BEGIN
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "elearl.itm"
   BEGIN
-    COPY_EXISTING "elear.itm" "elearl.itm"
+    COPY_EXISTING "elear.itm" "override/elearl.itm"
   END
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "elair.itm"
   BEGIN
-    COPY_EXISTING "elairl.itm" "elair.itm"
+    COPY_EXISTING "elairl.itm" "override/elair.itm"
   END
 
   LAUNCH_ACTION_FUNCTION edit_item
