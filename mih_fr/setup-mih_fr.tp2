@@ -86,6 +86,8 @@ END
 BEGIN @19
 GROUP @1
 
+DEPRECATED ~Other mods do this better.~
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_summon_restorations"

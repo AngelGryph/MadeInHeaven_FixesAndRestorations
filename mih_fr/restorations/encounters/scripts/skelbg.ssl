@@ -1,0 +1,19 @@
+INCLUDE FILE(%MOD_FOLDER%/ssl/specials.ssl)
+
+IF TRIGGER
+  Target(Myself)
+  ActuallyInCombat()
+THEN DO
+  Action(ForceSpellOnMyself, BANEGUARD_MIRROR_IMAGE, "mirror_image", ONE_TURN|80|20)
+END
+
+
+IF TRIGGER
+  TargetBlock(PCSpellcasters)
+  TargetBlock(EnemiesInReverseOrder)
+  TriggerBlock(Enemy|MR|ResistMagicDamage|MagicMissile)
+THEN DO
+  Action(ForceSpellOnEnemy, BANEGUARD_MAGIC_MISSILE, "magic_missile", THREE_ROUNDS|70|30)
+END
+
+

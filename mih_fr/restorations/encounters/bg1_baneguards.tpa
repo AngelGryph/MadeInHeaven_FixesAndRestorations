@@ -1,0 +1,62 @@
+DEFINE_ACTION_FUNCTION bg1_baneguards
+BEGIN
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level               = 1
+    type                = 3
+    STR_VAR
+    idsname             = "BANEGUARD_MAGIC_MISSILE"
+    RET
+    baneguard_mm        = newname
+  END
+
+  MAKE_PATCH
+    spell_type=>"innate"
+    delete_ability=>"ability_min_level > 1"
+    patch_ability_inline=>"ability_icon_loc=>4 projectile=>69"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi112=>%baneguard_mm%"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level               = 2
+    type                = 3
+    STR_VAR
+    idsname             = "BANEGUARD_MIRROR_IMAGE"
+    RET
+    baneguard_mi        = newname
+  END
+
+  MAKE_PATCH
+    spell_type=>"innate"
+    delete_ability=>"ability_min_level > 1"
+    patch_ability_inline=>"ability_icon_loc=>4"
+    patch_effect_inline=>"duration_if_variable=>24"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi212=>%baneguard_mi%"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "skelbg.ssl"
+    location	= "scripts"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_creature
+    STR_VAR
+    creature	= "skelbg"
+    location	= "actors"
+    editstring	= "say_both_names=>0"
+  END
+END	// bg1_baneguards
+
+

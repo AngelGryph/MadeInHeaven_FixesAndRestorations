@@ -23,7 +23,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "saga_area_fixes saga_creature_fixes"
+      file	= "saga_area_fixes saga_dialog_fixes saga_creature_fixes"
       location	= "bg1"
     END
   END
