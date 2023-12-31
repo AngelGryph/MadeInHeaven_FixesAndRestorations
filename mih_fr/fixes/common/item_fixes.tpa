@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION item_fixes
 BEGIN
+/*
   // Externalize potion abilities to spells, if some other mod hasn't, already.
 
   ACTION_FOR_EACH potion IN "potn02" "potn03" "potn04" "potn05" "potn06" "potn07" "potn08" "potn09" "potn10" "potn11" "potn12" "potn13" "potn14" "potn15" "potn16" "potn17" "potn18" "potn19" "potn20" "potn21" "potn22" "potn23" "potn24" "potn25" "potn26" "potn27" "potn28" "potn29" "potn30" "potn31" "potn32" "potn33" "potn34" "potn35" "potn36" "potn37" "potn38" "potn39" "potn40" "potn41" "potn42" "potn43" "potn44" "potn45" "potn46" "potn47" "potn48" "potn52" "potn55" "ipotn08" "ttpot08"
@@ -79,6 +80,7 @@ BEGIN
     spell	= "potn20 potn47"
     editstring	= %clone_effect_inline=>~match=>"opcode = 11" opcode=>164~%
   END
+*/
 
 
   // SW1H03 - Kondar +1
