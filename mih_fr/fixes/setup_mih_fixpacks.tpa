@@ -96,7 +96,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
-      file	= "ee_spell_fixes ee_text_update"
+      file	= "ee_spell_fixes"
       location	= "ee"
     END
   END

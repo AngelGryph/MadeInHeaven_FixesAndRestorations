@@ -1,8 +1,0 @@
-DEFINE_ACTION_FUNCTION ee_text_update
-BEGIN
-  // Stinking Cloud description correction.
-
-  STRING_SET 12181 @0 26396 @0
-END	// ee_text_update
-
-
