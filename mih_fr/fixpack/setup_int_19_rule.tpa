@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION setup_int_19_rule
+BEGIN
+  OUTER_TEXT_SPRINT $int_table("MAX_SPELLS_PER_LEVEL" "19") "24"
+  OUTER_TEXT_SPRINT $int_table("MAX_SPELLS_PER_LEVEL" "20") "30"
+
+  LAUNCH_ACTION_FUNCTION 2daq_inject
+    INT_VAR
+    reflect	= 1
+    STR_VAR
+    resref	= "intmod"
+    array	= "int_table"
+  END
+END	// setup_int_19_rule
+
+
+

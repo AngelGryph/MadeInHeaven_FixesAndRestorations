@@ -1,7 +1,8 @@
 @0    = ~dummy~
-@1    = ~Fixes~
+@1    = ~Optional Fixes~
 @2    = ~Restorations~
 @3    = ~Tweaks~
 @4    = ~This mod is only for the Enhanced Editions of BG1 and BG2.~
 @5    = ~This mod requires the core fixes from EE Fixpack installed.~
-@11   = ~MiH P&P-based Fixpack~
+@10   = ~MiH P&P-based Fixpack~
+@11   = ~Intelligence 19 Rule~
