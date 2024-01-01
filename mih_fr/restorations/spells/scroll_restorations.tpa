@@ -1,0 +1,80 @@
+DEFINE_ACTION_FUNCTION scroll_restorations
+BEGIN
+  // A whole bunch of priest scrolls were dummied out from BG1/BG2.
+
+  ACTION_CLEAR_ARRAY spell_scrolls
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scrolls
+  BEGIN
+    "scrl19" => "%CLERIC_BLESS%"
+    "scrl20" => "%CLERIC_COMMAND%"
+    "scrl21" => "%CLERIC_CURE_LIGHT_WOUNDS%"
+    "scrl22" => "%CLERIC_DETECT_EVIL%"
+    "scrl23" => "%CLERIC_ENTANGLE%"
+    "scrl24" => "%CLERIC_MAGIC_STONE%"
+    "scrl25" => "%CLERIC_PROTECT_FROM_EVIL%"
+    "scrl26" => "%CLERIC_REMOVE_FEAR%"
+    "scrl27" => "%CLERIC_SANCTUARY%"
+    "scrl28" => "%CLERIC_SHILLELAGH%"
+    "scrl29" => "%CLERIC_AID%"
+    "scrl30" => "%CLERIC_BARKSKIN%"
+    "scrl31" => "%CLERIC_CHANT%"
+    "scrl32" => "%CLERIC_CHARM_PERSON%"
+    "scrl33" => "%CLERIC_FIND_TRAPS%"
+    "scrl34" => "%CLERIC_FLAME_BLADE%"
+    "scrl35" => "%CLERIC_GOOD_BERRIES%"
+    "scrl36" => "%CLERIC_HOLD_PERSON%"
+    "scrl37" => "%CLERIC_KNOW_ALIGNMENT%"
+    "scrl38" => "%CLERIC_RESIST_FIRE%"
+    "scrl39" => "%CLERIC_SILENCE_15_FOOT%"
+    "scrl40" => "%CLERIC_SLOW_POISON%"
+    "scrl41" => "%CLERIC_SPIRITUAL_HAMMER%"
+    "scrl42" => "%CLERIC_DRAW_UPON_HOLY_MIGHT%"
+    "scrl43" => "%CLERIC_CURE_BLIND_DEAF%"
+    "scrl44" => "%CLERIC_ANIMATE_DEAD%"
+    "scrl45" => "%CLERIC_CALL_LIGHTNING%"
+    "scrl46" => "%CLERIC_DISPEL_MAGIC%"
+    "scrl47" => "%CLERIC_GLYPH_OF_WARDING%"
+    "scrl48" => "%CLERIC_HOLD_ANIMAL%"
+    "scrl49" => "%CLERIC_PROTECTION_FROM_FIRE%"
+    "scrl50" => "%CLERIC_REMOVE_CURSE%"
+    "scrl51" => "%CLERIC_REMOVE_PARALYSIS%"
+    "scrl52" => "%CLERIC_INVISIBILITY_PURGE%"
+    "scrl53" => "%CLERIC_MISCAST_MAGIC%"
+    "scrl54" => "%CLERIC_RIGID_THINKING%"
+    "scrl55" => "%CLERIC_STRENGTH_OF_ONE%"
+    // "scrl56" is CLERIC_CURE_SERIOUS_WOUNDS, which is present
+    "scrl57" => "%CLERIC_ANIMAL_SUMMONING_1%"
+    // "scrl58" is CLERIC_FREE_ACTION, which is present
+    // "scrl59" is CLERIC_NEUTRALIZE_POISON, which is present
+    "scrl60" => "%CLERIC_ANIMAL_SUMMONING_2%"
+    // "scrl61" is CLERIC_CURE_CRITICAL_WOUNDS, which is present
+    // "scrl62" is CLERIC_FLAME_STRIKE, which is present
+    // "scrl63" is CLERIC_RAISE_DEAD, which is present
+    "scrl88" => "%WIZARD_FOG_CLOUD%"
+  END
+
+
+  // Replace a few broken/missing icon files with the spella files,
+  // they are identical for spells that were in BG1.
+
+  COPY_EXISTING "%CLERIC_BLESS%a.bam" "iscrl19.bam"
+  COPY_EXISTING "%CLERIC_BARKSKIN%a.bam" "iscrl30.bam"
+  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_1%a.bam" "iscrl57.bam"
+  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_2%a.bam" "iscrl60.bam"
+  
+
+  ACTION_PHP_EACH spell_scrolls AS scroll=>spell
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%scroll%.itm"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION spl_make_scroll
+        STR_VAR
+	spell_resref	= "%spell%"
+	scroll_resref	= "%scroll%"
+	icon		= "i%scroll%"
+      END
+    END
+  END
+END	// scroll_restorations
+
+

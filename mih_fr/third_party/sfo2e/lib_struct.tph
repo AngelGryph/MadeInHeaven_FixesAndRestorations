@@ -3583,6 +3583,11 @@ BEGIN
 		strref BEGIN
 			READ_STRREF offset value
 		END
+		flag BEGIN
+			n=$"SFO_%strtype%_flags"("%arguments%")
+			READ_BYTE offset byte
+			value = (byte BAND (2**n)) >> n
+		END
 		DEFAULT
 			PATCH_WARN "unrecognized type %type% in struct_get"
 		END

@@ -1,0 +1,71 @@
+DEFINE_ACTION_FUNCTION high_hedge
+BEGIN
+  // Two additional shops, highed2 and highhed3 exist in the
+  // game files, hinting that at some point Thalantyr was
+  // supposed to upgrade his inventory like Olrick and Ribald
+  // do.  This modification integrates most of the new items
+  // from those stores into Thalantyr's existing store, minus
+  // some for balancing reasons.
+
+  sto.edit[highhedg]
+  [
+    REMOVE_STORE_ITEM "SCRL87" "SCRL90" "SCRL94"
+    ADD_STORE_ITEM "AROW05" AFTER "AROW04" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "AROW06" AFTER "AROW05" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "AROW09" AFTER "AROW06" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "AROW10" AFTER "AROW09" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "AROW11" AFTER "AROW10" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "BOLT06" AFTER "BOLT04" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "BULL03" AFTER "BULL02" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "DART03" AFTER "DART02" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "DART04" AFTER "DART03" #5 #0 #0 identified #20
+    ADD_STORE_ITEM "POTN03" AFTER "POTN02" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN04" AFTER "POTN03" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN05" AFTER "POTN04" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN06" AFTER "POTN05" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN07" AFTER "POTN06" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN09" AFTER "POTN08" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN10" AFTER "POTN09" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN11" AFTER "POTN10" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN12" AFTER "POTN11" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN13" AFTER "POTN12" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN14" AFTER "POTN13" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN18" AFTER "POTN17" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN19" AFTER "POTN18" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN21" AFTER "POTN19" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN24" AFTER "POTN21" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN27" AFTER "POTN26" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN28" AFTER "POTN27" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN29" AFTER "POTN28" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN36" AFTER "POTN31" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN37" AFTER "POTN36" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "POTN46" AFTER "POTN45" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL85" AFTER "SCRL84" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL86" AFTER "SCRL85" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL87" AFTER "SCRL86" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL90" AFTER "SCRL89" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL91" AFTER "SCRL90" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL94" AFTER "SCRL93" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL95" AFTER "SCRL94" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL97" AFTER "SCRL96" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL99" AFTER "SCRL98" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1B" AFTER "SCRL99" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1C" AFTER "SCRL1B" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1D" AFTER "SCRL1C" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1E" AFTER "SCRL1D" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1G" AFTER "SCRL1F" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1H" AFTER "SCRL1G" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1K" AFTER "SCRL1J SCRL1I" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1L" AFTER "SCRL1K" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1M" AFTER "SCRL1L" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1N" AFTER "SCRL1M" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1O" AFTER "SCRL1N" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1S" AFTER "SCRL1R SCRL1Q" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "SCRL1T" AFTER "SCRL1S" #1 #0 #0 identified #3
+    ADD_STORE_ITEM "WAND03" AFTER "WAND02" #12 #0 #0 identified #1
+    ADD_STORE_ITEM "WAND05" AFTER "WAND03" #12 #12 #0 identified #1
+    ADD_STORE_ITEM "WAND06" AFTER "WAND05" #12 #0 #0 identified #1
+    ADD_STORE_ITEM "WAND07" AFTER "WAND06" #12 #0 #0 identified #1
+    ADD_STORE_ITEM "WAND10" AFTER "WAND08" #12 #0 #0 identified #1
+  ]
+END	// high_hedge

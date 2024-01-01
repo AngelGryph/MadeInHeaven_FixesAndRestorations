@@ -1,0 +1,140 @@
+// Made in Heaven function library
+//
+// These are custom functions I use in my mods.  If there are any that you
+// think you can use in yours, feel free to grab them.  A bit of credit would
+// be nice of course. <3
+
+
+// add_spell_to_contingx
+//
+// This function adds a given spell to contingx.2da, preventing it from
+// being used in contingencies and sequencers.
+
+DEFINE_ACTION_FUNCTION add_spell_to_contingx
+  STR_VAR
+  spl	= ""
+  ids	= ""
+BEGIN
+  ACTION_IF "%ids%" STRING_COMPARE ""
+  BEGIN
+    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+      STR_VAR
+      spell_name	= "%ids%"
+      RET
+      spl		= spell_res
+    END
+  END
+
+  ACTION_IF "%spl%" STRING_EQUAL ""
+  BEGIN
+    FAIL ~Function add_spell_to_contingx called without either spl or ids set!~
+  END
+
+  COPY_EXISTING - "%spl%.spl" "%work_dir%"
+    READ_LONG 0x0034 level
+
+  TO_UPPER spl
+
+  COPY_EXISTING "contingx.2da" "override"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+
+    SET found = 0
+    FOR (i = 0; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY i level 10 entry
+      PATCH_IF NOT found AND "%entry%" STRING_EQUAL "****"
+      BEGIN
+        SET found = 1
+        SET_2DA_ENTRY i level cols "%spl%"
+      END
+    END
+
+    PRETTY_PRINT_2DA
+    BUT_ONLY_IF_IT_CHANGES
+
+  ACTION_IF NOT found
+  BEGIN
+    OUTER_TEXT_SPRINT new_row "%rows%       ****    ****    ****    ****    ****    ****    ****    ****    ****"
+    OUTER_PATCH_SAVE new_row "%new_row%"
+    BEGIN
+      SET_2DA_ENTRY 0 level cols "%spl%"
+    END
+    APPEND "contingx.2da" "%new_row%"
+  END
+END
+
+
+// copy_soundset
+//
+// Copies all sounds from one creature to another, using WeiDU's
+// built-in macros.
+
+DEFINE_ACTION_FUNCTION copy_soundset
+  INT_VAR
+  overwrite	= 2
+  STR_VAR
+  src	= ""
+  dst   = ""
+BEGIN
+  OUTER_TEXT_SPRINT soundset "sounds"
+  OUTER_TEXT_SPRINT npc "%src%.cre"
+
+  LAUNCH_ACTION_MACRO READ_SOUNDSET
+
+  OUTER_TEXT_SPRINT npc "%dst%.cre"
+  LAUNCH_ACTION_MACRO WRITE_SOUNDSET
+END
+
+
+// edit_itemexcl
+//
+// Add or update an item in itemexcl.
+
+DEFINE_ACTION_FUNCTION edit_itemexcl
+  INT_VAR
+  mask		= 0
+  enable	= 1
+  STR_VAR
+  item		= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "update_itemexcl_2da"
+    RET
+    update_itemexcl_2da	= value
+  END
+
+  ACTION_IF NOT VARIABLE_IS_SET update_itemexcl_2da
+  BEGIN
+    OUTER_SET update_itemexcl_2da = 3
+  END
+
+  ACTION_IF (update_itemexcl_2da & mask) > 0
+  BEGIN
+    OUTER_SET found = 0
+    COPY_EXISTING "itemexcl.2da" "override"
+      COUNT_2DA_COLS cols
+      COUNT_2DA_ROWS cols rows
+
+      FOR (SET i = 1; i < rows; ++i)
+      BEGIN
+        READ_2DA_ENTRY i 0 cols resref
+	PATCH_IF NOT found AND "%resref%" STRING_EQUAL_CASE "%item%"
+	BEGIN
+	  SET found = 1
+	  SET_2DA_ENTRY i 1 cols "%enable%"
+	END
+      END
+
+      BUT_ONLY_IF_IT_CHANGES
+
+
+    ACTION_IF NOT found
+    BEGIN
+      APPEND "itemexcl.2da" "%item%   %enable%"
+    END
+  END
+END
+
+

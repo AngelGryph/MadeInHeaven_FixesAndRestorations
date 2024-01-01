@@ -1,0 +1,85 @@
+DEFINE_ACTION_FUNCTION scrolls_into_temples
+BEGIN
+  COPY_EXISTING_REGEXP "^.+\.sto$" "override"
+    LPF struct_get STR_VAR arguments = "type" RET type = value END
+    LPF struct_get STR_VAR arguments = "can_buy" RET sells_items = value END
+    LPF struct_get STR_VAR arguments = "can_buy_cures" RET sells_cures = value END
+
+    PATCH_IF type = 3
+    BEGIN
+      PATCH_IF sells_cures
+      BEGIN
+        LAUNCH_PATCH_FUNCTION ADD_STORE_CURE
+	  INT_VAR
+	  price		= 150
+	  STR_VAR
+	  spell_name	= "%CLERIC_CURE_BLIND_DEAF%"
+	  position	= "AFTER %CLERIC_SLOW_POISON%"
+	END
+      END
+
+      PATCH_IF sells_items
+      BEGIN
+        REMOVE_STORE_ITEM "scrl56" "scrl58" "scrl59" "scrl61" "scrl62" "scrl63"
+
+        // Scrolls for level 1 spells
+        ADD_STORE_ITEM "scrl19" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl20" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl21" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl22" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl23" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl24" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl25" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl26" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl27" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl28" LAST #1 #0 #0 "identified" #2
+
+        // Scrolls for level 2 spells
+        ADD_STORE_ITEM "scrl29" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl30" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl31" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl32" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl33" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl34" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl35" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl36" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl37" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl38" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl39" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl40" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl41" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl42" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl43" LAST #1 #0 #0 "identified" #2
+
+        // Scrolls for level 3 spells
+        ADD_STORE_ITEM "scrl44" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl45" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl46" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl47" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl48" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl49" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl50" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl51" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl52" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl53" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl54" LAST #1 #0 #0 "identified" #2
+        ADD_STORE_ITEM "scrl55" LAST #1 #0 #0 "identified" #2
+
+        // Scrolls for level 4 spells
+        ADD_STORE_ITEM "scrl56" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl57" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl58" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl59" LAST #1 #0 #0 "identified" #1
+
+        // Scrolls for level 5 spells
+        ADD_STORE_ITEM "scrl60" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl61" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl62" LAST #1 #0 #0 "identified" #1
+        ADD_STORE_ITEM "scrl63" LAST #1 #0 #0 "identified" #1
+      END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// scrolls_into_temples
+
+

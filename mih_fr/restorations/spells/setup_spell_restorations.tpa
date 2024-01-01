@@ -1,0 +1,41 @@
+DEFINE_ACTION_FUNCTION setup_spell_restorations
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "spell_restorations_preproc"
+    tra		= "spell_restorations"
+  END
+
+
+  LAUNCH_ACTION_FUNCTION grand_unified_installer
+    STR_VAR
+    copy_files	= ""
+    tra		= "spell_restorations"
+  END
+
+  LAM data_spell_resrefs
+  LAM data_scroll_resrefs
+
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "spell_restorations_postproc scroll_restorations"
+    tra		= "spell_restorations"
+  END
+
+
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/include" "^.*\.tpa$"
+  BEGIN
+    OUTER_TEXT_SPRINT file "%BASH_FOR_RES%"
+    ACTION_TO_LOWER file
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file
+      location  = "include"
+      tra       = "spell_restorations"
+    END
+  END
+END	// setup_spell_restorations
+
+

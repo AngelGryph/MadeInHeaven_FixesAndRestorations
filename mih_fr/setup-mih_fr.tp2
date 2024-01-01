@@ -32,6 +32,11 @@ REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
 REQUIRE_COMPONENT "setup-eefixpack.tp2" "0" @5
 
+
+// ========================
+// Fixpack & Optional Fixes
+// ========================
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_fixpack"
@@ -48,6 +53,39 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_int_19_rule"
   location	= "fixpack"
+END
+
+
+// ============
+// Restorations
+// ============
+
+
+// Spell Restorations
+
+BEGIN @22
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_spell_restorations"
+  location	= "restorations/spells"
+END
+
+
+// Store Restorations
+
+BEGIN @23
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_store_restorations"
+  location	= "restorations/stores"
 END
 
 
