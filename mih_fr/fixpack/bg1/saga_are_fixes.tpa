@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION saga_are_fixes
+BEGIN
+  // For some reason, in EE the ability to close the door to
+  // Joira's house at the Friendly Arm Inn was removed.
+
+  are.edit[%FriendlyArmInn%]
+  [
+    m.door_open_vertex.delete{~%p_name%~ == "Door2306"}	// Play it safe.
+    m.door.alter{s_box_open_left = 1530;;s_box_open_top = 2481;;s_box_open_right = 1556;;s_box_open_bottom = 2542;;s_cannot_close = 0|match=~"%s_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1530;;s_y = 2537|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1556;;s_y = 2542|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1556;;s_y = 2497|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1555;;s_y = 2490|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1551;;s_y = 2485|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1546;;s_y = 2481|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1541;;s_y = 2481|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1535;;s_y = 2483|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1531;;s_y = 2487|match_parent=~"%p_name%" == "Door2306"~}
+    m.door_open_vertex.add{s_x = 1530;;s_y = 2500|match_parent=~"%p_name%" == "Door2306"~}
+  ]
+END	// saga_are_fixes

@@ -1,0 +1,24 @@
+DEFINE_ACTION_FUNCTION unique_clabs_and_hlas
+BEGIN
+  // Sorcerer is using the mage HLA table,
+  // but game files show they should have
+  // their own.  This causes issues when
+  // adding new mage kits.
+
+  COPY_EXISTING "luma0.2da" "override/luso0.2da"
+
+  OUTER_TEXT_SPRINT $hla_table("SORCERER" "ABBREV") "So0"
+  OUTER_TEXT_SPRINT $hla_table("DRAGON_DISCIPLE" "ABBREV") "So0"
+
+  LAUNCH_ACTION_FUNCTION 2daq_inject
+    STR_VAR
+    resref	= "luabbr"
+    array	= "hla_table"
+  END
+
+
+  // Ensure unique clab- and lua tables and that all tables actually exist.
+
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
+END	// unique_clabs_and_hlas

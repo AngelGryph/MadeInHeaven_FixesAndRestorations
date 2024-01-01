@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION table_corrections
+BEGIN
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "all"
+    postfix	= "2da"
+    location	= "common/resources"
+  END
+
+  LAUNCH_ACTION_MACRO data_thac0
+END	// table_corrections
+
+

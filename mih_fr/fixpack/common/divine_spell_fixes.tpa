@@ -1,0 +1,44 @@
+DEFINE_ACTION_FUNCTION divine_spell_fixes
+BEGIN
+  // SPPR103 - Cure Light Wounds
+  // SPPR315 - Cure Medium Wounds
+  // SPPR401 - Cure Serious Wounds
+  // SPPR502 - Cure Critical Wounds
+  // SPPR514 - Mass Cure
+  //
+  // Most cure spells have the undocumented effect of also curing
+  // drunkenness, which is illogical and has no basis in P&P.
+  //
+  // Note that Lay on Hands doesn't do this, so it's not even
+  // internally consistent.
+
+  spl.edit[sppr103 sppr315 sppr401 sppr502 sppr514 spin101 spin958]
+  [
+    m.ab_fx.delete{~%s_resource%~ == "#curedrk"}
+  ]
+
+
+  // SPPR108 - Remove Fear
+  // SPCL222 - Remove Fear (Cavalier innate)
+  //
+  // Unlike the wizardly Resist Fear, these have the NON-COMBAT secondary
+  // type instead of SPECIFICPROTECTIONS, resulting in inconsistent interaction
+  // with spells like Breach.  This is likely an oversight, there are hints
+  // these spells originally would not have a duration.
+
+  spl.edit[sppr108 spcl222]
+  [
+    m_sectype = 2
+  ]
+
+
+  // SPPR404 - Neutralize Poison
+  //
+  // Slow Poison cures drunkenness, but Neutralize Poison does not.  Let's
+  // fix this oversight, shall we?
+
+  spl.edit[sppr404]
+  [
+    m.ab_fx.clone{s_resource := "#curedrk"|match=~"%s_resource%" == "#curepsn"~}
+  ]
+END	// divine_spell_fixes

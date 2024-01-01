@@ -7,7 +7,7 @@ BACKUP "weidu_external/backup/mih_fr"
 SUPPORT "https://www.gibberlings3.net/forums/topic/29992-my-new-made-in-heaven-mods/"
 VERSION "v1"
 
-//MODDER setup_tra none area_variables warn missing_extern warn missing_resref warn ict2_actions none missing_eval none overwriting_file none fun_args warn
+MODDER setup_tra none area_variables warn missing_extern warn missing_resref warn ict2_actions none missing_eval none overwriting_file none fun_args warn
 
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
@@ -22,5 +22,21 @@ LANGUAGE "English"
          "english"
 	 "mih_fr/language/english/setup-mih_fr.tra"
 	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
+
+
+// MiH P&P-based Fixpack
+
+BEGIN @11
+GROUP @1
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+REQUIRE_COMPONENT "setup-eefixpack.tp2" "0" @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_fixpack"
+  location	= "fixpack"
+END
 
 

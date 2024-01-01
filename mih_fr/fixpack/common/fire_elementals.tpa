@@ -1,0 +1,37 @@
+DEFINE_ACTION_FUNCTION fire_elementals
+BEGIN
+  // FIREELEL
+  // FIREELEM
+  // ELEMZAAM
+  //
+  // Enchantments of "paw" items are all over the place.  Common fire
+  // elementals are better at hitting stuff than Zaaman Rul himself!
+
+  itm.edit[fireelel]
+  [
+    m_enchantment = 2
+  ]
+
+  itm.edit[fireelem]
+  [
+    m_enchantment = 3
+  ]
+
+  itm.edit[elemzaam]
+  [
+    m_enchantment = 4
+  ]
+
+
+  // Correct the "paw" items for several fire elementals.
+
+  cre.edit[elfirsu1 elfirsuw]
+  [
+    m.cre_add_items{fireelel(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[shfire]
+  [
+    m.cre_add_items{fireelem(weapon1)|replace:i=1}
+  ]
+END	// fire_elementals

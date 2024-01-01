@@ -1,0 +1,23 @@
+DEFINE_ACTION_FUNCTION giants_vs_dwarves
+BEGIN
+  // The penalty for giants to hit dwarves, gnomes and halflings is
+  // inconsistentlky applied, some have it and others don't.
+  //
+  // Consistently apply this to all giant humanoids.
+
+  COPY_EXISTING_REGEXP "^.+\.cre$" "override"
+    LPF struct_get STR_VAR arguments = "general" RET general = value END
+
+    PATCH_IF general = IDS_OF_SYMBOL("general" "gianthumanoid")
+    BEGIN
+      LPF struct_read RET_ARRAY m = struct END
+      m.fx.delete{~%s_resource%~ STRING_MATCHES_REGEXP "giant[1-3]" == 0}
+      m.fx.add{s_opcode = 177;;s_target = 1;;s_timing = 9;;s_parameter2 = 2;;s_resource := "giant1"}
+      m.fx.add{s_opcode = 177;;s_target = 1;;s_timing = 9;;s_parameter2 = 2;;s_resource := "giant2"}
+      m.fx.add{s_opcode = 177;;s_target = 1;;s_timing = 9;;s_parameter2 = 2;;s_resource := "giant3"}
+      LPF struct_write STR_VAR struct = "m" END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// giants_vs_dwarves
+

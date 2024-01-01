@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION bp_cre_fixes
+BEGIN
+  // Black Pits shambling mound general/race correction.
+
+  cre.edit[bpshamb]
+  [
+    m_general := "plant"
+    m_race := "shambling_mound"
+  ]
+END	// bp_cre_fixes

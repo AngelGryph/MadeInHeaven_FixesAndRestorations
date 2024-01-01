@@ -1,0 +1,53 @@
+DEFINE_ACTION_FUNCTION earth_elementals
+BEGIN
+  // ELEAR
+  // ELEARL
+  //
+  // Several earth elementals have weapon echantments not matching
+  // their own immunities.  Common earth elementals are better at
+  // hitting stuff than Sunnis himself!
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elearl.itm"
+  BEGIN
+    itm.copy[elear=>elearl]	// Missing in BGEE
+  END
+  
+  itm.edit[elearl]
+  [
+    m_enchantment = 2
+  ]
+
+  itm.edit[elear]
+  [
+    m_enchantment = 3
+  ]
+
+  itm.edit[elemsunn]
+  [
+    m_enchantment = 4
+  ]
+
+
+  // Various earth elementals not using the correct "paw" item.
+
+  cre.edit[elearsuw sumelear]
+  [
+    m.cre_add_items{elearl(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[elearpr elearpr2 elearpr3 elearsu2 elearsu3 elearsu4 shearth swaear01 swaear02]
+  [
+    m.cre_add_items{elear(weapon1)|replace:i=1}
+  ]
+
+
+  // ELEARG01 - Greater Earth Elemental
+  //
+  // This creature should have 16 HD, but has only 10 in BGEE,
+  // even though its thac0, hp and saves are for a 16 hd creature.
+
+  cre.edit[elearg01]
+  [
+    m_level1 = 16
+  ]
+END	// earth_elementals

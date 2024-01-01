@@ -1,0 +1,29 @@
+DEFINE_ACTION_FUNCTION arcane_spell_fixes
+BEGIN
+  // SPWI213 - Stinking Cloud
+  // SPWI004 - Stinking Cloud (Trap)
+  // SPWM187 - Stinking Cloud (Wild Surge)
+  // SPIN940 - Stinking Cloud (Mephit innate)
+  //
+  // The +2 to saving throws has no basis in P&P.
+
+  spl.edit[spwi213 spwi004 spwm187 spin940|edit_strrefs_in_place:i=1]
+  [
+    m_description := @0
+    m.ab_fx.alter{save_bonus = 0}
+  ]
+
+
+  // SPWI313 - Skull Trap
+  //
+  // Damage dice are wrong and the spell scales way further than Mystra
+  // would allow in 1678 DR; Skull Trap should do 2d4 + 1d4/level, capped
+  // to 12d4 at level 10.
+
+  spl.edit[spwi313|edit_strrefs_in_place:i=1]
+  [
+    m_description := @1
+    m.ab.delete{s_level > 10}
+    m.ab_fx.alter{s_dicenumber = (p_level > 1) ? p_level + 2 : 5;;s_dicesize = 4}
+  ]
+END	// arcane_spell_fixes

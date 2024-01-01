@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION skeleton_warriors
+BEGIN
+  // Some skeleton warriors are labeled as humans, not skeletons.
+  // This is likely a leftover from oBG1 where this was done as
+  // a crude way to give them their turning immunity.
+
+  COPY_EXISTING_REGEXP "^.+\.cre$" "override"
+    LPF struct_get STR_VAR arguments = "class" RET class = value END
+
+    PATCH_IF class = IDS_OF_SYMBOL("class" "skeleton_warrior")
+    BEGIN
+      LPF struct_read RET_ARRAY m = struct END
+      m_race := "skeleton"
+      m_resist_slashing = 50
+      m.fx.add{s_opcode = 297;;s_target = 1;;s_timing = 9;;s_parameter2 = 1}
+      LPF struct_write STR_VAR struct = "m" END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// skeleton_warriors

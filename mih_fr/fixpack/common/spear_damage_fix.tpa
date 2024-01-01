@@ -1,0 +1,19 @@
+DEFINE_ACTION_FUNCTION spear_damage_fix
+BEGIN
+  // Spears are two-handed weapons in the game, but they don't
+  // use the proper damage values for two-handed spears.
+
+  COPY_EXISTING_REGEXP "^.+\.itm" "override"
+    LPF struct_get STR_VAR arguments = "category" RET category = value END
+    LPF struct_get STR_VAR arguments = "proficiency" RET proficiency = value END
+
+    PATCH_IF category = 0x1d AND proficiency = 0x62
+    BEGIN
+      LPF struct_read RET_ARRAY m = struct END
+      m_unidentified_description-string = 16283
+      m.ab.alter{s_damage_bonus = m_enchantment + 1|match="s_dicenumber > 0"}
+      LPF struct_write STR_VAR struct = "m" END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// spear_damage_fix

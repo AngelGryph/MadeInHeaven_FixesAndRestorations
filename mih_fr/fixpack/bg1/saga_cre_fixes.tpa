@@ -1,0 +1,25 @@
+DEFINE_ACTION_FUNCTION saga_cre_fixes
+BEGIN
+  // Dread Wolves and Wraith Spiders are undead,
+  // and should be immune to cold.
+
+  cre.edit[wolfdi wolfdr spidwr]
+  [
+    m_general := "undead"
+    m_resist_cold = 100
+    m_resist_magic_cold = 100
+  ]
+
+
+  // Some xvarts have higher xp values but aren't
+  // actually any tougher than others.
+
+  cre.edit[xvart02 xvart03 xvart2 xvarth]
+  [
+    m_level1 = 2
+    m_hp = 15
+    m_thac0 = 18
+  ]
+END
+
+

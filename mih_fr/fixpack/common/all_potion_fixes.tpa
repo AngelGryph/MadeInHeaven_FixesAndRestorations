@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION all_potion_fixes
+BEGIN
+  // Contrary to what Hull thinks, Poison Antidotes
+  // do not actually cure drunkenness at all.
+
+  itm.edit[potn20 potn47]
+  [
+    m.ab_fx.clone{s_resource := "#curedrk"|match=~"%s_resource%" == "#curepsn"~}
+  ]
+
+
+  // By P&P rules, Elixir of Health should cure
+  // blindness and deafness, but it doesn't.
+
+  itm.edit[potn17]
+  [
+    m.ab_fx.clone{s_resource := "#curebld"|match=~"%s_resource%" == "#curepsn"~}
+    m.ab_fx.clone{s_resource := "#curedef"|match=~"%s_resource%" == "#curepsn"~}
+  ]
+END	// all_potion_fixes

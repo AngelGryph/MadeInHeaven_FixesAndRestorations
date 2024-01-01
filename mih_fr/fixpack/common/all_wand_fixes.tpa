@@ -1,0 +1,15 @@
+DEFINE_ACTION_FUNCTION all_wand_fixes
+BEGIN
+  // Wand of Magic Missiles
+  //
+  // As per P&P, this wand should launch two Magic Missiles,
+  // not just one.  If we're really pedantic they should also
+  // be targetable at different foes, but let's not go there...
+
+  itm.edit[wand03]
+  [
+    m.ab.alter{s_projectile = 69}
+  ]
+END	// all_wand_fixes
+
+

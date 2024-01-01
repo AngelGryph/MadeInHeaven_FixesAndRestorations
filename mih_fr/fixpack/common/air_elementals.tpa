@@ -1,0 +1,42 @@
+DEFINE_ACTION_FUNCTION air_elementals
+BEGIN
+  // ELAIR
+  // ELAIRL
+  // ELEMCHAN
+  //
+  // Enchantments of "paw" items are all over the place.  Common air
+  // elementals are better at hitting stuff than Chan himself!
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elair.itm"
+  BEGIN
+    itm.copy[elairl=>elair]	// Missing in BGEE.
+  END
+
+  itm.edit[elairl]
+  [
+    m_enchantment = 2
+  ]
+
+  itm.edit[elair]
+  [
+    m_enchantment = 3
+  ]
+
+  itm.edit[elemchan]
+  [
+    m_enchantment = 4
+  ]
+
+
+  // Correct the "paw" items for several air elementals.
+
+  cre.edit[elairsu1 elairsuw sumelair]
+  [
+    m.cre_add_items{elairl(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[elairsu2 elairsu3 elairsu4 swaair01 swaair02]
+  [
+    m.cre_add_items{elair(weapon1)|replace:i=1}
+  ]
+END	// air_elementals

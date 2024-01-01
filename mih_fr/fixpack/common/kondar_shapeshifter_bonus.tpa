@@ -1,0 +1,67 @@
+DEFINE_ACTION_FUNCTION kondar_shapeshifter_bonus
+BEGIN
+  // Kondar, the bastard sword +1, +3 vs. shapeshifters actually
+  // only gives its bonus to dopplegangers and werewolves.
+  // This extends it to other natural shape-shifters like dragons,
+  // druids, fiends, rakshasa and vampires.
+
+  eff.make[sw1h03dr]
+  [
+    m_opcode = 178
+    m_timing = 1
+    m_parameter1 = IDS_OF_SYMBOL("race" "dragon")
+    m_parameter2 = 4
+    m_parameter3 = 2
+  ]
+
+  eff.make[sw1h03du]
+  [
+    m_opcode = 178
+    m_timing = 1
+    m_parameter1 = IDS_OF_SYMBOL("class" "druid_all")
+    m_parameter2 = 5
+    m_parameter3 = 2
+  ]
+
+  eff.make[sw1h03fd]
+  [
+    m_opcode = 178
+    m_timing = 1
+    m_parameter1 = IDS_OF_SYMBOL("race" "demonic")
+    m_parameter2 = 4
+    m_parameter3 = 2
+  ]
+
+  eff.make[sw1h03rk]
+  [
+    m_opcode = 178
+    m_timing = 1
+    m_parameter1 = IDS_OF_SYMBOL("race" "rakshasa")
+    m_parameter2 = 4
+    m_parameter3 = 2
+  ]
+
+  eff.make[sw1h03vm]
+  [
+    m_opcode = 178
+    m_timing = 1
+    m_parameter1 = IDS_OF_SYMBOL("race" "vampire")
+    m_parameter2 = 4
+    m_parameter3 = 2
+  ]
+
+  itm.edit[sw1h03]
+  [
+    PATCH_FOR_EACH eff IN "sw1h03dr" "sw1h03du" "sw1h03fd" "sw1h03rk" "sw1h03vm"
+    BEGIN
+      m.fx.add{s_opcode = 177;;s_target = 1;;s_timing = 2;;s_parameter2 = 2;;s_resource := "%eff%"}
+    END
+    PATCH_FOR_EACH race IN "dragon" "demonic" "rakshasa" "vampire"
+    BEGIN
+      m.fx.add{s_opcode = 344;;s_target = 1;;s_timing = 2;;s_parameter1 = IDS_OF_SYMBOL("race" "%race%");;s_parameter2 = 4;;s_special = 3}
+      m.ab_fx.add{s_opcode = 177;;s_target = 2;;s_timing = 1;;s_parameter1 = IDS_OF_SYMBOL("race" "%race%");;s_parameter2 = 4;;s_resource := "cdsw1h03"}
+    END
+    m.fx.add{s_opcode = 344;;s_target = 1;;s_timing = 2;;s_parameter1 = IDS_OF_SYMBOL("class" "druid_all");;s_parameter2 = 5;;s_special = 3}
+    m.ab_fx.add{s_opcode = 177;;s_target = 2;;s_timing = 1;;s_parameter1 = IDS_OF_SYMBOL("class" "druid_all");;s_parameter2 = 5;;s_resource := "cdsw1h03"}
+  ]
+END	// kondar_shapeshifter_bonus

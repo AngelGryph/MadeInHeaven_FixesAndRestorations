@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION saga_dialog_fixes
+BEGIN
+  // Variable mismatch between emerson and minern
+
+  COPY_EXISTING "%tutu_var%minern.dlg" "override"
+    DECOMPILE_AND_PATCH
+    BEGIN
+      REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+       ~SpokenToEmerson~ ~SpokeToEmerson~
+    END
+END	// saga_dialog_fixes
+
+

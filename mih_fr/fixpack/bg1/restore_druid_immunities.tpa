@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION restore_druid_immunities
+BEGIN
+  // For some reason, BGEE removed the immunities and resistances
+  // that druids are to gain at level 15 and beyond.
+  //
+  // Yes, I know, it's highly unlikely that a druid would get there
+  // in vanilla BGEE/SOD.  But with mods, who knows...?
+
+  ACTION_IF NOT is_bg2	// Not needed for EET
+  BEGIN
+    spl.copy[spcl924 spcl925 spcl926 spcl927|overwrite:i=0 source_location="bg1/resources"]
+
+    kit.edit[DRUID TOTEMIC_DRUID SHAPESHIFTER BEAST_FRIEND]
+    [
+      k.kit_apply_powers{spcl924 15,spcl925 18,spcl926 21,spcl927 24}
+    ]
+  END
+END	// restore_druid_immunities

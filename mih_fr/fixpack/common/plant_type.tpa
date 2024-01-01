@@ -1,0 +1,22 @@
+DEFINE_ACTION_FUNCTION plant_type
+BEGIN
+  // Shambling mounds and myconids are plant-type enemies, but
+  // not all are labeled as such.  Let's apply this consistently.
+
+  cre.edit[globsham smoundsu]
+  [
+    m_general := "plant"
+    m_race := "shambling_mound"
+  ]
+
+  COPY_EXISTING_REGEXP "^.*\.cre$" "override"
+    LPF struct_get STR_VAR arguments = "race" RET race = value END
+
+    PATCH_IF race = IDS_OF_SYMBOL("race" "myconid")
+          OR race = IDS_OF_SYMBOL("race" "shambling_mound")
+    BEGIN
+      WRITE_BYTE 0x271 IDS_OF_SYMBOL("general" "plant")
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// plant_type
