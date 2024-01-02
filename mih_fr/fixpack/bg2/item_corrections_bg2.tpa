@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION item_corrections_bg2
+BEGIN
+  // Javelins (SPER04) exist in BG2EE with the correct stats,
+  // but have the description of throwing axes.  Let's fix that.
+  //
+  // Item is currently unused, but the restorations make it available.
+
+  itm.edit[sper04]
+  [
+    m_both_names := @0
+    m_unidentified_description := @1
+  ]
+END	// item_corrections_bg2

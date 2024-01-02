@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION minor_dialogs_bg1
+BEGIN
+  // Minor dialog restorations
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "minor_dialogs_bg1.d"
+    location	= "resources"
+  END
+END	// minor_dialogs_bg1
+
+

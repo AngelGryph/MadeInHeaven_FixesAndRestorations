@@ -1,0 +1,11 @@
+DEFINE_ACTION_FUNCTION javelins_in_stores
+BEGIN
+  // Add javelins (SPER04) to any store that sells common spears (SPER01)
+
+  COPY_EXISTING_REGEXP "^.+\.sto$" "override"
+    ADD_STORE_ITEM "SPER04" AFTER "SPER01" #3 #0 #0 "identified" #20
+
+    IF "SPER01"
+END
+
+

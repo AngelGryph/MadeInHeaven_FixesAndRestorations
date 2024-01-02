@@ -1,0 +1,81 @@
+DEFINE_ACTION_FUNCTION bg1_mini_quests
+BEGIN
+  // This restores a number of small fetch quests that were dummied
+  // out in BG1, giving some small rewards and a bit of flavor.
+  //
+  // - Quoningar the Cleric
+  // - Shilo Chen and the Ogre Magi
+  // - The Fate of Corianne
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "bg1_mini_quests.d"
+    location	= "resources"
+  END
+
+  ADD_JOURNAL @2 @3 @4 @5 @6 @7
+
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog	= "quonin"
+  END
+
+  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+    STR_VAR
+    dialog	= "shilo"
+  END
+
+
+  // Creature additions and fixes
+
+  cre.copy[corian quonin|source_location="resources"]
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "brac17.itm"
+  BEGIN
+    itm.copy[brac17|source_location="resources"]
+    [
+      m_identified_name := @0
+      m_identified_description := @1
+    ]
+  END
+
+  cre.edit[shiloc]
+  [
+    m_dialog := "shilo"
+    m.cre_add_items{brac17(gloves,unstealable)}
+  ]
+
+  LAF install STR_VAR file = "mh#shogm.baf" location = "resources" END
+
+  cre.copy[ogrema=>mh#shogm]
+  [
+    m.cre_insert_script{mh#shogm|loc="high"}
+  ]
+
+
+  // Area additions and extensions
+
+  are.edit[%EBaldursGate_ElfsongTavern_L1%]
+  [
+    m.actor.add{s_name:="Shilo Chen" s_resref:="shiloc" s_x=610 s_y=960 s_face:="NNW"}
+  ]
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%SpiderWood%"
+    bottom	= "bg3000_extend"
+    location	= "resources"
+  END
+
+  are.edit[%Beregost_JovialJuggler_L2F%]
+  [
+    m.actor.add{s_name:="Quoningar" s_resref:="quonin" s_x=125 s_y=355 s_face:="NNW"}
+  ]
+
+  are.edit[%MutaminsGarden%]
+  [
+    m.actor.add{s_name:="Corianna" s_resref:="corian" s_x=1210 s_y=2580 s_face:="E"}
+  ]
+END	// bg1_mini_quests
+
+

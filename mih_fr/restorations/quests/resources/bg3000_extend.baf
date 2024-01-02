@@ -1,0 +1,27 @@
+IF
+  Global("HelpShiloChen", "GLOBAL", 1)
+  Global("mh#ChiloOgreSpawn", "LOCALS", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#ChiloOgreSpawn", "LOCALS", 1)
+    CreateCreature("mh#shogm", [1725.3485], NWW)
+    CreateCreature("mh#shogm", [1785.3695], NW)
+    CreateCreature("mh#shogm", [2025.3550], NE)
+    CreateCreature("ogreberz", [1685.3460], NW)
+    CreateCreature("ogreberz", [2050.3685], E)
+    CreateCreature("ogreha", [1985.3385], NNW)
+    CreateCreature("ogreha", [1655.3355], NWW)
+    CreateCreature("ogreha", [1505.3585], W)
+    CreateCreature("ogreha", [1870.3305], N)
+END
+
+IF
+  Global("HelpShiloChen", "GLOBAL", 1)
+  GlobalGT("mh#ShiloOgreMagiDead", "GLOBAL", 2)
+THEN
+  RESPONSE #100
+    SetGlobal("HelpShiloChen", "GLOBAL", 2)
+    AddJournalEntry(@6, QUEST)
+END
+
+

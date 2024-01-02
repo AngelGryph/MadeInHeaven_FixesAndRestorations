@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION setup_store_restorations_bg1
+BEGIN
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/bg1" "^.*\.tpa"
+  BEGIN
+    ACTION_TO_LOWER BASH_FOR_RES
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "%BASH_FOR_RES%"
+      location	= "bg1"
+      tra	= "store_restorations_bg1"
+    END
+  END
+END	// setup_store_restorations_bg1
+
+

@@ -1,1 +1,13 @@
-//
+@0    = ~Javelin~
+@1    = ~The javelin is a type of light spear designed for throwing, usually with a narrower tip. While this makes it less resilient and powerful in close quarter combat, it can be a deadly weapon if the advantage of its range is used to its fullest extent. 
+
+STATISTICS:
+
+Damage: 1d6 (piercing)
+Speed Factor: 6
+Proficiency Type: Spear 
+Type: Two-handed
+Requires:
+ 5 Strength
+
+Weight: 5~

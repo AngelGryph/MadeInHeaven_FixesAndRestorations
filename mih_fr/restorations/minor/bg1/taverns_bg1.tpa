@@ -1,0 +1,41 @@
+DEFINE_ACTION_FUNCTION taverns_bg1
+BEGIN
+  // Restore unused Friendly Arm Inn serving wench
+  // (Discovered by CamDawg.)
+
+  cre.edit[friwen serwen]
+  [
+    m_dialog := "%SOURCE_RES%"
+  ]
+
+  are.edit[%NEBaldursGate_BlushingMermaid_L1% %EBaldursGate_ElfsongTavern_L1%]
+  [
+    m.actor.alter{s_resref:="serwen"|match=~"%s_resref%" == "friwen"~}
+  ]
+
+  are.edit[%FriendlyArmInn_L1%]
+  [
+    m.actor.add{s_name:="Serving Wench" s_resref:="friwen" s_x=885 s_y=880 s_face:="SEE"}
+  ]
+
+
+  // Restore some unused generic townsfolk.
+  // (Discovered by CamDawg.)
+
+  cre.edit[mtob4 mtob5]
+  [
+    m_dialog := "%SOURCE_RES%"
+  ]
+
+  are.edit[%NEBaldursGate_SplurgingSturgeon_L2%]
+  [
+    m.actor.add{s_name:="Male Townsfolk" s_resref:="mtob4" s_x=665 s_y=620 s_face:="NE"}
+  ]
+
+  are.edit[%EBaldursGate_ElfsongTavern_L1%]
+  [
+    m.actor.add{s_name:="Male Townsfolk" s_resref:="mtob5" s_x=495 s_y=700 s_face:="NEE"}
+  ]
+END	// taverns_bg1
+
+

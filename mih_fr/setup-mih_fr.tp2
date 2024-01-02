@@ -61,6 +61,20 @@ END
 // ============
 
 
+// Item Restorations
+
+BEGIN @21
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_item_restorations"
+  location	= "restorations/items"
+END
+
+
 // Spell Restorations
 
 BEGIN @22
@@ -75,17 +89,45 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Store Restorations
+// Store Restorations (BG1)
 
 BEGIN @23
 GROUP @2
 
-REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+REQUIRE_PREDICATE GAME_IS "bgee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_store_restorations"
+  file		= "setup_store_restorations_bg1"
   location	= "restorations/stores"
+END
+
+
+// Quest Restorations (BG1)
+
+BEGIN @25
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_quest_restorations_bg1"
+  location	= "restorations/quests"
+END
+
+
+// Minor Restorations (BG1)
+
+BEGIN @27
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_minor_restorations_bg1"
+  location	= "restorations/minor"
 END
 
 

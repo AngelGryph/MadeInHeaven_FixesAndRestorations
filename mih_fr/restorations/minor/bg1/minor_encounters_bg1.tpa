@@ -1,0 +1,17 @@
+DEFINE_ACTION_FUNCTION minor_encounters_bg1
+BEGIN
+  // Restore doppleganger Erik
+
+  cre.edit[erik3]
+  [
+    m_script_class := "initdlg"
+    m_dialog := "erik3"
+  ]
+
+  are.edit[%Candlekeep_Catacombs_L2%]
+  [
+    m.actor.add{s_name:="Doppleganger Erik" s_resref:="erik3" s_x=1430 s_y=260 s_face:="SE"}
+  ]
+END	// minor_encounters_bg1
+
+

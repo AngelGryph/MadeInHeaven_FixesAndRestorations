@@ -8,6 +8,11 @@
 @11   = ~Intelligence 19 Rule~
 @21   = ~Item Restorations~
 @22   = ~Spell Restorations~
-@23   = ~Store Restorations~
+@23   = ~Store Restorations (BG1)~
+@24   = ~Store Restorations (BG2)~
+@25   = ~Quest Restorations (BG1)~
+@26   = ~Quest Restorations (BG2)~
+@27   = ~Minor Restorations (BG1)~
+@28   = ~Minor Restorations (BG2)~
 
 
