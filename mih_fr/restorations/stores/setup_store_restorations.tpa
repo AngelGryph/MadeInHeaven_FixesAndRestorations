@@ -10,7 +10,7 @@ BEGIN
         STR_VAR
         file		= "%BASH_FOR_RES%"
         location	= "bg1"
-        tra		= "restorations_bg1"
+        tra		= "store_restorations_bg1"
       END
     END
   END

@@ -1,0 +1,50 @@
+DEFINE_ACTION_FUNCTION nashkel_carnival
+BEGIN
+  // STO4905
+  //
+  // A store selling potions.  Was likely originally intended for
+  // AR4905, where now the merchant selling the red- and purple
+  // potions has set up shop.  Comes with an almost complete
+  // dialog file and merchant, mercha.dlg and mercha.cre.  The
+  // dialog needs a small fix otherwise half the time the guy
+  // won't sell anything at all.
+
+
+  // STO4907
+  //
+  // A shop selling some simple +1 weapons and leather armor.  Was likely
+  // originally meant for AR4907 where now the merchant for STO4906 has
+  // set up shop, as his tent AR4906 now has the Zordral/Bentha encounter.
+  //
+  // This shop duplicates a supposedly unique item, I've taken that out.
+  // To compensate, I put some items there that are hard to find before
+  // you no longer really need them.
+  //
+  // This one has no associated dialog or merchant, so I had to make one up.
+
+  sto.edit[sto4907]
+  [
+    REMOVE_STORE_ITEM "belt03"
+    ADD_STORE_ITEM "hamm02" AFTER "blun07" #0 #0 #0 "identified" #1
+    ADD_STORE_ITEM "sper02" AFTER "dagg02" #0 #0 #0 "identified" #1
+    ADD_STORE_ITEM "bow04" AFTER "sw1h08" #0 #0 #0 "identified" #1
+    ADD_STORE_ITEM "xbow05" AFTER "bow04" #0 #0 #0 "identified" #1
+    ADD_STORE_ITEM "chan05" AFTER "leat02" #0 #0 #0 "identified" #1
+  ]
+
+
+  // Put both in the big tent with the armor merchant, plenty space there.
+
+  LAF install STR_VAR file = "nashkel_carnival.d" location = "resources" END
+
+  cre.copy[mh#elftr|source_location="resources"]
+  [
+    m_both_names := @8
+  ]
+
+  are.edit[%NashkelCarnival_ArmorTent%]
+  [
+    m.actor.add{s_name := "Elf Trader";;s_resref := "mh#elftr";;s_x = 650;;s_y = 325;;s_face := "SW"}
+    m.actor.add{s_name := "Merchant";;s_resref := "mercha";;s_x = 255;;s_y = 450;;s_face := "SEE"}
+  ]
+END
