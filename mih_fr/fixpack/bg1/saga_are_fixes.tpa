@@ -18,4 +18,86 @@ BEGIN
     m.door_open_vertex.add{s_x = 1531;;s_y = 2487|match_parent=~"%p_name%" == "Door2306"~}
     m.door_open_vertex.add{s_x = 1530;;s_y = 2500|match_parent=~"%p_name%" == "Door2306"~}
   ]
+
+
+  // Likewise, two doors in Durlag's Tower have been deactivated.
+
+  COPY_EXISTING "%DurlagsTower_D4%.wed" "override"
+    LAUNCH_PATCH_FUNCTION wed_add_door
+      STR_VAR
+      name    = "DOOR001"
+      tiles   = "533=>4400 534=>4401 613=>4402 614=>4403"
+    END
+
+
+  are.edit[%DurlagsTower_D4%]
+  [
+    m.door.add{s_name := "Door001";;s_id := "DOOR001";;s_linked = 1;;s_cursor_index = 30;;s_box_open_left = 3377;;s_box_open_top = 352;;s_box_open_right = 3415;;s_box_open_bottom = 430;;s_box_closed_left = 3380;;s_box_closed_top = 382;;s_box_closed_right = 3422;;s_box_closed_bottom = 465;;s_loc := "3343,471";;s_alt := "3357,406";;s_trap_launch := "3668,660"}
+    m.door_open_vertex.add{s_x = 3415;;s_y = 430|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3377;;s_y = 405|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3377;;s_y = 358|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3385;;s_y = 352|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3398;;s_y = 355|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3412;;s_y = 368|match_parent=~"%p_name%" == "Door001"~}
+    m.door_open_vertex.add{s_x = 3415;;s_y = 381|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3422;;s_y = 436|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3422;;s_y = 386|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3408;;s_y = 382|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3393;;s_y = 387|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3383;;s_y = 399|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3380;;s_y = 414|match_parent=~"%p_name%" == "Door001"~}
+    m.door_closed_vertex.add{s_x = 3380;;s_y = 465|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_open_vertex.add{s_x = 211;;s_y = 33|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_open_vertex.add{s_x = 212;;s_y = 33|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_open_vertex.add{s_x = 212;;s_y = 34|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_open_vertex.add{s_x = 213;;s_y = 34|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_open_vertex.add{s_x = 212;;s_y = 35|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_closed_vertex.add{s_x = 212;;s_y = 37|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_closed_vertex.add{s_x = 213;;s_y = 37|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_closed_vertex.add{s_x = 212;;s_y = 38|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_closed_vertex.add{s_x = 213;;s_y = 38|match_parent=~"%p_name%" == "Door001"~}
+    m.door_impeded_closed_vertex.add{s_x = 212;;s_y = 39|match_parent=~"%p_name%" == "Door001"~}
+
+    m.door.add{s_name := "Door008";;s_id := "DOOR008";;s_locked = 1;;s_trap_detectable = 1;;s_linked = 1;;s_cursor_index = 30;;s_box_open_left = 2355;;s_box_open_top = 2317;;s_box_open_right = 2391;;s_box_open_bottom = 2394;;s_box_closed_left = 2391;;s_box_closed_top = 2310;;s_box_closed_right = 2439;;s_box_closed_bottom = 2376;;s_loc := "2413,2404";;s_alt := "2448,2300";;s_script := "CTLB";;s_lock_difficulty = 60;;s_detect_trap_difficulty = 50;;s_remove_trap_difficulty = 60;;s_is_trapped = 1;;s_trap_launch := "2708,2324"}
+    m.door_open_vertex.add{s_x = 2391;;s_y = 2368|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2355;;s_y = 2394|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2355;;s_y = 2346|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2362;;s_y = 2332|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2371;;s_y = 2323|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2382;;s_y = 2317|match_parent=~"%p_name%" == "Door008"~}
+    m.door_open_vertex.add{s_x = 2391;;s_y = 2319|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2391;;s_y = 2362|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2439;;s_y = 2376|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2439;;s_y = 2336|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2435;;s_y = 2325|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2424;;s_y = 2316|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2412;;s_y = 2311|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2399;;s_y = 2310|match_parent=~"%p_name%" == "Door008"~}
+    m.door_closed_vertex.add{s_x = 2391;;s_y = 2317|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 149;;s_y = 197|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 147;;s_y = 198|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 148;;s_y = 198|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 149;;s_y = 198|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 147;;s_y = 199|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_open_vertex.add{s_x = 148;;s_y = 199|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 193|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 152;;s_y = 193|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 153;;s_y = 193|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 154;;s_y = 193|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 150;;s_y = 194|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 194|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 152;;s_y = 194|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 153;;s_y = 194|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 150;;s_y = 195|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 195|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 152;;s_y = 195|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 153;;s_y = 195|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 150;;s_y = 196|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 196|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 152;;s_y = 196|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 149;;s_y = 197|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 150;;s_y = 197|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 197|match_parent=~"%p_name%" == "Door008"~}
+    m.door_impeded_closed_vertex.add{s_x = 151;;s_y = 198|match_parent=~"%p_name%" == "Door008"~}
+  ]
 END	// saga_are_fixes
