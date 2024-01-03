@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION volo_dialogs
+BEGIN
+  cre.edit[volo]
+  [
+    m_dv := "VOLO"
+  ]
+
+  cre.edit[volose]
+  [
+    m.cre_insert_script{INITDLG|loc="high"}
+  ]
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "volos_travels.d"
+    location	= "resources"
+  END
+END	// volo_dialogs
+
+

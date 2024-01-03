@@ -1,0 +1,25 @@
+DEFINE_ACTION_FUNCTION volo_areas
+BEGIN
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%EBaldursGate_ElfsongTavern_L1%"
+    bottom	= "bg0705_extend"
+    location	= "resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%FriendlyArmInn_L1%"
+    bottom	= "bg2301_extend"
+    location	= "resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%Nashkel_BelchingDragonTavern%"
+    bottom	= "bg4809_extend"
+    location	= "resources"
+  END
+END	// volo_areas
+
+

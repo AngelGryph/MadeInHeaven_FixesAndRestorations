@@ -1,0 +1,22 @@
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_4%)
+  GlobalLT("Chapter", "GLOBAL", %bg1_chapter_7%)
+  !Exists("VOLO")
+  !Dead("VOLO")
+  Global("SpawnVolo", "MYAREA", 0)
+THEN
+  RESPONSE #100
+    SetGlobal("SpawnVolo", "MYAREA", 1)
+    CreateCreature("volo", [800.1000], NNE)
+END
+
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_6%)
+  Exists("VOLO")
+  !Dead("VOLO")
+THEN 
+  RESPONSE #100
+    ActionOverride("VOLO", DestroySelf())
+END
+
+

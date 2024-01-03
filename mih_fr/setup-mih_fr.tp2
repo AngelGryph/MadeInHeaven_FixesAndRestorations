@@ -131,3 +131,19 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Volo's Travels
+
+BEGIN @30
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bgee eet" @4
+
+REQUIRE_COMPONENT "setup-eefixpack.tp2" "0" @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_volos_travels"
+  location	= "restorations/volos_travels"
+END
+
+

@@ -1,0 +1,27 @@
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_3%)
+  Exists("VOLO")
+  !Dead("VOLO")
+  Global("VoloLeave", "MYAREA", 0)
+THEN 
+  RESPONSE #100
+    SetGlobal("VoloLeave", "MYAREA", 1)
+    ActionOverride("VOLO", DestroySelf())
+END
+
+IF
+  Global("Chapter", "GLOBAL", %bg1_chapter_3%)
+  GlobalGT("OublekBounty1", "GLOBAL", 0)
+  Exists("VOLO")
+  !Dead("VOLO")
+  Global("VoloLeave", "MYAREA", 0)
+THEN 
+  RESPONSE #100
+    SetGlobal("VoloLeave", "MYAREA", 1)
+    DisplayStringHead("VOLO", @0)
+    ActionOverride("VOLO", EscapeAreaDestroy(30))
+    SmallWait(2)
+    CreateCreature("volose", [365.450], NW)
+END
+
+

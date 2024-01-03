@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION setup_volos_travels
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "volo_dialogs volo_areas"
+    tra		= "volos_travels"
+  END
+END	// setup_volos_travels
+
+
