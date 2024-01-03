@@ -15,16 +15,6 @@ BEGIN
 
   ADD_JOURNAL @2 @3 @4 @5 @6 @7
 
-  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
-    STR_VAR
-    dialog	= "quonin"
-  END
-
-  LAUNCH_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
-    STR_VAR
-    dialog	= "shilo"
-  END
-
 
   // Creature additions and fixes
 
