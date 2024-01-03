@@ -1,0 +1,18 @@
+IF
+  NumTimesTalkedToLT(2)
+  !Allegiance(Myself, ENEMY)
+  InActiveArea(Myself)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+IF
+  AttackedBy([GOODCUTOFF], DEFAULT)
+  !Allegiance(Myself, ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+

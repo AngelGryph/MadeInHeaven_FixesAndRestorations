@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION setup_minor_restorations_bg2
+BEGIN
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/bg2" "^.*\.tpa"
+  BEGIN
+    ACTION_TO_LOWER BASH_FOR_RES
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "%BASH_FOR_RES%"
+      location	= "bg2"
+      tra	= "minor_restorations_bg2"
+    END
+  END
+END	// minor_restorations_bg2
+
+

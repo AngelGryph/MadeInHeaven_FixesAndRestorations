@@ -1,0 +1,62 @@
+DEFINE_ACTION_FUNCTION minor_dialogs_bg2
+BEGIN
+  // Deirex initiates second dialog instead of going hostile immediately.
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "deirex_bg2.d"
+    location	= "resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "jarlich.baf"
+    location	= "resources"
+  END
+
+  cre.edit[jarlich]
+  [
+    m.cre_swap_scripts{shoutdlg=>jarlich}
+  ]
+
+  LAUNCH_ACTION_FUNCTION DELETE_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2207"
+    match	= ~JarlaxleHQ~
+  END
+
+
+  // Firkraag's taunts
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "firkraag_bg2.d"
+    location	= "resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "firkra03.baf"
+    location	= "resources"
+  END
+
+  cre.edit[firkra03]
+  [
+    m.cre_strip_scripts{gensht01}
+    m.cre_add_items{minhp1(amulet)}
+  ]
+  
+  are.edit[ar1202]
+  [
+    m.actor.add{s_name:="Voice" s_resref:="firkra03" s_x=2075 s_y=2020 s_face:="SW"}
+  ]
+  
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar1202"
+    bottom	= "ar1202_extend"
+    location	= "resources"
+  END
+END	// minor_dialogs_bg2
+
+

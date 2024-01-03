@@ -131,6 +131,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Minor Restorations (BG2)
+
+BEGIN @28
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_minor_restorations_bg2"
+  location	= "restorations/minor"
+END
+
+
 // Volo's Travels
 
 BEGIN @30
@@ -146,4 +160,17 @@ LAUNCH_ACTION_FUNCTION run
   location	= "restorations/volos_travels"
 END
 
+
+// d'Arnise Keep Text Screens
+
+BEGIN @31
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_keep_text_screens"
+  location	= "restorations/minor"
+END
 

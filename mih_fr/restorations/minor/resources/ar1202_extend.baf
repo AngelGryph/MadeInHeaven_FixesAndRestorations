@@ -1,0 +1,11 @@
+IF
+  Global("Firmag01Move", "GLOBAL", 1)
+  !Dead("firkra02")
+  Global("FirkraagTaunt", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    SetGlobal("FirkraagTaunt", "GLOBAL", 2)
+    CreateCreature("firkra03", [2065.610], NW)
+END
+
+    
