@@ -1,0 +1,53 @@
+DEFINE_ACTION_FUNCTION saga_temple_fixes
+BEGIN
+  // There's a jarring discrepancy between BG1 temples and the
+  // rest of the Bhaalspawn story, even Siege.  Although new
+  // spells have been introduced in the EE release, the temples
+  // have not been updated to reflect this.
+  //
+  // NB: Further standardizing and streamlining of available
+  //     cures is in my MiH Spellpack mod.
+
+  // Cure Medium Wounds
+  OUTER_SET strref = RESOLVE_STR_REF (@0)
+  APPEND "speldesc.2da" "SPPR315     %strref%" UNLESS "SPPR315"
+
+  // Cure Disease
+  OUTER_SET strref = RESOLVE_STR_REF (@1)
+  APPEND "speldesc.2da" "SPPR317     %strref%" UNLESS "SPPR317"
+
+  // Neutralize Poison
+  OUTER_SET strref = RESOLVE_STR_REF (@2)
+  APPEND "speldesc.2da" "SPPR404     %strref%" UNLESS "SPPR404"
+
+  // Lesser Restoration
+  OUTER_SET strref = RESOLVE_STR_REF (@3)
+  APPEND "speldesc.2da" "SPPR417     %strref%" UNLESS "SPPR417"
+
+
+  sto.edit[tem0002 tem0131 tem0132 tem0149 tem0609 tem2304 tem2601 tem3402 tem4003 tem4802]
+  [
+    // Cure Medium Wounds
+    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
+
+    // Cure Disease
+    m.cure.clone{s_price = 150;;s_resref := "sppr317"|match=~"%s_resref%" == "sppr315"~}
+
+    // Cure Serious Wounds (price correction)
+    m.cure.alter{s_price = 150|match=~"%s_resref%" == "sppr401"~}
+
+    // Neutralize Poison (replaces Slow Poison)
+    m.cure.alter{s_price = 300;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr212"~}
+
+    // Slow Poison (reinsert after Cure Light)
+    m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
+
+    // Lesser Restoration
+    m.cure.clone{s_price = 450;;s_resref := "sppr417"|match=~"%s_resref%" == "sppr404"~}
+
+    // Cure Critical Wounds
+    m.cure.clone{s_price = 200;;s_resref := "sppr502"|match=~"%s_resref%" == "sppr504"~}
+  ]
+END
+
+

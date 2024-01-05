@@ -1,0 +1,74 @@
+DEFINE_ACTION_FUNCTION sod_temple_fixes
+BEGIN
+  // Siege is kinda all over the place with available cures,
+  // some seem direct copies of old BG1 shops while others are
+  // more custom.
+  //
+  // NB: Further standardizing and streamlining of temple
+  //     services is in my MiH Spellpack mod.
+
+  sto.edit[bdmizhen bdpolvi]
+  [
+    // Slow Poison
+    m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
+
+    // Cure Disease (price correction)
+    m.cure.alter{s_price = 150;;|match=~"%s_resref%" == "sppr317"~}
+
+    // Lesser Restoration (price correction)
+    m.cure.edit{s_price = 450|match=~"%s_resref%" == "sppr417"~}
+  ]
+
+
+  sto.edit[bddeep bddosia]
+  [
+    // Slow Poison
+    m.cure.clone{s_price = 1;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
+
+    // Neutralize Poison
+    m.cure.clone{s_price = 1;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr401"~}
+  ]
+
+
+  sto.edit[bdff1000]
+  [
+    // Cure Medium Wounds
+    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr103"~}
+
+    // Cure Serious Wounds (price correction)
+    m.cure.alter{s_price = 150|match=~"%s_resref%" == "sppr401"~}
+
+    // Neutralize Poison
+    m.cure.clone{s_price = 400;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr317"~}
+
+    // Lesser Restoration (price correction)
+    m.cure.edit{s_price = 450|match=~"%s_resref%" == "sppr417"~}
+  ]
+  
+
+  sto.edit[bdfrair]
+  [
+    // Cure Medium Wounds
+    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
+
+    // Cure Disease
+    m.cure.clone{s_price = 150;;s_resref := "sppr317"|match=~"%s_resref%" == "sppr315"~}
+
+    // Cure Serious Wounds (price correction)
+    m.cure.alter{s_price = 150|match=~"%s_resref%" == "sppr401"~}
+
+    // Neutralize Poison (replaces Slow Poison)
+    m.cure.alter{s_price = 300;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr212"~}
+
+    // Slow Poison (reinsert after Cure Light)
+    m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
+
+    // Lesser Restoration
+    m.cure.clone{s_price = 750;;s_resref := "sppr417"|match=~"%s_resref%" == "sppr404"~}
+
+    // Cure Critical Wounds
+    m.cure.clone{s_price = 200;;s_resref := "sppr502"|match=~"%s_resref%" == "sppr504"~}
+  ]
+END
+
+

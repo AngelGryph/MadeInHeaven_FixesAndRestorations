@@ -1,5 +1,8 @@
-@0    = ~Javelin~
-@1    = ~The javelin is a type of light spear designed for throwing, usually with a narrower tip. While this makes it less resilient and powerful in close quarter combat, it can be a deadly weapon if the advantage of its range is used to its fullest extent. 
+@0    = ~This spell cures the character of disease, blindness, deafness, and feeblemind.~
+@1    = ~This spell neutralizes poison, restores 10 Hit Points, and cures disease, blindness, and deafness.~
+@2    = ~This spell reverses any life energy level drain on the character.~
+@3    = ~Javelin~
+@4    = ~The javelin is a type of light spear designed for throwing, usually with a narrower tip. While this makes it less resilient and powerful in close quarter combat, it can be a deadly weapon if the advantage of its range is used to its fullest extent. 
 
 STATISTICS:
 
@@ -11,3 +14,5 @@ Requires:
  5 Strength
 
 Weight: 5~
+
+

@@ -1,1 +1,6 @@
-//
+@0    = ~The selected character is healed by 14 Hit Points.~
+@1    = ~This spell cures the character of disease, blindness, deafness, and feeblemind.~
+@2    = ~This spell neutralizes poison, restores 10 Hit Points, and cures disease, blindness, and deafness.~
+@3    = ~This spell reverses any life energy level drain on the character.~
+
+

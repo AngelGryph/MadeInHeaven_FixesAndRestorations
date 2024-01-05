@@ -190,3 +190,4 @@ When the priest casts this spell, <PRO_HESHE> selects a specific point to be the
 When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 50 feet of this center that is not attached to something immovable will fall toward the selected point.
 
 This localized gravity affects only loose objects and creatures capable of movement (i.e., not trees, whose roots are buried in the ground). It does not affect the ground itself - soil, plants, desert sand, lake water, etc. are immune to the effect.~
+@31   = ~This spell cures the character of blindness and deafness.~

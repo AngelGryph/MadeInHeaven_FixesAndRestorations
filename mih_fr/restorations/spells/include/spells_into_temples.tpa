@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION spells_into_temples
+BEGIN
+  OUTER_SET strref = RESOLVE_STR_REF (@31)
+  APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%     %strref%"
+
+
+  COPY_EXISTING_REGEXP "^.+\.sto$" "override"
+    LPF struct_get STR_VAR arguments = "type" RET type = value END
+    LPF struct_get STR_VAR arguments = "can_buy_cures" RET sells_cures = value END
+
+    PATCH_IF type = 3 AND sells_cures
+    BEGIN
+      LPF struct_read RET_ARRAY m = struct END
+      m.cure.clone{s_resref := "%CLERIC_CURE_BLIND_DEAF%"|match=~"%s_resref%" == "sppr212"~}
+      LPF struct_write STR_VAR struct = "m" END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// spells_into_temples
+
+
