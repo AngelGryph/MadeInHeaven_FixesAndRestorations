@@ -4,9 +4,11 @@
 @3    = ~Tweaks~
 @4    = ~This mod component is not compatible with your game.~
 @5    = ~This component requires the core fixes from G3 EE Fixpack.~
+
 @10   = ~MiH P&P-based Fixpack~
 @11   = ~Intelligence 19 Rule~
 @12   = ~Sound Volume Fixes~
+
 @21   = ~Item Restorations~
 @22   = ~Spell Restorations~
 @23   = ~Store Restorations (BG1)~
@@ -17,4 +19,8 @@
 @28   = ~Minor Restorations (BG2)~
 @30   = ~Volo's Travels~
 @31   = ~d'Arnise Keep Text Screens~
+@32   = ~Bhaalspawn Powers~
+
+@51   = ~Better Prepared Allies~
+
 

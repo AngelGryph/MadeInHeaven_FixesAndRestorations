@@ -190,3 +190,22 @@ LAUNCH_ACTION_FUNCTION run
   location	= "restorations/minor"
 END
 
+
+// ======
+// Tweaks
+// ======
+
+// Better Prepared Allies
+
+BEGIN @51
+GROUP @3
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_prepared_allies"
+  location	= "tweaks/allies"
+END
+
+

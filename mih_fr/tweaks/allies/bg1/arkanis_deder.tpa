@@ -1,0 +1,40 @@
+DEFINE_ACTION_FUNCTION arkanis_deder
+BEGIN
+  cre.edit[arkani3]
+  [
+    m_xp_value = 650
+    m_class := "fighter"
+    m_level1 = 8
+    m_hp = 75
+    m_attacks = 7
+
+    m.cre_enforce_thac0{at_worst}
+    m.cre_enforce_saves{at_worst}
+
+    m.cre_set_proficiencies{axe=>3 warhammer=>2 swordandshield=>2}
+    m.cre_remove_items{iarrow01}
+    m.cre_add_items{ax1h02(weapon1) hamm03(weapon2) shld06(shield) chan02(armor) helm08(helmet) potn08(qitem1,x5) potn09(qitem2,x1) potn12(qitem3,x1)|replace:i=1}
+  ]
+
+  cre.edit[deder3]
+  [
+    m_xp_value = 650
+    m_class := "fighter_thief"
+    m_level1 = 7
+    m_level2 = 9
+    m_hp = 52
+    m_set_traps = 50
+    m_find_traps = 70
+    m_hide_in_shadows = 70
+    m_move_silently = 70
+
+    m.cre_enforce_thac0{at_worst}
+    m.cre_enforce_saves{at_worst}
+
+    m.cre_set_proficiencies{shortsword=>2 shortbow=>2 singleweapon=>2}
+    m.cre_add_items{bow06(weapon1) sw1h08(weapon2) arow02(quiver1,x80) arow02(quiver2,x80) arow02(quiver3,x80) leat05(armor) potn08(qitem1,x5) potn10(qitem2,x2) potn13(qitem3,x1)|replace:i=1}
+    m.cre_add_spells{SET_SNARE_TRAP(2)}
+  ]
+END	// arkanis_deder
+
+

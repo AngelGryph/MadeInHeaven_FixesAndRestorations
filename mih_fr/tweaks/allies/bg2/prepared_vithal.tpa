@@ -1,0 +1,15 @@
+DEFINE_ACTION_FUNCTION prepared_vithal
+BEGIN
+  // Give Vithal, the Imprisoned mage in the Underdark,
+  // some basic equiment for his level.
+
+  cre.edit[udvith]
+  [
+    m_alignment := "lawful_neutral"
+
+    m.cre_add_items{staf12(weapon1) clck16(armor) ring07(ring) ring41(ring) amul21(amulet) clck30(cloak) boot04(boots)|replace:i=1}
+    m.item.alter{s_unstealable = 1;;s_undroppable = 1}
+  ]
+END	// prepared_vithal
+
+

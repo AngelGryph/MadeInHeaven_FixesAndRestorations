@@ -1,0 +1,47 @@
+DEFINE_ACTION_FUNCTION vampire_hunters
+BEGIN
+  // Drizzt's Party
+
+  cre.edit[c6bruen c6bruen2]
+  [
+    m.cre_add_items{helm06(helmet) shld28(shield) potn52(qitem,x5)|replace:i=1}
+  ]
+
+  cre.edit[c6catti c6catti2]
+  [
+    m.cre_add_items{potn52(qitem,x5) potn21(qitem,x3)|replace:i=1}
+  ]
+
+  cre.edit[c6wulf c6wulf2]
+  [
+    m.cre_add_items{helm06(helmet) leat15(armor) potn52(qitem,x5)|replace:i=1}
+  ]
+
+
+  // Order of the Radiant Heart
+
+  cre.edit[c6eric]
+  [
+    m.cre_add_items{helm06(helmet) plat23(armor) potn52(qitem,x5)|replace:i=1}
+  ]
+
+  cre.edit[c6nerit c6will c6bran]
+  [
+    m.cre_add_items{helm06(helmet) plat14(armor) shld29(shield) potn52(qitem,x3)|replace:i=1}
+  ]
+
+
+  // Shadow Thieves
+
+  cre.edit[c6arkan c6arkan3]
+  [
+    m.cre_add_items{leat08(armor) potn21(qitem,x1)|replace:i=1}
+  ]
+
+  cre.edit[c6yean c6gofus]
+  [
+    m.cre_add_items{leat12(armor) potn21(qitem,x1)|replace:i=1}
+  ]
+END	// vampire_hunters
+
+
