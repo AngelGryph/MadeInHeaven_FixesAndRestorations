@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION setup_sound_fixes
+BEGIN
+  ACTION_IF is_bg2
+  BEGIN
+    LAUNCH_ACTION_FUNCTION HANDLE_AUDIO
+      STR_VAR
+      audio_path	= "%MOD_FOLDER%/%component_loc%/bg2/sounds"
+      oggdec_path	= "bin"
+      sox_path		= "bin"
+    END
+  END
+END	// setup_sound_fixes
+
+
