@@ -1,0 +1,19 @@
+DEFINE_ACTION_FUNCTION hla_innates_fixes
+BEGIN
+  // Many innates and HLAs are not spells.  They should not have
+  // a school or secondary type.  Most don't, but some do, making
+  // them incorrectly vulnerable to spells like Breach or Pierce Magic.
+  // In addition, many can incorrectly trigger wild surges.
+
+  spl.edit[spcl751 spcl801 spcl811 spcl812 spcl813 spcl814 spcl816 spcl817 spcl818 spcl819 spcl820 spcl900 spcl901 spcl902 spcl903 spcl904 spcl905 spcl906 spcl907 spcl908 spcl909 spcl910 spcl911 spcl912 spcl913 spcl914 spcl915 spcl916 spcl917 spcl918 spcl919 spcl920 spcl921 spcl922 spcl924 spcl925 spcl926 spcl927 spcl928 spcl929 spcl930 spcl931 spcl932 spcl933 spcl934]
+  [
+    s_casting_animation	= 0
+    s_school		= 0
+    s_sectype		= 0
+    secondary=0
+    s_ignore_dead_magic	= 1
+    s_ignore_wild_surge	= 1
+  ]
+END	// hla_innates_fixes
+
+

@@ -14,5 +14,16 @@ Requires:
  5 Strength
 
 Weight: 5~
+@5    = ~Thalanta the Fair created many types of cloaks, all known as Cloaks of the Stars. This particular version is simple, with three stars down each sleeve. Once per day, each star can be removed and thrown as a dart. The star disappears, only to return the next day.  Wearing the cloak also gives a small bonus to all saving throws.
+
+STATISTICS:
+
+Equipped abilities:
+- Saving Throws: +1
+
+Charge abilities:
+- Create six +5 darts once per day
+
+Weight: 3~
 
 

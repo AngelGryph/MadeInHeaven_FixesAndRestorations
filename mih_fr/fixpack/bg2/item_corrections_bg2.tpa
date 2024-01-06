@@ -1,13 +1,37 @@
 DEFINE_ACTION_FUNCTION item_corrections_bg2
 BEGIN
-  // Javelins (SPER04) exist in BG2EE with the correct stats,
-  // but have the description of throwing axes.  Let's fix that.
+  // CLCK25 - Cloak of the Stars
+  //
+  // According to P&P sources, these should give a +1 to saving throws.
+
+  itm.edit[clck25]
+  [
+    PATCH_FOR_EACH opcode IN 33 34 35 36 37
+    BEGIN    
+      m_identified_description := @5
+      m.fx.add{s_opcode = opcode;;s_target = 1;;s_timing = 2;;s_parameter1 = 1}
+    END
+  ]
+
+
+  // MISC2X - Jaheira's Harper Pin
+  //
+  // For some reason, EE does not use item_use.2da for this item
+  // even though it does for the other NPC exclusives.
+
+  APPEND "item_use.2da" "MISC5X  JAHEIRA 9382    2       9382    -1" UNLESS "MISC5X"
+
+
+  // SPER04 - Javelin
+  //
+  // This item exists in BG2EE with the correct stats, but has the
+  // description of a throwing axe.  Let's fix that.
   //
   // Item is currently unused, but the restorations make it available.
 
   itm.edit[sper04]
   [
-    m_both_names := @0
-    m_unidentified_description := @1
+    m_both_names := @3
+    m_unidentified_description := @4
   ]
 END	// item_corrections_bg2

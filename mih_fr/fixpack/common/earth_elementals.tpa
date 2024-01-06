@@ -2,6 +2,8 @@ DEFINE_ACTION_FUNCTION earth_elementals
 BEGIN
   // ELEAR
   // ELEARL
+  // ELEMOGRE
+  // ELEMSUNN
   //
   // Several earth elementals have weapon echantments not matching
   // their own immunities.  Common earth elementals are better at
@@ -22,7 +24,7 @@ BEGIN
     m_enchantment = 3
   ]
 
-  itm.edit[elemsunn]
+  itm.edit[elemogre elemsunn]
   [
     m_enchantment = 4
   ]

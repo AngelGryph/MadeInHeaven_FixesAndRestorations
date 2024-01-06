@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION minotaur_fixes
+BEGIN
+  // Minotaurs have 4 HD, but otherwise have the stats of 8-HD elders.
+  // Race is all over the place: gnoll, ogre or umber hulk.
+  // And some are flagged as female, which canonically do not exist.
+
+  cre.edit[icmin01 uhogre03 amminot]
+  [
+    m_xp_value	= 3000
+    m_level1	= 8
+    m_race := "minotaur"
+    m_class := "fighter"
+    m_gender := "male"
+  ]
+
+  cre.edit[rock garock ohbmin01 ohbminsu]
+  [
+    m_race := "minotaur"
+    m_class := "fighter"
+  ]
+END	// minotaur_fixes

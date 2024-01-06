@@ -1,0 +1,62 @@
+DEFINE_ACTION_FUNCTION cespenar_dialog
+BEGIN
+  // Since the Heart of the Damned and the Eye of Tyr are unique items
+  // and can only be used once, several upgrades Cespenar can perform
+  // are mutually exclusive.  This change makes Cespenar remember that
+  // an item was already used and stops him from asking for it again.
+  //
+  // He will still perform the upgrade if the player somehow gets a
+  // second copy of an upgrade item by cheat or mod.
+  //
+  // No such fix is needed for the Bowstring of Gond since here
+  // Cespenar already checks directly for the upgrade component
+  // instead of the items to be upgraded.
+
+
+  // Skipping Tome of Golems upgrades can leave useless items in the player's
+  // inventory.  This will make Cespenar confiscate any "lesser" pages that
+  // can no longer be used.
+
+<<<<<<<< .../stratagems-inline/cespenar_hush.d
+ADD_TRANS_ACTION "botsmith"
+BEGIN 8 26 END	// State(s)
+BEGIN 1 END	// Transaction
+  ~SetGlobal("mh#HeartOfTheDamned_used", "GLOBAL", 1)~
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 22 30 END	// State(s)
+BEGIN 1 END	// Transaction
+  ~SetGlobal("mh#EyeOfTyr_used", "GLOBAL", 1)~
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 112 114 END       // State(s)
+BEGIN 1 END             // Transaction
+  ~TakePartyItemNum("tome02a", 1) DestroyItem("tome02a")~
+
+ADD_TRANS_ACTION "botsmith"
+BEGIN 114 END           // State(s)
+BEGIN 1 END             // Transaction
+  ~TakePartyItemNum("tome03a", 1) DestroyItem("tome03a")~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw1h64")~ ~PartyHasItem("sw1h64") OR(2) PartyHasItem("compon02") Global("mh#EyeOfTyr_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw2h10")~ ~PartyHasItem("sw2h10") OR(2) PartyHasItem("compon02") Global("mh#EyeOfTyr_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw1h58")~ ~PartyHasItem("sw1h58") OR(2) PartyHasItem("compon15") Global("mh#HeartOfTheDamned_used", "GLOBAL", 0)~
+
+REPLACE_TRIGGER_TEXT "botsmith"
+  ~PartyHasItem("sw2h17")~ ~PartyHasItem("sw2h17") OR(2) PartyHasItem("compon15") Global("mh#HeartOfTheDamned_used", "GLOBAL", 0)~
+>>>>>>>>
+
+  LAUNCH_ACTION_FUNCTION install
+    INT_VAR
+    inline	= 1
+    STR_VAR
+    file	= "cespenar_hush.d"
+  END
+END	// cespenar_dialog
+
+

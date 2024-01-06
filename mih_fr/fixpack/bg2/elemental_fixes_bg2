@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION elemental_fixes_bg2
+BEGIN
+  // Some BG2-only elementals are not using the right "paws".
+  //
+  // NB: Correct enchantment level for paws is set in common fixes.
+
+  cre.edit[elairl01 gorair01]
+  [
+    m.cre_add_items{elairl(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[elearl01 elearsu1 mekear01]
+  [
+    m.cre_add_items{elearl(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[elearsu kearth mdearth mdearth2 shearth]
+  [
+    m.cre_add_items{elear(weapon1)|replace:i=1}
+  ]
+
+  cre.edit[elefel01 elfirl01]
+  [
+    m.cre_add_items{fireelel(weapon1)|replace:i=1}
+  ]
+
+
+  // Some greater elementals have wrong HD number
+
+  cre.edit[udelda udelde udeldf obsfir06 suelew1 suelew2]
+  [
+    level1 = 16
+  ]
+END	// elemental_fixes_bg2
+
+

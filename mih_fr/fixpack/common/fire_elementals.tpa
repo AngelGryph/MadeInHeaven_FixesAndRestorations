@@ -2,6 +2,7 @@ DEFINE_ACTION_FUNCTION fire_elementals
 BEGIN
   // FIREELEL
   // FIREELEM
+  // ELEMIMIX
   // ELEMZAAM
   //
   // Enchantments of "paw" items are all over the place.  Common fire
@@ -17,7 +18,7 @@ BEGIN
     m_enchantment = 3
   ]
 
-  itm.edit[elemzaam]
+  itm.edit[elemimix elemzaam]
   [
     m_enchantment = 4
   ]

@@ -1,0 +1,33 @@
+DEFINE_ACTION_FUNCTION ulitharid_corrections
+BEGIN
+  // Ulitharid statistics corrections
+  //
+  // Ulitharids should have 11 hd, thac0 9, intelligence 20
+  // and be worth 11,000 xp.  All instances in the game got
+  // at least one of them wrong.
+  //
+  // Ulitharid are also using the generic mind flayer psionic
+  // blast instead of their own stronger one.
+
+  cre.edit[gormind ohbmnd02 mindul01 ppmind01]
+  [
+    s_level1	= 11
+    s_xp_value	= 11000
+    s_thac0	= 9
+    s_int	= 20
+  ]
+
+  spl.copy[%MIND_FLAYER_PSIONIC_BLAST%=>%ULITHARID_PSIONIC_BLAST%]
+  [
+    m.ab_fx.alter{s_savebonus = "-4";;s_duration = (s_duration > 5) ? 120 : s_duration}
+  ]
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "flayer02"
+    swap_out	= "MIND_FLAYER_PSIONIC_BLAST"
+    swap_in	= "ULITHARID_PSIONIC_BLAST"
+  END
+END	// ulitharid_corrections
+
+

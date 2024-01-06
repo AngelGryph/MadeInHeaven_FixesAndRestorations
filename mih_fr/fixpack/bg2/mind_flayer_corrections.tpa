@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION mind_flayer_corrections
+BEGIN
+  // Some mind flayers are immune to all elements, but it's not consistently
+  // applied to all of them.  There is no reason for this, and they have enough
+  // magic resistance already without it.
+
+  cre.edit[mindfl01 gorminc1 gorminc2 gorminc3]
+  [
+    m_resist_fire		= 0
+    m_resist_cold		= 0
+    m_resist_electricity	= 0
+    m_resist_acid		= 0
+    m_resist_magic_fire		= 0
+    m_resist_magic_cold		= 0
+  ]
+END	// mind_flayer_corrections

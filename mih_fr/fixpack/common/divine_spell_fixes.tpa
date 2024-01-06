@@ -15,6 +15,7 @@ BEGIN
   spl.edit[sppr103 sppr315 sppr401 sppr502 sppr514 spin101 spin958]
   [
     m.ab_fx.delete{~%s_resource%~ == "#curedrk"}
+    m.ab_fx.delete{s_opcode = 164}	// Just to be sure.
   ]
 
 

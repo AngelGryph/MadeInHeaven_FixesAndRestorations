@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION misc_cre_fixes_bg2
+BEGIN
+  // Mark mummies as actually, y'know, mummies.
+
+  cre.edit[fsmumm fsmumm2 fsmumm3 mumgre01 mummy mummy01 riftcr03]
+  [
+    m_race := "mummy"
+    m_class := "no_class"
+  ]
+
+
+  // Likewise, let's call green dragons actually green dragons.
+  
+  cre.edit[bazdra03 fsdragon]
+  [
+    class := "green_dragon"
+  ]
+END	// misc_cre_fixes_bg2

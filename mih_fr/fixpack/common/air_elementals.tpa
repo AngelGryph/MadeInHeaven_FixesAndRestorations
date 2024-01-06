@@ -3,6 +3,7 @@ BEGIN
   // ELAIR
   // ELAIRL
   // ELEMCHAN
+  // ELEMYANC
   //
   // Enchantments of "paw" items are all over the place.  Common air
   // elementals are better at hitting stuff than Chan himself!
@@ -22,7 +23,7 @@ BEGIN
     m_enchantment = 3
   ]
 
-  itm.edit[elemchan]
+  itm.edit[elemchan elemyanc]
   [
     m_enchantment = 4
   ]

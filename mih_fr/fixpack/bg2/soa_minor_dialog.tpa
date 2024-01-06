@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION soa_minor_dialog
+BEGIN
+// Simyaz's dialog in the Underdark after the mind flayer's lair has a
+// condition that is impossible to meet; you cannot have a reaction
+// greater than FRIENDLY_UPPER.
+
+<<<<<<<< .../stratagems-inline/soa_minor_dialog.d
+REPLACE_TRIGGER_TEXT "udsimyaz"
+  ~ReactionGT(LastTalkedToBy,FRIENDLY_UPPER)~ ~Reaction(LastTalkedToBy,FRIENDLY_UPPER)~
+>>>>>>>>
+
+  LAUNCH_ACTION_FUNCTION install
+    INT_VAR
+    inline	= 1
+    STR_VAR
+    file	= "soa_minor_dialog.d"
+  END
+END	// soa_minor_dialog
+
+

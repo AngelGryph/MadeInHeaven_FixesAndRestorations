@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION water_elementals
+BEGIN
+  // Water elementals are underrepresented in the trilogy.
+  // But the paws are present in both EE  games, so let's
+  // apply the same corrections as for air, earth and fire.
+
+  itm.edit[waterele]
+  [
+    m_enchantment = 3
+  ]
+
+  itm.edit[elemcryo elemhydr]
+  [
+    m_enchantment = 4
+  ]
+END	// water_elementals

@@ -1,0 +1,26 @@
+DEFINE_ACTION_FUNCTION invisible_stalker_fixes
+BEGIN
+  // Invisible Stalkers in BGEE are separated in summoned- and
+  // randomly encountered versions, but BG2EE does not make that
+  // distinction.  We fix that here if needed.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "stalkesu.cre"
+  BEGIN
+    cre.copy[stalke=>stalkesu]
+    [
+      m_xp_value = 0
+      m_gender := "summoned"
+    ]
+
+    eff.edit[spstalk]
+    [
+      m_resource := "stalkesu"
+    ]
+  END
+
+  cre.edit[stalke senstalk]
+  [
+    m_xp_value = 3000
+    m_gender := "neither"
+  ]
+END	// invisible_stalker_fixes
