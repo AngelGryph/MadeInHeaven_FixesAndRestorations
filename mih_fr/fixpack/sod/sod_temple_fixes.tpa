@@ -16,7 +16,7 @@ BEGIN
     m.cure.alter{s_price = 150;;|match=~"%s_resref%" == "sppr317"~}
 
     // Lesser Restoration (price correction)
-    m.cure.edit{s_price = 450|match=~"%s_resref%" == "sppr417"~}
+    m.cure.alter{s_price = 450|match=~"%s_resref%" == "sppr417"~}
   ]
 
 
@@ -42,7 +42,7 @@ BEGIN
     m.cure.clone{s_price = 400;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr317"~}
 
     // Lesser Restoration (price correction)
-    m.cure.edit{s_price = 450|match=~"%s_resref%" == "sppr417"~}
+    m.cure.alter{s_price = 450|match=~"%s_resref%" == "sppr417"~}
   ]
   
 
