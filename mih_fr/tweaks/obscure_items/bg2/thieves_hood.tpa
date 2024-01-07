@@ -1,0 +1,32 @@
+DEFINE_ACTION_FUNCTION thieves_hood
+BEGIN
+  cre.edit[gortan1]
+  [
+    m.cre_add_items{helm29(inv)}
+  ]
+
+  cre.edit[gorbat1]
+  [
+    m.cre_add_items{book05(inv,x1)}
+  ]
+
+<<<<<<<< .../stratagems-inline/fiendish_deal.d
+REPLACE_ACTION_TEXT "gortan1"
+  ~GiveItemCreate("Helm29",LastTalkedToBy,0,0,0)~
+  ~GiveItem("helm29", LastTalkedToBy(Myself))~
+
+
+REPLACE_ACTION_TEXT "gorbat1"
+  ~GiveItemCreate("Helm29",LastTalkedToBy,0,0,0)~
+  ~GiveItem("book05", LastTalkedToBy(Myself))~
+>>>>>>>>
+
+  LAUNCH_ACTION_FUNCTION install
+    INT_VAR
+    inline	= 1
+    STR_VAR
+    file	= "fiendish_deal.d"
+  END
+END	// thieves_hood
+
+

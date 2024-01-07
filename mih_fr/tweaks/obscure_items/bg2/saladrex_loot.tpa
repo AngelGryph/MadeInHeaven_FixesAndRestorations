@@ -1,0 +1,9 @@
+DEFINE_ACTION_FUNCTION saladrex_loot
+BEGIN
+  cre.edit[gorsal]
+  [
+    m.item.alter{s_unstealable = 0|match=~INDEX (CASE_INSENSITIVE EXACT_MATCH "%s_resref" "misc45 staf21") != "-1"~}
+  ]
+END	// saladrex_loot
+
+

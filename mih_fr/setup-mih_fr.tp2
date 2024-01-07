@@ -209,3 +209,17 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Obtain Obscure Items
+
+BEGIN @52
+GROUP @3
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_obscure_items"
+  location	= "tweaks/obscure_items"
+END
+
+
