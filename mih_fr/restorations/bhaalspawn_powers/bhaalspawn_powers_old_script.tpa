@@ -1,0 +1,11 @@
+DEFINE_ACTION_FUNCTION bhaalspawn_powers_old_script
+BEGIN
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar4500"
+    top		= "ar4500_extend_old"
+    location	= "resources"
+  END
+END	// bhaalspawn_powers_old_script
+
+

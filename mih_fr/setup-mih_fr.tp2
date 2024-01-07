@@ -203,6 +203,22 @@ LAUNCH_ACTION_FUNCTION run
   file		= "setup_artemis_entreri"
   location	= "restorations/artemis_entreri"
 END
+
+
+// Restored Bhaalspawn Powers
+
+BEGIN @33
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bhaalspawn_powers"
+  location	= "restorations/bhaalspawn_powers"
+END
+
+
 // ======
 // Tweaks
 // ======

@@ -1,0 +1,70 @@
+DEFINE_ACTION_FUNCTION bhaalspawn_powers_fixes
+BEGIN
+  // BHAAL1B - Regeneration
+  // - Wrong 3D effect in level 15 header.
+  // - Even levels add no progress, delete them.
+
+  spl.edit[bhaal1b]
+  [
+    m.ab.delete{s_level = 16 OR s_level = 18}
+    m.ab_fx.alter{s_resource := "ICWRATI"|match="s_opcode = 215"}
+  ]
+
+
+  // BHAAL2A - Draw Upon Holy Might
+  // - Headers missing for level 27 and 30. (No Mystra's Ban here!)
+
+  spl.edit[bhaal2a]
+  [
+    m.ab.clone{s_level = entry_index * 3 + 27|match="s_level = 24" number:i=2}
+    m.ab_fx.alter{s_parameter2 = p_level / 3|match="s_opcode = 142" match_parent="p_level > 24"}
+  ]
+
+
+  // BHAAL2B - Dark Taint
+  // - Level headers for level 19 and 21 add no progresion, delete them.
+  // - At level 25 it becomes an area effect but still uses a single
+  //   target projectile, so not really.
+  // - Saving throw penalties are inconsistently set for different effects.
+
+  spl.edit[bhaal2b]
+  [
+    m.ab.delete{s_level = 19 OR s_level = 21}
+    m.ab.alter{s_projectile = 237|match="s_level = 25"}
+    m.ab_fx.alter{s_savebonus = "-2"|match="s_save_vs_poison = 1" match_parent="p_level < 17"}
+    m.ab_fx.alter{s_savebonus = "-4"|match="s_save_vs_poison = 1" match_parent="p_level > 16"}
+  ]
+
+
+  // BHAAL3A - Immunity to level drain & 5% MR
+  // BHAAL4B - 25% resistance to physical damage
+  // - Tell the player what happened.
+
+  spl.edit[bhaal3a]
+  [
+    m.ab_fx.add{s_opcode = 139;;s_target = 1;;s_timing = 1;;s_parameter1 = RESOLVE_STR_REF (@0)}
+  ]
+  
+  spl.edit[bhaal4b]
+  [
+    m.ab_fx.add{s_opcode = 139;;s_target = 1;;s_timing = 1;;s_parameter1 = RESOLVE_STR_REF (@1)}
+  ]
+
+
+  // BHAAL3B - Hand of Murder
+  // - Required effect files are missing.
+
+  ACTION_FOR_EACH eff IN "bh3b1" "bh3b2" "bh3b3" "bh3b4" "bh3b5"
+  BEGIN
+    eff.make[%eff%]
+    [
+      m_opcode = 146
+      m_target = 2
+      m_timing = 1
+      m_parameter2 = 1
+      m_resource := "%eff%"
+    ]
+  END
+END	// bhaalspawn_powers_fixes
+
+

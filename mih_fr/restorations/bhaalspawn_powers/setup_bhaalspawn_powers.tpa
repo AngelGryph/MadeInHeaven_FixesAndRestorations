@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION setup_bhaalspawn_powers
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "bhaalspawn_powers_fixes"
+    tra		= "bhaalspawn_powers"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "bhaalspawn_powers_old_script"
+    tra		= "bhaalspawn_powers"
+  END
+END	// setup_bhaalspawn_powers
+
+
