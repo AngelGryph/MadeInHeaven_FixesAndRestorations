@@ -5,13 +5,10 @@ other than a bug fix or two which I reported back to the original authors.
 Currently included here are:
 
 
-From Sword Coast Stratagems v35.4, updated December 16th 2023:
+From Sword Coast Stratagems v35.5, updated December 16th 2023:
 
 sfo2e/		- SFO 2e function library, by DavidW.
-                  Fixed bug with spl_copy and spl_make ignoring create_scroll.
-		  Fixed faulty offset for dicesize in effect file structure.
-		  Fixed faulty logic in lib_struct that can fail area
-		  patching.
+                  Fixed undefined variable reference in struct_get function.
 lua/		- LUA GUI editing functions, by DavidW.
 
 
