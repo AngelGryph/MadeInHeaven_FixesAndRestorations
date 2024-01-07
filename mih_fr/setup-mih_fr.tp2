@@ -191,6 +191,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Artemis Entreri Encounter
+
+BEGIN @32
+GROUP @2
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_artemis_entreri"
+  location	= "restorations/artemis_entreri"
+END
 // ======
 // Tweaks
 // ======

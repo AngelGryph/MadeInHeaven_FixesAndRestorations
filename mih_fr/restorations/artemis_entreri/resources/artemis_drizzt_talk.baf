@@ -1,0 +1,10 @@
+IF
+  See("c6drizz2")
+  !Dead("c6drizz2")
+  NumTimesTalkedTo(0)
+THEN
+  RESPONSE #100
+    StartDialogueNoSet(player1)
+END
+
+
