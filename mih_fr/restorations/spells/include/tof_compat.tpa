@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION tof_compat
+BEGIN
+  // Tell DavidW's Talents of Faerun what spheres our
+  // restored clerical spells belong to.
+
+<<<<<<<< .../stratagems-inline/%MOD_FOLDER%.ini
+[spheres]
+CLERIC_ANIMAL_FRIENDSHIP=animal
+CLERIC_CIRCLE_OF_PROTECTION=protection
+CLERIC_CURE_BLIND_DEAF=healing
+CLERIC_ENDURE_HEAT_COLD=protection
+CLERIC_ENERGY_DRAIN=necromantic
+CLERIC_HOLY_SWORD=good
+CLERIC_SPACE_WARP=divine
+>>>>>>>>
+
+  COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%"
+END
