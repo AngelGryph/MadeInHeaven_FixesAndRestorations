@@ -1,0 +1,33 @@
+DEFINE_ACTION_FUNCTION xzars_creations
+BEGIN
+  // A few patches to make Xzar's creatures work correctly.
+
+  cre.edit[xgolem]
+  [
+    m_allegiance := "neutral"
+    m_script_default := "wtasight"
+    m_script_override := "shout"
+
+    m.cre_remove_items{~%s_resref%~ == "golfle"}
+    m.cre_add_items{golfle(weapon1)}
+  ]
+
+  cre.edit[xghast1 xghast2]
+  [
+    m_allegiance := "neutral"
+    m_script_override := "shout"
+  ]
+
+
+  // Patch in Xzar's creations in Prebek's home,
+  // replacing the pathetic goblins.
+
+  are.edit[ar0407]
+  [
+    m.actor.alter{s_name:="Ghast" s_resref:="xghast1"|match=~"%s_resref%" == "icgob01"~}
+    m.actor.alter{s_name:="Flesh Golem" s_resref:="xgolem"|match=~"%s_resref%" == "icgob02"~}
+    m.actor.alter{s_name:="Ghast" s_resref:="xghast2"|match=~"%s_resref%" == "icgob03"~}
+  ]
+END	// xzars_creations
+
+

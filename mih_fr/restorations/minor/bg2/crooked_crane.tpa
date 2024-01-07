@@ -1,0 +1,24 @@
+DEFINE_ACTION_FUNCTION crooked_crane
+BEGIN
+  are.edit[ar0021]
+  [
+    m.actor.add{s_name:="Carmine of the Wheel" s_resref:="crogam01" s_x=548 s_y=454 s_face:="SSW"}
+    m.actor.add{s_name:="Andrew of the Dice" s_resref:="crogam02" s_x=385 s_y=576 s_face:="NW"}
+  ]
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar0021"
+    bottom	= "crooked_crane_l1"
+    location	= "resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "ar0022"
+    bottom	= "crooked_crane_l2"
+    location	= "resources"
+  END
+END	// crooked_crane
+
+

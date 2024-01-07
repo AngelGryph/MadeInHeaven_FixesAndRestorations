@@ -1,0 +1,22 @@
+DEFINE_ACTION_FUNCTION hell_hounds
+BEGIN
+  // Hell Hound trap in Unseeing Eye cultists lair
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "houndtrp"
+    swap_out	= "etter01"
+    swap_in	= "hellho01"
+  END
+
+
+  // Hell Hounds (and Winter Wolves) in Planar Sphere
+
+  are.edit[ar0412]
+  [
+    m.actor.alter{s_name:="Hell Hound" s_resref:="obsfir05"|match=~"%s_resref%" == "icsalfir"~}
+    m.actor.alter{s_name:="Winter Wolf" s_resref:="obsice03"|match=~"%s_resref%" == "icsalcol"~}
+  ]
+END	// hell_hounds
+
+

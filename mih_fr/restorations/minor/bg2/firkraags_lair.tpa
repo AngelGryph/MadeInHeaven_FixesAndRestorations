@@ -1,0 +1,48 @@
+DEFINE_ACTION_FUNCTION firkraags_lair
+BEGIN
+  // Restore three unused monsters in King Strohm's Tomb.
+  
+  cre.edit[firmon01]
+  [
+    m_animation := "wailing_virgin"
+    m_script_override := "banshee"
+
+    m.cre_remove_items{sw1h32}
+  ]
+
+  cre.edit[firmon02]
+  [
+    m.cre_add_items{immune1(ring)}
+  ]
+
+  cre.edit[firmon04]
+  [
+    m_allegiance := "enemy"
+
+    m.cre_swap_scripts{monfir04=>firmon04}
+    m.cre_strip_scripts{initdlg2}
+  ]
+
+
+  are.edit[ar1202]
+  [
+    m.actor.add{s_name:="Banshee" s_resref:="firmon01" s_x=3450 s_y=785 s_face:="SE"}
+    m.actor.add{s_name:="Skeleton Warrior" s_resref:="firmon02" s_x=3655 s_y=1470 s_face:="NW"}
+    m.actor.add{s_name:="Revenant" s_resref:="firmon04" s_x=2595 s_y=1030 s_face:="SE"}
+  ]
+
+
+  // Remove weapons carried from other locations.
+
+  are.edit[ar0205]
+  [
+    m.container_item.delete{~%s_resref%~ == "halb04"}
+  ]
+
+  sto.edit[bernard2]
+  [
+    m.item.delete{~%s_resref%~ == "ax1h12"}
+  ]
+END	// firkraags_lair
+
+

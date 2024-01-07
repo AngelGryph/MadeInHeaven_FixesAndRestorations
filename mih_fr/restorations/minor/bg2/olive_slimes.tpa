@@ -1,0 +1,23 @@
+DEFINE_ACTION_FUNCTION olive_slimes
+BEGIN
+  cre.copy[jeloli01|source_location="resources"]
+  [
+    m_both_names := @0
+  ]
+
+  itm.copy[jeloli01|source_location="resources"]
+  [
+  ]
+
+  LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK
+    STR_VAR
+    script	= "ar2200"
+    match	= "spawnGhaGuys"
+    swap_out1	= ~"[^"]*",\[4422\.3524\]~
+    swap_in1	= ~"jeloli01", [4422.3524]~
+    swap_out2	= ~"[^"]*",\[4052\.3574\]~
+    swap_in2	= ~"jeloli01", [4052.3574]~
+  END
+END	// olive_slimes
+
+
