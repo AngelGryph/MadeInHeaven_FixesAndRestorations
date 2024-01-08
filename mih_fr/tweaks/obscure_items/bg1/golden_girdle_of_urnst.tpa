@@ -1,0 +1,42 @@
+DEFINE_ACTION_FUNCTION golden_girdle_of_urnst
+BEGIN
+  // BELT02 - Golden Girle of Urnst
+  //
+  // This item is on Kirian, the fighter-mage in Mutamin's Garden.
+  //
+  // They are rude, but the player is not forced to fight them,
+  // and I don't like doing so.  But that means the item is lost.
+  //
+  // This modification gives the item to Tracea, the cultist mage
+  // in Ulgoth's Beard after Durlag's Tower, if the party declines
+  // to fight Kirian.
+
+<<<<<<<< .../stratagems-inline/kirian_changes.d
+ADD_TRANS_ACTION "kirian"
+BEGIN 2 END	// States
+BEGIN 0 END	// Transactions
+  ~AddexperienceParty(750) SetGlobal("mh#PeacefulKirian", "GLOBAL", 1)~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "kirian_changes.d" END
+
+<<<<<<<< .../stratagems-inline/mh#obsi3.baf
+IF
+  !Dead("kirian")
+  !PartyHasItem("belt02")
+  Global("mh#PeacefulKirian", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#PeacefulKirian", "GLOBAL", 2)
+    CreateItem("belt02", 0, 0, 0)
+    EquipItem("belt02")
+END
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "mh#obsi3.baf" END
+
+  cre.edit[tracea]
+  [
+    m.cre_insert_script{mh#obsi3|loc="high"}
+  ]
+END	// golden_girdle_of_urnst

@@ -1,0 +1,43 @@
+DEFINE_ACTION_FUNCTION legacy_of_the_masters
+BEGIN
+  // BRAC10 - Gauntlets of Weapon Expertise
+  //
+  // I noticed that the version of Tazok optionally fought at the
+  // Bandit Camp has a copy of this item, but final Tazok in the
+  // Undercity does not.
+  //
+  // This gave me the idea that if the player does not kill Meilum,
+  // Tazok should have the item and the player can grab it after
+  // the battle for use in Siege of Dragonspear and/or Jastey's
+  // Endless BG1 mod.
+
+<<<<<<<< .../stratagems-inline/meilum_changes.d
+ADD_TRANS_ACTION "meilum"
+BEGIN 5 6 END	// States
+BEGIN 0 END	// Transactions
+  ~AddexperienceParty(300) SetGlobal("mh#PeacefulMeilum", "GLOBAL", 1)~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "meilum_changes.d" END
+
+<<<<<<<< .../stratagems-inline/mh#obsi1.baf
+IF
+  !Dead("meilum")
+  !PartyHasItem("brac10")
+  Global("mh#PeacefulMeilum", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#PeacefulMeilum", "GLOBAL", 2)
+    CreateItem("brac10", 0, 0, 0)
+    EquipItem("brac10")
+END
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "mh#obsi1.baf" END
+
+  cre.edit[tazok%eet_var% tazok2]
+  [
+    m.cre_remove_items{brac10}
+    m.cre_insert_script{mh#obsi1|loc="high"}
+  ]
+END	// legacy_of_the_masters

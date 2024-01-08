@@ -1,0 +1,41 @@
+DEFINE_ACTION_FUNCTION telbars_studded_leather
+BEGIN
+  // LEAT07 - Studded Leather Armor +2
+  //
+  // This armor is on Sendai, the snobbish Amnish noble the
+  // party can encounter in the Cloud Peaks.  If the party
+  // doesn't challenge her the armor is lost.
+  //
+  // This modification moves the armor to Hakt in the bandit
+  // camp if the party chooses not to fight Sendai.
+
+<<<<<<<< .../stratagems-inline/sendai_changes.d
+ADD_TRANS_ACTION "sendai%eet_var%"
+BEGIN 4 END	// States
+BEGIN 0 END	// Transactions
+  ~AddexperienceParty(300) SetGlobal("mh#PeacefulSendaiBG1", "GLOBAL", 1)~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "sendai_changes.d" END
+
+<<<<<<<< .../stratagems-inline/mh#obsi2.baf
+IF
+  !Dead("sendai%eet_var%")
+  !PartyHasItem("leat07")
+  Global("mh#PeacefulSendaiBG1", "GLOBAL", 1)
+THEN
+  RESPONSE #100
+    SetGlobal("mh#PeacefulSendaiBG1", "GLOBAL", 2)
+    DestroyItem("leat01")
+    CreateItem("leat07", 0, 0, 0)
+    EquipItem("leat07")
+END
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "mh#obsi2.baf" END
+
+  cre.edit[hakt]
+  [
+    m.cre_insert_script{mh#obsi2|loc="high"}
+  ]
+END	// telbars_studded_leather
