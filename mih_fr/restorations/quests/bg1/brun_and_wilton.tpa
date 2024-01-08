@@ -1,0 +1,58 @@
+DEFINE_ACTION_FUNCTION brun_and_wilton
+BEGIN
+  // A farmer named Wilton will give the Cloak of Displacement
+  // to the party for helping farmer Brun back to his feet.
+  // This needs a bit of fixing to work properly though...
+  //
+  // Note: BG1UB changed this to a Cloak of Protection, but
+  // you already can get several of these elsewhere, so...
+
+<<<<<<<< .../stratagems-inline/wilton_fixes.d
+  REPLACE_STATE_TRIGGER "wilton" 0
+  ~Global("GaveAnkheg", "GLOBAL", 1) HasItem("clck03", Myself())~
+
+  REPLACE_STATE_TRIGGER "wilton" 1
+  ~ReactionGT(Myself, NEUTRAL_LOWER)~
+
+  REPLACE_STATE_TRIGGER "wilton" 3
+  ~True()~
+>>>>>>>>
+
+LAF install INT_VAR inline = 1 STR_VAR file = "wilton_fixes.d" END
+
+<<<<<<<< .../stratagems-inline/wilton.baf
+IF
+  See([PC])
+  Global("GaveAnkheg", "GLOBAL", 1)
+  HasItem("clck03", Myself())
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself(), #4821)
+    Wait(6)
+    Dialogue([PC])
+END
+>>>>>>>>
+
+LAF install INT_VAR inline = 1 STR_VAR file = "wilton.baf" END
+
+  cre.edit[wilton]
+  [
+    m_script_override := "wilton"
+    m_sound_initial_meeting-strref = 4822
+    m_morale = 8
+    m_morale_break = 6
+    m.cre_add_items{clck03(inv)}
+  ]
+
+  are.edit[%FishingVillage_House2%]
+  [
+    m.actor.add{s_name := "Wilton";;s_resref := "wilton";;s_x = 310;;s_y = 195;;s_face := "SW"}
+  ]
+
+  sto.edit[ulgoth]
+  [
+    m.item.delete{~%s_resref%~ == "clck03"}
+  ]
+END	// brun_and_wilton
+
+
