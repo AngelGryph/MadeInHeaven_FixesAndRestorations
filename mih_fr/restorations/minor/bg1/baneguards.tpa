@@ -1,0 +1,39 @@
+DEFINE_ACTION_FUNCTION baneguards
+BEGIN
+  spl.copy[%WIZARD_MAGIC_MISSILE%=>BANEGUARD_MAGIC_MISSILE]
+  [
+    m_type := "innate"
+    m.ab.delete{s_level > 1}
+    m.ab.alter{s_location = 4;;s_casting_time = 1;;s_projectile = 69}
+  ]
+
+  spl.copy[%WIZARD_MIRROR_IMAGE%=>BANEGUARD_MIRROR_IMAGE]
+  [
+    m_type := "innate"
+    m.ab.delete{s_level > 1}
+    m.ab.alter{s_location = 4;;s_casting_time = 1;;s_projectile = 69}
+    m.ab_fx.alter{s_duration = (s_duration > 5) ? 24 : s_duration}
+  ]
+
+  LAM data_spell_resrefs
+
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "skelbg.ssl"
+    location	= "resources"
+  END
+
+  cre.copy[skelbg|source_location="resources"]
+  [
+    m_both_names := @1
+  ]
+
+
+  are.edit[%Undercity%]
+  [
+    m.spawn_point.alter{++s_count;;TEXT_SPRINT $s("resref_%s_count%") "SKELBG"|match="s_count < 10"}
+  ]
+END	// baneguards
+
+
