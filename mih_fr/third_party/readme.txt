@@ -9,7 +9,6 @@ From Sword Coast Stratagems v35.5, updated December 16th 2023:
 
 sfo2e/		- SFO 2e function library, by DavidW.
                   Fixed undefined variable reference in struct_get function.
-lua/		- LUA GUI editing functions, by DavidW.
 
 
 From G3 BG2 Fixpack v13, updated December 16th 2023:
