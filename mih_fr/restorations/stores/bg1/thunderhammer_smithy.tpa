@@ -1,0 +1,53 @@
+DEFINE_ACTION_FUNCTION thunderhammer_smithy
+BEGIN
+  // Two additional shops, taeru2 and taeru3 exist in the
+  // game files, hinting that at some point Taerom was
+  // supposed to upgrade his inventory like Olrick and Ribald
+  // do.  This modification integrates most of the new items
+  // from those stores into Taerom's existing store, minus
+  // some for balancing reasons and to prevent duplication.
+
+  sto.edit[taerum]
+  [
+    m.item.delete{~%s_resref%~ == "arow09"}
+
+    m.item.clone{s_resref := "ax1h02";;s_number_in_stock = 1|match=~"%s_resref%" == "ax1h01"~}
+
+    m.item.clone{s_resref := "arow04";;s_charges_1 = 10;;s_number_in_stock = 100|match=~"%s_resref%" == "arow02"~}
+    m.item.clone{s_resref := "arow08";;s_charges_1 = 10;;s_number_in_stock = 100|match=~"%s_resref%" == "arow05"~}
+    m.item.clone{s_resref := "arow09";;s_charges_1 = 10;;s_number_in_stock = 100|match=~"%s_resref%" == "arow08"~}
+    m.item.clone{s_resref := "arow10";;s_charges_1 = 10;;s_number_in_stock = 50|match=~"%s_resref%" == "arow09"~}
+
+    m.item.clone{s_resref := "blun03";;s_number_in_stock = 1|match=~"%s_resref%" == "blun02"~}
+    m.item.clone{s_resref := "blun07";;s_number_in_stock = 1|match=~"%s_resref%" == "blun06"~}
+
+    m.item.clone{s_resref := "bolt03";;s_charges_1 = 5;;s_number_in_stock = 10|match=~"%s_resref%" == "bolt02"~}
+    m.item.clone{s_resref := "bolt04";;s_charges_1 = 5;;s_number_in_stock = 10|match=~"%s_resref%" == "bolt03"~}
+
+    m.item.clone{s_resref := "bow02";;s_number_in_stock = 1|match=~"%s_resref%" == "bow01"~}
+    m.item.clone{s_resref := "bow04";;s_number_in_stock = 1|match=~"%s_resref%" == "bow03"~}
+
+    m.item.clone{s_resref := "bull03";;s_charges_1 = 5;;s_number_in_stock = 15|match=~"%s_resref%" == "bull02"~}
+
+    m.item.clone{s_resref := "chan02";;s_number_in_stock = 1|match=~"%s_resref%" == "chan01"~}
+    m.item.clone{s_resref := "chan05";;s_number_in_stock = 1|match=~"%s_resref%" == "chan04"~}
+   
+    m.item.clone{s_resref := "dart03";;s_charges_1 = 5;;s_number_in_stock = 50|match=~"%s_resref%" == "dart03"~}
+    m.item.clone{s_resref := "dart04";;s_charges_1 = 5;;s_number_in_stock = 50|match=~"%s_resref%" == "dart03"~}
+
+    m.item.clone{s_resref := "halb02";;s_number_in_stock = 1|match=~"%s_resref%" == "halb01"~}
+
+    m.item.clone{s_resref := "hamm02";;s_number_in_stock = 1|match=~"%s_resref%" == "hamm01"~}
+
+    m.item.clone{s_resref := "leat05";;s_number_in_stock = 1|match=~"%s_resref%" == "leat04"~}
+
+    m.item.clone{s_resref := "sper02";;s_number_in_stock = 1|match=~"%s_resref%" == "sper01"~}
+
+    m.item.clone{s_resref := "sw1h02";;s_number_in_stock = 1|match=~"%s_resref%" == "sw1h01"~}
+    m.item.clone{s_resref := "sw2h01";;s_number_in_stock = 8|match=~"%s_resref%" == "sw1h08"~}
+    m.item.clone{s_resref := "sw2h02";;s_number_in_stock = 1|match=~"%s_resref%" == "sw2h01"~}
+
+    m.item.clone{s_resref := "xbow02";;s_number_in_stock = 1|match=~"%s_resref%" == "xbow01"~}
+    m.item.clone{s_resref := "xbow05";;s_number_in_stock = 1|match=~"%s_resref%" == "xbow04"~}
+  ]
+END	// thunderhammer_smithy

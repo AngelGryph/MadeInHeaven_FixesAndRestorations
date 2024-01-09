@@ -24,12 +24,13 @@ BEGIN
 
   sto.edit[sto4907]
   [
-    REMOVE_STORE_ITEM "belt03"
-    ADD_STORE_ITEM "hamm02" AFTER "blun07" #0 #0 #0 "identified" #1
-    ADD_STORE_ITEM "sper02" AFTER "dagg02" #0 #0 #0 "identified" #1
-    ADD_STORE_ITEM "bow04" AFTER "sw1h08" #0 #0 #0 "identified" #1
-    ADD_STORE_ITEM "xbow05" AFTER "bow04" #0 #0 #0 "identified" #1
-    ADD_STORE_ITEM "chan05" AFTER "leat02" #0 #0 #0 "identified" #1
+    m.item.delete{~%s_resref%~ == "belt03"}
+    m.item.clone{s_resref := "hamm02"|match=~"%s_resref%" == "blun07"~}
+    m.item.clone{s_resref := "sper02"|match=~"%s_resref%" == "dagg02"~}
+    m.item.clone{s_resref := "bow04"|match=~"%s_resref%" == "swh108"~}
+    m.item.clone{s_resref := "xbow05"|match=~"%s_resref%" == "bow04"~}
+    m.item.clone{s_resref := "chan05"|match=~"%s_resref%" == "leat02"~}
+    m.item.clone{s_resref := "shld17"|match=~"%s_resref%" == "chan05"~}
   ]
 
 
