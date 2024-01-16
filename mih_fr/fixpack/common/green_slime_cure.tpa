@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION green_slime_cure
+BEGIN
+  // As per P&P rules, a Cure Disease effect should remove
+  // a green slime infection.
+
+  spl.edit[#curedis]
+  [
+    m.ab_fx.add{s_opcode = 112;;s_target = 2;;s_timing = 1;;s_parameter1 = 2;;s_resource := "slimed1"}
+    m.ab_fx.add{s_opcode = 112;;s_target = 2;;s_timing = 1;;s_parameter1 = 2;;s_resource := "slimed2"}
+    m.ab_fx.add{s_opcode = 321;;s_target = 2;;s_timing = 1;;s_parameter2 = 2;;s_resource := "jellgr1"}
+    m.ab_fx.add{s_opcode = 321;;s_target = 2;;s_timing = 1;;s_parameter2 = 2;;s_resource := "slimed1"}
+    m.ab_fx.add{s_opcode = 321;;s_target = 2;;s_timing = 1;;s_parameter2 = 2;;s_resource := "slimed2"}
+  ]
+END	// green_slime_cure
+
+

@@ -1,6 +1,6 @@
 DEFINE_ACTION_FUNCTION saga_dialog_fixes
 BEGIN
-  // Variable mismatch between emerson and minern
+  // Variable mismatch between emerson and miner.
 
   COPY_EXISTING "%tutu_var%minern.dlg" "override"
     DECOMPILE_AND_PATCH
@@ -8,6 +8,16 @@ BEGIN
       REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
        ~SpokenToEmerson~ ~SpokeToEmerson~
     END
+
+
+  // Reevor has no valid dialog when spoken to after quest completion.
+
+<<<<<<<< .../stratagems-inline/reevor_fix.d
+REPLACE_STATE_TRIGGER "reevor" 3
+   ~True()~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "reevor_fix.d" END
 END	// saga_dialog_fixes
 
 
