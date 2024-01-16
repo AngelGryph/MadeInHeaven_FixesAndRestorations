@@ -1,0 +1,119 @@
+DEFINE_ACTION_FUNCTION baldurs_gate
+BEGIN
+  // tem0149 - Shrine of Ilmater
+  //
+  // AR0149 is a Shrine of Ilmater, normally only a beggar is there
+  // but in chapter 7 there is a priest there providing access to the
+  // Undercellar.  Another similar priest is unused, let's use him.
+
+  sto.edit[tem0149]
+  [
+    m_name-string = 15031
+    m.item.alter{s_resref := "potn52"|match=~"%s_resref%" == "potn25"~}
+  ]
+
+<<<<<<<< .../stratagems-inline/priest_of_ilmater.d
+ADD_TRANS_ACTION "priilm"
+BEGIN 0 END	// State(s)
+BEGIN 1 END	// Transaction(s)
+  ~StartStore("tem0609", LastTalkedToBy(Myself()))~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "priest_of_ilmater.d" END
+
+  are.edit[%NEBaldursGate_IlmatersShrine%]
+  [
+    m.actor.add{s_name := "Priest of Ilmater";;s_resref := "priilm";;s_x = 365;;s_y = 240;;s_face := "SW"}
+  ]
+
+
+  // tem0609 - Temple of Ohgma
+  //
+  // AR0609 is actually the Temple of Umberlee, but I'd rather not
+  // meddle with that due to its quest importance.  And since I have
+  // an orphaned Priest of Oghma, might as well repurpose it.
+
+  sto.edit[tem0609]
+  [
+    m_name-string = 14157
+    m_rumors_drinks := "rbaldu"
+    m_rumors_donations := "rbaldu"
+    m.item.alter{s_resref := "potn52"|match=~"%s_resref%" == "potn25"~}
+  ]
+
+<<<<<<<< .../stratagems-inline/priest_of_oghma.d
+REPLACE_STATE_TRIGGER "priobg" 0
+  ~True()~
+
+ADD_TRANS_ACTION "priobg"
+BEGIN 0 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~StartStore("tem0609", LastTalkedToBy(Myself()))~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "priest_of_oghma.d" END
+
+  cre.copy[poghma=>priobg]
+  [
+    m_dialog := "priobg"
+  ]
+
+  are.edit[%CentralBaldursGate%]
+  [
+    m.actor.add{s_name := "Priest of Oghma";;s_resref := "priobg";;s_x = 2505 s_y = 175;;s_face := "SSW"}
+  ]
+
+
+  // inn1113 - Ye Olde Inn
+  //
+  // AR01113 is the inn that gets attacked by green slimes.
+  //
+  // Normally you can't save the innkeep from the green slime as he's already
+  // infected and nothing in the game cures a green slime infection.
+
+<<<<<<<< .../stratagems-inline/slimed_barkeep.d
+REPLACE_STATE_TRIGGER "barslim" 0
+  ~NumTimesTalkedTo(0)~
+
+APPEND "barslim"
+
+IF ~!See([ENEMY])
+    !HasItem("slimed1", Myself())
+    Global("mh#SavedYeOldeInnkeep", "GLOBAL", 0)~
+BEGIN saved
+  SAY @9
+  = @10
+  IF ~~
+    DO ~SetGlobal("mh#SavedYeOldeInnkeep", "GLOBAL", 1)
+        ReputationInc(1)
+	AddexperienceParty(500)~
+    EXIT
+END
+
+IF ~Global("mh#SavedYeOldeInnkeep", "GLOBAL", 0)~
+BEGIN panic
+  SAY @11
+  IF ~~
+    EXIT
+END
+
+IF ~True()~
+BEGIN store
+  SAY @12
+  IF ~~
+    DO ~StartStore("inn1113", LastTalkedToBy(Myself()))~
+    EXIT
+END
+
+END	// APPEND "barslim"
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "slimed_barkeep.d" END
+
+  sto.edit[inn1113]
+  [
+    m_name-strref = 20659
+  ]
+END	// baldurs_gate
+
+
