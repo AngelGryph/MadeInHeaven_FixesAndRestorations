@@ -3,17 +3,32 @@ BEGIN
 // Simyaz's dialog in the Underdark after the mind flayer's lair has a
 // condition that is impossible to meet; you cannot have a reaction
 // greater than FRIENDLY_UPPER.
+//
+// On closer inspection, the trigger for the hostile reaction is botched
+// too , and is the opposite of what was likely intended.  I change them
+// so they are each other's complement.
 
-<<<<<<<< .../stratagems-inline/soa_minor_dialog.d
-REPLACE_TRIGGER_TEXT "udsimyaz"
-  ~ReactionGT(LastTalkedToBy,FRIENDLY_UPPER)~ ~Reaction(LastTalkedToBy,FRIENDLY_UPPER)~
+<<<<<<<< .../stratagems-inline/simyaz_fix.d
+ALTER_TRANS "udsimyaz"
+BEGIN 50 END	// State(s)
+BEGIN 0 END	// Transactions(s)
+BEGIN
+  "TRIGGER" ~ReactionGT(LastTalkedToBy(Myself()), HOSTILE_UPPER)~
+END
+
+ALTER_TRANS "udsimyaz"
+BEGIN 50 END	// State(s)
+BEGIN 1 END	// Transactions(s)
+BEGIN
+  "TRIGGER" ~ReactionLT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
+END
 >>>>>>>>
 
   LAUNCH_ACTION_FUNCTION install
     INT_VAR
     inline	= 1
     STR_VAR
-    file	= "soa_minor_dialog.d"
+    file	= "simyaz_fix.d"
   END
 END	// soa_minor_dialog
 

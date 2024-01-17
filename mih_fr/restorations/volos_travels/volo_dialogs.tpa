@@ -10,11 +10,18 @@ BEGIN
     m.cre_insert_script{INITDLG|loc="high"}
   ]
 
-  LAUNCH_ACTION_FUNCTION install
-    STR_VAR
-    file	= "volos_travels.d"
-    location	= "resources"
-  END
+<<<<<<<< .../stratagems-inline/volos_travels.d
+ADD_STATE_TRIGGER "volo" 0
+  ~AreaCheck("%Nashkel_BelchingDragonTavern%")~
+
+ADD_STATE_TRIGGER "volo" 1
+  ~AreaCheck("%Nashkel_BelchingDragonTavern%")~
+
+ADD_STATE_TRIGGER "volose" 6
+  ~ReactionLT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "volos_travels.d" END
 END	// volo_dialogs
 
 

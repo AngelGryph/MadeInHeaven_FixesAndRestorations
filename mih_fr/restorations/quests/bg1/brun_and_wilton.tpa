@@ -12,7 +12,7 @@ BEGIN
   ~Global("GaveAnkheg", "GLOBAL", 1) HasItem("clck03", Myself())~
 
   REPLACE_STATE_TRIGGER "wilton" 1
-  ~ReactionGT(Myself, NEUTRAL_LOWER)~
+  ~ReactionGT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
 
   REPLACE_STATE_TRIGGER "wilton" 3
   ~True()~
