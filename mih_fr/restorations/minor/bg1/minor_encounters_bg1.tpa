@@ -4,7 +4,7 @@ BEGIN
 
   cre.edit[erik3]
   [
-    m_script_class := "initdlg"
+    m.cre_insert_script{initdlg|loc="high"}
     m_dialog := "erik3"
   ]
 
@@ -12,6 +12,66 @@ BEGIN
   [
     m.actor.add{s_name:="Doppleganger Erik" s_resref:="erik3" s_x=1430 s_y=260 s_face:="SE"}
   ]
+
+
+  // Restore statue Corianne
+
+  cre.copy[corian|source_location="resources"]
+
+  are.edit[%MutaminsGarden%]
+  [
+    m.actor.add{s_name:="Corianna" s_resref:="corian" s_x=1210 s_y=2580 s_face:="E"}
+  ]
+
+<<<<<<<< .../stratagems-inline/corianne_fixes.d
+REPLACE_STATE_TRIGGER "corian" 0
+  ~NumTimesTalkedTo(0) ReactionLT(LastTalkedToBy(Myself), FRIENDLY_LOWER)~
+
+ADD_TRANS_ACTION "corian"
+BEGIN 0 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~AddexperienceParty(300) EscapeArea()~
+
+REPLACE_STATE_TRIGGER "corian" 1
+  ~NumTimesTalkedTo(0)~
+
+ADD_TRANS_ACTION "corian"
+BEGIN 1 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~AddexperienceParty(300) GiveItem("potn38", LastTalkedToBy(Myself)) EscapeArea()~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "corianne_fixes.d" END
+
+
+  // Restore "Lord of Arrogance" Scotty McAverstein
+
+  cre.copy[scotty|source_location="resources"]
+  [
+    m_both_names := @2
+  ]
+
+  are.edit[%UlgothsBeard%]
+  [
+    m.actor.add{s_name:="Scotty" s_resref:="scotty" s_x=465 s_y=870 s_face:="SE"}
+  ]
+
+<<<<<<<< .../stratagems-inline/scotty_fixes.d
+REPLACE_STATE_TRIGGER "scotty" 0
+  ~NumTimesTalkedTo(0)~
+
+ADD_TRANS_ACTION "scotty"
+BEGIN 1 4 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~Enemy()~
+
+ADD_TRANS_ACTION "scotty"
+BEGIN 3 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~AddexperienceParty(350) EscapeArea()~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "scotty_fixes.d" END
 END	// minor_encounters_bg1
 
 

@@ -1,0 +1,10 @@
+IF
+  GlobalGT("Chapter", "GLOBAL", %bg1_chapter_4%)
+  !Exists("pilar")
+  !Dead("pilar")
+THEN
+  RESPONSE #100
+    CreateCreature("pilar", [800.1020], N)
+END
+
+

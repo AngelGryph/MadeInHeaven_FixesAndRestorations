@@ -1,0 +1,72 @@
+DEFINE_ACTION_FUNCTION shilo_chen
+BEGIN
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "brac17.itm"
+  BEGIN
+    itm.copy[brac17|source_location="resources"]
+    [
+      m_identified_name := @0
+      m_identified_description := @1
+    ]
+  END
+
+  cre.edit[shiloc]
+  [
+    m_dialog := "shilo"
+    m.cre_add_items{brac17(gloves,unstealable)}
+  ]
+
+  LAF install STR_VAR file = "mh#shogm.baf" location = "resources" END
+
+  cre.copy[ogrema=>mh#shogm]
+  [
+    m.cre_insert_script{mh#shogm|loc="high"}
+  ]
+
+  are.edit[%EBaldursGate_ElfsongTavern_L1%]
+  [
+    m.actor.add{s_name:="Shilo Chen" s_resref:="shiloc" s_x=610 s_y=960 s_face:="NNW"}
+  ]
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%SpiderWood%"
+    bottom	= "spawn_ogre_magi"
+    location	= "resources"
+  END
+
+<<<<<<<< .../stratagems-inline/shilo_chen_fixes.d
+REPLACE_STATE_TRIGGER "shilo" 0
+  ~ReactionLT(LastTalkedToBy(Myself), NEUTRAL_LOWER)~
+
+REPLACE_STATE_TRIGGER "shilo" 1
+  ~Global("HelpShiloChen", "GLOBAL", 0)~
+
+ALTER_TRANS "shilo"
+BEGIN 1 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+BEGIN
+  "ACTION" ~SetGlobal("HelpShiloChen", "GLOBAL", 1)~
+  "UNSOLVED_JOURNAL" ~@5~
+END
+
+REPLACE_STATE_TRIGGER "shilo" 2
+  ~Global("HelpShiloChen", "GLOBAL", 1)~
+
+REPLACE_STATE_TRIGGER "shilo" 3
+  ~Global("HelpShiloChen", "GLOBAL", 2)~
+
+ALTER_TRANS "shilo"
+BEGIN 3 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+BEGIN
+  "ACTION" ~EraseJournalEntry(@5) EraseJournalEntry(@6) SetGlobal("HelpShiloChen", "GLOBAL", 3) GiveItem("brac17", LastTalkedToBy(Myself)) EscapeArea()~
+  "SOLVED_JOURNAL" ~@7~
+END
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "shilo_chen_fixes.d" END
+
+  ADD_JOURNAL @5 @6 @7
+END	// shilo_chen
+
+

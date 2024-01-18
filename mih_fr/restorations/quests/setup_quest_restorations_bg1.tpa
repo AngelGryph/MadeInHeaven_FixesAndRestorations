@@ -4,11 +4,21 @@ BEGIN
   BEGIN
     ACTION_TO_LOWER BASH_FOR_RES
 
-    LAUNCH_ACTION_FUNCTION run
+    LAUNCH_ACTION_FUNCTION check_ini
       STR_VAR
-      file	= "%BASH_FOR_RES%"
-      location	= "bg1"
-      tra	= "quest_restorations_bg1"
+      ini		= "%BASH_FOR_RES%"
+      RET
+      proceed		= value
+    END
+
+    ACTION_IF proceed
+    BEGIN
+      LAUNCH_ACTION_FUNCTION run
+        STR_VAR
+        file		= "%BASH_FOR_RES%"
+        location	= "bg1"
+        tra		= "quest_restorations_bg1"
+      END
     END
   END
 END	// quest_restorations_bg1

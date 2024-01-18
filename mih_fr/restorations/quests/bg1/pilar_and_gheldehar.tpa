@@ -1,0 +1,115 @@
+DEFINE_ACTION_FUNCTION pilar_and_gheldehar
+BEGIN
+  itm.copy[ring13=>mhring13]
+  [
+    m_both_names := @8
+    m_critical_item = 1
+  ]
+
+  itm.copy[boot06=>mhboot06]
+  [
+    m_both_names := @9
+    m_critical_item = 1
+  ]
+
+  cre.copy[pilar ghelde|source_location="resources"]
+
+  LAUNCH_ACTION_FUNCTION extend_area_script
+    STR_VAR
+    area	= "%FriendlyArmInn_L1%"
+    bottom	= "spawn_pilar_ch5"
+    location	= "resources"
+  END
+
+  are.edit[%NWBaldursGate%]
+  [
+    m.actor.add{s_name := "Gheldehar";;s_resref := "ghelde";;s_x = 2470;;s_y = 1100;;s_face := "SSE"}
+  ]
+
+<<<<<<<< .../stratagems-inline/pilar_gheldehar_fixes.d
+REPLACE_STATE_TRIGGER "pilar" 0
+  ~Global("mh#HelpPilar", "GLOBAL", 0)~
+
+ALTER_TRANS "pilar"
+BEGIN 0 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+BEGIN
+  "REPLY" ~@10~
+  "EPILOGUE" ~GOTO 6~
+END
+
+EXTEND_TOP "pilar" 0
+  IF ~PartyGoldGT(0)~
+    REPLY @11
+    DO ~TakePartyGold(1)~
+    GOTO 1
+END
+
+ADD_TRANS_ACTION "pilar"
+BEGIN 1 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~SetGlobal("mh#HelpPilar", "GLOBAL", 1)~
+
+REPLACE_STATE_TRIGGER "pilar" 2
+  ~Global("mh#HelpPilar", "GLOBAL", 2)~
+
+REPLACE_STATE_TRIGGER "pilar" 3
+  ~Global("mh#HelpPilar", "GLOBAL", 1) !PartyHasItem("mhring13")~
+
+REPLACE_STATE_TRIGGER "pilar" 4
+  ~Global("mh#HelpPilar", "GLOBAL", 1) PartyHasItem("mhring13") ReactionLT(LastTalkedToBy(Myself()), FRIENDLY_LOWER)~
+
+REPLACE_STATE_TRIGGER "pilar" 5
+  ~Global("mh#HelpPilar", "GLOBAL", 1) PartyHasItem("mhring13") ReactionGT(LastTalkedToBy(Myself()), NEUTRAL_UPPER)~
+
+ADD_TRANS_ACTION "pilar"
+BEGIN 4 5 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~TakePartyItem("mhring13") SetGlobal("mh#HelpPilar", "GLOBAL", 2)~
+
+
+REPLACE_STATE_TRIGGER "ghelde" 0
+  ~Alignment(LastTalkedToBy(Myself()), LAWFUL_GOOD)~
+
+REPLACE_STATE_TRIGGER "ghelde" 1
+  ~Global("mh#HelpGheldehar", "GLOBAL", 0)~
+
+REPLACE_STATE_TRIGGER "ghelde" 2
+  ~Global("mh#HelpGheldehar", "GLOBAL", 1) !PartyHasItem("mhboot06")~
+
+REPLACE_STATE_TRIGGER "ghelde" 3
+  ~Global("mh#HelpGheldehar", "GLOBAL", 1) PartyHasItem("mhboot06") HPPercentGT(MostDamagedOf(Myself()), 70)~
+
+ALTER_TRANS "ghelde"
+BEGIN 3 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+BEGIN
+  "EPILOGUE" ~GOTO 4~
+END
+
+REPLACE_STATE_TRIGGER "ghelde" 5
+  ~Global("mh#HelpGheldehar", "GLOBAL", 1) PartyHasItem("mhboot06")~
+
+ADD_TRANS_ACTION "ghelde"
+BEGIN 5 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS) Wait(1)
+   ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS) Wait(1)
+   ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS) Wait(1)
+   ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS) Wait(1)
+   ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS) Wait(1)
+   ForceSpell(MostDamagedOf(Myself()), CLERIC_CURE_LIGHT_WOUNDS)~
+
+ADD_TRANS_ACTION "ghelde"
+BEGIN 4 5 END	// State(s)
+BEGIN 0 END	// Transaction(s)
+  ~TakePartyItem("mhboot06") SetGlobal("mh#HelpGheldehar", "GLOBAL", 2)~
+
+REPLACE_STATE_TRIGGER "ghelde" 6
+  ~True()~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "pilar_gheldehar_fixes.d" END
+END	// pilar_and_gheldehar
+
+
