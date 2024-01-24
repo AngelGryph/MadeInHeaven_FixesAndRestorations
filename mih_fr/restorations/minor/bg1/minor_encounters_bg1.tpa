@@ -42,36 +42,6 @@ BEGIN 0 END	// Transaction(s)
 >>>>>>>>
 
   LAF install INT_VAR inline = 1 STR_VAR file = "corianne_fixes.d" END
-
-
-  // Restore "Lord of Arrogance" Scotty McAverstein
-
-  cre.copy[scotty|source_location="resources"]
-  [
-    m_both_names := @2
-  ]
-
-  are.edit[%UlgothsBeard%]
-  [
-    m.actor.add{s_name:="Scotty" s_resref:="scotty" s_x=465 s_y=870 s_face:="SE"}
-  ]
-
-<<<<<<<< .../stratagems-inline/scotty_fixes.d
-REPLACE_STATE_TRIGGER "scotty" 0
-  ~NumTimesTalkedTo(0)~
-
-ADD_TRANS_ACTION "scotty"
-BEGIN 1 4 END	// State(s)
-BEGIN 0 END	// Transaction(s)
-  ~Enemy()~
-
-ADD_TRANS_ACTION "scotty"
-BEGIN 3 END	// State(s)
-BEGIN 0 END	// Transaction(s)
-  ~AddexperienceParty(350) EscapeArea()~
->>>>>>>>
-
-  LAF install INT_VAR inline = 1 STR_VAR file = "scotty_fixes.d" END
 END	// minor_encounters_bg1
 
 

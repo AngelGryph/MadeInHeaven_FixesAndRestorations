@@ -13,14 +13,14 @@ ALTER_TRANS "udsimyaz"
 BEGIN 50 END	// State(s)
 BEGIN 0 END	// Transactions(s)
 BEGIN
-  "TRIGGER" ~ReactionGT(LastTalkedToBy(Myself()), HOSTILE_UPPER)~
+  "TRIGGER" ~ReactionGT(LastTalkedToBy(Myself()), HOSTILE_UPPER)~
 END
 
 ALTER_TRANS "udsimyaz"
 BEGIN 50 END	// State(s)
 BEGIN 1 END	// Transactions(s)
 BEGIN
-  "TRIGGER" ~ReactionLT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
+  "TRIGGER" ~ReactionLT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
 END
 >>>>>>>>
 

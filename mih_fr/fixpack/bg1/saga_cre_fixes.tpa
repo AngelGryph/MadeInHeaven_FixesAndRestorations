@@ -20,6 +20,14 @@ BEGIN
     m_hp = 15
     m_thac0 = 18
   ]
+
+
+  // Kryla is a wolfwere, not a werewolf.
+
+  cre.edit[kryla]
+  [
+    m_class := "wolfwere"
+  ]
 END
 
 
