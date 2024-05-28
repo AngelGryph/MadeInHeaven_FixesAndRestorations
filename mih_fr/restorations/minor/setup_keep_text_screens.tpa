@@ -27,7 +27,7 @@ BEGIN
     SET_2DA_ENTRY 1 0 1 "ChptSara"
 
   COPY_EXISTING "kpwin.2da" "override"
-    SET_2DA_ENTRY 1 0 1 "C03aMon"
+    SET_2DA_ENTRY 1 0 1 "Ch03aMon"
 END	// setup_keep_text_screens
 
 
