@@ -12,8 +12,9 @@ BEGIN
   // By P&P rules, Elixir of Health should cure
   // blindness and deafness, but it doesn't.
 
-  itm.edit[potn17]
+  itm.edit[potn17|edit_strrefs_in_place:i=1]
   [
+    m_identified_description := @5
     m.ab_fx.clone{s_resource := "#curebld"|match=~"%s_resource%" == "#curepsn"~}
     m.ab_fx.clone{s_resource := "#curedef"|match=~"%s_resource%" == "#curepsn"~}
   ]

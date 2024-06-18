@@ -30,3 +30,34 @@ Equipped abilities:
 - Damage: +1 with missile weapons
 
 Weight: 2~
+@3    = ~Ring of Holiness: Honorary Ring of Sune
+Rings of this type were given to faithful priests of Sune who demonstrated actions of astounding integrity and kindness.
+
+STATISTICS:
+
+Equipped abilities:
+- Can memorize one extra divine spell of each level from 1st to 4th
+- Turn undead at a level one higher than the priest's actual level
+
+Weight: 0~
+@4    = ~When activated, the wand will eject two missiles of magical energy that dart forth and unerringly strikes their target. This includes enemy creatures in a melee. The target creature must be seen or otherwise detected to be hit, however, so near-total concealment, such as that offered by arrow slits, can render the spell ineffective. The missiles will inflict 2d4+2 points of damage.
+
+STATISTICS:
+
+Charge abilities:
+- 2 magic missiles will strike the target
+  Damage: 1d4+1
+  Range: 100 ft.
+  Area of Effect: 1 creature
+
+Requires:
+ 9 Intelligence
+
+Weight: 1~
+@5    = ~The elixir of health is a powerful healing mixture designed to cleanse the body of all impurities. First, it cures all poisons, diseases, blindness and deafness; then, once the system has been purged, the imbibed is cured by 10 Hit Points to speed the recovery process.
+
+STATISTICS:
+
+Special: Cures poison, disease, blindness and deafness, and heals 10 Hit Points
+
+Weight: 1~

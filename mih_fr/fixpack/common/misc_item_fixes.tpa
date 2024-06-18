@@ -9,4 +9,15 @@ BEGIN
     m_identified_description := @2
     m.fx.add{s_opcode = 286;;s_target = 1;;s_timing = 2;;s_parameter1 = 1}
   ]
+
+
+  // RING22 - Ring of Holiness
+  //
+  // According to P&P rules, this should add +1 to turn undead attempts.
+
+  itm.edit[ring22]
+  [
+    m_identified_description := @3
+    m.fx.add{s_opcode = 323;;s_target = 1;;s_timing = 2;;s_parameter1 = 1}
+  ]
 END	// misc_item_fixes

@@ -2,7 +2,7 @@ DEFINE_ACTION_FUNCTION gnoll_strength_fix
 BEGIN
   // Gnolls can only wield halberds and two-handed swords, but do not
   // actually have the strength to do so, as the requirements are
-  // 13 strength for a halberd and 14 strength for a thwo-handed sword.
+  // 13 strength for a halberd and 14 strength for a two-handed sword.
   //
   // Unlikely to be noticed in a vanilla game as strength below 16
   // does not give any bonuses, but it can come up if a mod, like my

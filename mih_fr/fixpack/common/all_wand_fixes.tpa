@@ -6,8 +6,9 @@ BEGIN
   // not just one.  If we're really pedantic they should also
   // be targetable at different foes, but let's not go there...
 
-  itm.edit[wand03]
+  itm.edit[wand03|edit_strrefs_in_place:i=1]
   [
+    m_identified_description := @4
     m.ab.alter{s_projectile = 69}
   ]
 END	// all_wand_fixes
