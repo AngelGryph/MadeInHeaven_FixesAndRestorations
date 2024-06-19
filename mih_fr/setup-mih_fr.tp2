@@ -24,18 +24,20 @@ LANGUAGE "English"
 	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
 
 
+// ========================
+// Fixpack & Optional Fixes
+// ========================
+
+
 // MiH P&P-based Fixpack
 
 BEGIN @10
 
+LABEL MH#-MiH_FR-PandP_Fixes
+
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
 REQUIRE_COMPONENT "setup-eefixpack.tp2" "0" @5
-
-
-// ========================
-// Fixpack & Optional Fixes
-// ========================
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -48,6 +50,8 @@ END
 
 BEGIN @11
 GROUP @1
+
+LABEL MH#-MiH_FR-Intelligence_19_Rule
 
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
@@ -62,6 +66,8 @@ END
 
 BEGIN @12
 GROUP @1
+
+LABEL MH#-MiH_FR-Sound_Volume_Fixes
 
 REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4	// Nothing for BGEE (yet)
 
@@ -82,6 +88,8 @@ END
 BEGIN @21
 GROUP @2
 
+LABEL MH#-MiH_FR-Item_Restorations
+
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -95,6 +103,8 @@ END
 
 BEGIN @22
 GROUP @2
+
+LABEL MH#-MiH_FR-Spell_Restorations
 
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
@@ -110,6 +120,8 @@ END
 BEGIN @23
 GROUP @2
 
+LABEL MH#-MiH_FR-Store_Restorations_BG1
+
 REQUIRE_PREDICATE GAME_IS "bgee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -123,6 +135,8 @@ END
 
 BEGIN @25
 GROUP @2
+
+LABEL MH#-MiH_FR-Quest_Restorations_BG1
 
 REQUIRE_PREDICATE GAME_IS "bgee eet" @4
 
@@ -138,6 +152,8 @@ END
 BEGIN @27
 GROUP @2
 
+LABEL MH#-MiH_FR-Minor_Restorations_BG1
+
 REQUIRE_PREDICATE GAME_IS "bgee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -152,6 +168,8 @@ END
 BEGIN @28
 GROUP @2
 
+LABEL MH#-MiH_FR-Minor_Restorations_BG2
+
 REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -165,6 +183,8 @@ END
 
 BEGIN @30
 GROUP @2
+
+LABEL MH#-MiH_FR-Volos_Travels
 
 REQUIRE_PREDICATE GAME_IS "bgee eet" @4
 
@@ -182,6 +202,8 @@ END
 BEGIN @31
 GROUP @2
 
+LABEL MH#-MiH_FR-Keep_Text_Screens
+
 REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -196,6 +218,8 @@ END
 BEGIN @32
 GROUP @2
 
+LABEL MH#-MiH_FR-Artemis_Entreri_Encounter
+
 REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -209,6 +233,8 @@ END
 
 BEGIN @33
 GROUP @2
+
+LABEL MH#-MiH_FR-Restored_Bhaalspawn_Powers
 
 REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
 
@@ -228,6 +254,8 @@ END
 BEGIN @51
 GROUP @3
 
+LABEL MH#-MiH_FR-Better_Prepared_Allies
+
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
 LAUNCH_ACTION_FUNCTION run
@@ -241,6 +269,8 @@ END
 
 BEGIN @52
 GROUP @3
+
+LABEL MH#-MiH_FR-Obtain_Obscure_Items
 
 REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
 
