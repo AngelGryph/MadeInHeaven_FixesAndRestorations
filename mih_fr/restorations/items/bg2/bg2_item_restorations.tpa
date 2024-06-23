@@ -1,0 +1,187 @@
+DEFINE_ACTION_FUNCTION bg2_item_restorations
+BEGIN
+  // bag01 - Wolfskin Bag
+  //
+  // Issues fixed:
+  // - Set unsellable/critical flag.
+  // - Filled in name and description.
+  // - Capacity set to 20.
+  //
+  // Placed on Copper Coronet beastmaster.
+
+  itm.edit[bag01]
+  [
+    m_both_names := @1
+    m_unidentified_description := @2
+    m_critical_item = 1
+  ]
+
+  sto.edit[bag01]
+  [
+    m_name := @1
+    m_capacity = 20
+  ]
+
+  cre.edit[beast]
+  [
+    m.cre_add_items{bag01(inv)}
+  ]
+
+
+  // boot09 - Boots of Hastened Departure
+  //
+  // Issues fixed:
+  // - Set ability icon.
+  //
+  // Added to nobleman merchant's store in Trademeet.
+  // NB: No canon name/decription found for this item, so trusting UB.
+
+  itm.edit[boot09]
+  [
+    m_identified_name := @3
+    m_identified_description := @4
+    m.ab.alter{icon := "iboot09"}
+  ]
+
+  sto.edit[trmer02]
+  [
+    m.item.clone{s_resref := "boot09"|match=~"%s_resref%" == "clck03"~}
+  ]
+
+
+  // brac12 - Bracers of Parrying
+  //
+  // Just the icon and base item exists, I had to make something up here.
+
+  itm.edit[brac12]
+  [
+    m_identified_name := @7
+    m_magical = 1
+    m_price = 500
+    m.fx.add{s_opcode = 0;;s_target = 1;;s_timing = 2;;s_parameter1 = 1;;s_parameter2 = 1}
+    m.fx.add{s_opcode = 0;;s_target = 1;;s_timing = 2;;s_parameter1 = 1;;s_parameter2 = 4}
+    m.fx.add{s_opcode = 0;;s_target = 1;;s_timing = 2;;s_parameter1 = 1;;s_parameter2 = 8}
+  ]
+
+
+  // brac18 - Gloves of Missile Snaring
+  //
+  // Issues fixed:
+  // - Removed nonsensical (and in oBG2 undocumented) use restrictions.
+  //
+  // Moved to an assassin you actually can (and have to) fight instead of
+  // one that doesn't attack you or stay around to fight.
+
+  itm.edit[brac18]
+  [
+    unusable_cleric			= 0
+    unusable_cleric_mage		= 0
+    unusable_cleric_thief		= 0
+    unusable_cleric_ranger		= 0
+    unusable_fighter_druid		= 0
+    unusable_fighter_cleric		= 0
+    unusable_fighter_mage_cleric	= 0
+    unusable_mage			= 0
+    unusable_druid			= 0
+  ]
+
+  cre.edit[trthf01]
+  [
+    m.cre_remove_items{brac18}
+  ]
+
+  cre.edit[ishadft1]
+  [
+    m.cre_add_items{brac18(gloves)}
+  ]
+
+
+  // misc3f - Jade Hound figurine
+  //
+  // This one works, it just isn't used anywhere.
+  // (NB: UB uses it as a reward for Minsc's personal quest.)
+
+
+  // misc3g - Marble Elephant figurine
+  //
+  // Only the inventory- and description icons were in the game.
+  // Unfortunately no elephant animation exists in the game. So
+  // I'll just make this one a fancy bit of treasure.
+
+  itm.make[misc3g]
+  [
+    m_unidentified_name-strref = 38100
+    m_unidentified_description-strref = 39653
+    m_identified_name := @5
+    m_identified_description := @6
+    m_price = 2000
+    m_weight = 2
+    m_lore_to_identify = 50
+    m_max_in_stack = 1
+    m_icon := "IMISC3G"
+    m_ground_icon := "GSACK01"
+    m_desc_image := "CMISC3G"
+    m_droppable = 1
+    m_displayable = 1
+    m_unusable_wizard_slayer = 1	// Just in case I change my mind.
+  ]
+
+
+  // misc8j - Boots of the West
+  //
+  // Issues fixed:
+  // - Removed unsellable (critical) flag
+  //
+  // Placed in ranger cabin.
+  // NB: UB fixed the strings of this item, but it appears already fixed
+  // in both oBG2 and in BG2EE, probably due to Fixpack.
+
+  itm.edit[misc8j]
+  [
+    m_critical_item = 0
+  ]
+
+  are.edit[ar1102]
+  [
+    m.container_item.add{s_resref := "misc8j"|match_parent=~"%p_name%" == "Container 6"~}
+  ]
+
+
+  // misc9k - Third Journal of Irenicus
+  //
+  // Issues fixed:
+  // - Filled in dummy description.
+  // - Description BAM way off center.
+  // - Removed duplicate first journal.
+  //
+  // Placed with the other journals on Irenicus' desk in Spellhold.
+
+  LAF install STR_VAR file = "cmisc9k.bam" location = "resources" END
+
+  itm.edit[misc9j|edit_strrefs_in_place:i=1]
+  [
+    m_unidentified_description := @0
+  ]
+
+  are.edit[ar1516]
+  [
+    m.container_item.delete{~%item_resref%~ == "misc9i"}
+  ]
+
+  are.edit[ar1515]
+  [
+    m.container_item.clone{s_resref := "misc9k"|match=~"%s_resref%" == "misc9j"~}
+  ]
+
+
+  // sw1h37 - Bastard Sword +1: 'Taragarth the Bloodbrand'
+  //
+  // Put in container in Maevar's Guild, replacing an ordinary +1 sword.
+
+  are.edit[ar0304]
+  [
+    m.container_item.alter{s_resref := "sw1h37"|match=~"%s_resref%" == "sw1h02"~}
+  ]
+END	// bg2_item_restorations
+
+
