@@ -46,6 +46,7 @@ BEGIN
     m.cure.clone{s_price = 450;;s_resref := "sppr417"|match=~"%s_resref%" == "sppr404"~}
 
     // Cure Critical Wounds
+    m.cure.delete{s_resref=="sppr502"}	// Some already have it.
     m.cure.clone{s_price = 200;;s_resref := "sppr502"|match=~"%s_resref%" == "sppr504"~}
   ]
 END
