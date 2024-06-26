@@ -3,16 +3,25 @@ BEGIN
   // Tell DavidW's Talents of Faerun what spheres our
   // restored clerical spells belong to.
 
-<<<<<<<< .../stratagems-inline/%MOD_FOLDER%.ini
-[spheres]
-CLERIC_ANIMAL_FRIENDSHIP=animal
-CLERIC_CIRCLE_OF_PROTECTION=protection
-CLERIC_CURE_BLIND_DEAF=healing
-CLERIC_ENDURE_HEAT_COLD=protection
-CLERIC_ENERGY_DRAIN=necromantic
-CLERIC_HOLY_SWORD=good
-CLERIC_SPACE_WARP=divine
->>>>>>>>
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_spheres
+  BEGIN
+    "CLERIC_ANIMAL_FRIENDSHIP" => "animal"
+    "CLERIC_CIRCLE_OF_PROTECTION" => "protection"
+    "CLERIC_CURE_BLIND_DEAF" => "healing"
+    "CLERIC_ENDURE_HEAT_COLD" => "protection"
+    "CLERIC_ENERGY_DRAIN" => "necromantic"
+    "CLERIC_HOLY_SWORD" => "good"
+    "CLERIC_SPACE_WARP" => "divine"
+  END
 
-  COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%"
+  ACTION_PHP_EACH spell_spheres AS spell => sphere
+  BEGIN
+    LAUNCH_ACTION_FUNCTION tof_spell_sphere
+      STR_VAR
+      spell
+      sphere
+    END
+  END
 END
+
+
