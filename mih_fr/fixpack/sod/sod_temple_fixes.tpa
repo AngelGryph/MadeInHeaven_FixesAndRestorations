@@ -10,6 +10,7 @@ BEGIN
   sto.edit[bdmizhen bdpolvi]
   [
     // Slow Poison
+    m.cure.delete{~%s_resref%~ == "sppr212"}	// Just in case.
     m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
 
     // Cure Disease (price correction)
@@ -23,9 +24,11 @@ BEGIN
   sto.edit[bddeep bddosia]
   [
     // Slow Poison
+    m.cure.delete{~%s_resref%~ == "sppr212"}	// Just in case.
     m.cure.clone{s_price = 1;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
 
     // Neutralize Poison
+    m.cure.delete{~%s_resref%~ == "sppr404"}	// Just in case.
     m.cure.clone{s_price = 1;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr401"~}
   ]
 
@@ -33,12 +36,14 @@ BEGIN
   sto.edit[bdff1000]
   [
     // Cure Medium Wounds
-    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr103"~}
+    m.cure.delete{~%s_resref%~ == "sppr315"}	// Just in case.
+    m.cure.clone{s_price = 120;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr103"~}
 
     // Cure Serious Wounds (price correction)
     m.cure.alter{s_price = 150|match=~"%s_resref%" == "sppr401"~}
 
     // Neutralize Poison
+    m.cure.delete{~%s_resref%~ == "sppr404"}	// Just in case.
     m.cure.clone{s_price = 400;;s_resref := "sppr404"|match=~"%s_resref%" == "sppr317"~}
 
     // Lesser Restoration (price correction)
@@ -49,9 +54,11 @@ BEGIN
   sto.edit[bdfrair]
   [
     // Cure Medium Wounds
-    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
+    m.cure.delete{~%s_resref%~ == "sppr315"}	// Just in case.
+    m.cure.clone{s_price = 120;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
 
     // Cure Disease
+    m.cure.delete{~%s_resref%~ == "sppr317"}	// Just in case.
     m.cure.clone{s_price = 150;;s_resref := "sppr317"|match=~"%s_resref%" == "sppr315"~}
 
     // Cure Serious Wounds (price correction)
@@ -64,6 +71,7 @@ BEGIN
     m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
 
     // Lesser Restoration
+    m.cure.delete{~%s_resref%~ == "sppr417"}	// Just in case.
     m.cure.clone{s_price = 750;;s_resref := "sppr417"|match=~"%s_resref%" == "sppr404"~}
 
     // Cure Critical Wounds

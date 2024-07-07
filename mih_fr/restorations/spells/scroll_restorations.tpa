@@ -57,10 +57,10 @@ BEGIN
   // Replace a few broken/missing icon files with the spella files,
   // they are identical for spells that were in BG1.
 
-  COPY_EXISTING "%CLERIC_BLESS%a.bam" "iscrl19.bam"
-  COPY_EXISTING "%CLERIC_BARKSKIN%a.bam" "iscrl30.bam"
-  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_1%a.bam" "iscrl57.bam"
-  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_2%a.bam" "iscrl60.bam"
+  COPY_EXISTING "%CLERIC_BLESS%a.bam" "override/iscrl19.bam"
+  COPY_EXISTING "%CLERIC_BARKSKIN%a.bam" "override/iscrl30.bam"
+  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_1%a.bam" "override/iscrl57.bam"
+  COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_2%a.bam" "override/iscrl60.bam"
   
 
   ACTION_PHP_EACH spell_scrolls AS scroll=>spell

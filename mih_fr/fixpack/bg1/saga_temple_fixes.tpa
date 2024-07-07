@@ -28,9 +28,11 @@ BEGIN
   sto.edit[tem0002 tem0131 tem0132 tem0149 tem0609 tem2304 tem2601 tem3402 tem4003 tem4802]
   [
     // Cure Medium Wounds
-    m.cure.clone{s_price = 100;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
+    m.cure.delete{~%s_resref%~ == "sppr315"}	// Just in case.
+    m.cure.clone{s_price = 120;;s_resref := "sppr315"|match=~"%s_resref%" == "sppr307"~}
 
     // Cure Disease
+    m.cure.delete{~%s_resref%~ == "sppr317"}	// Just in case.
     m.cure.clone{s_price = 150;;s_resref := "sppr317"|match=~"%s_resref%" == "sppr315"~}
 
     // Cure Serious Wounds (price correction)
@@ -43,10 +45,11 @@ BEGIN
     m.cure.clone{s_price = 100;;s_resref := "sppr212"|match=~"%s_resref%" == "sppr103"~}
 
     // Lesser Restoration
+    m.cure.delete{~%s_resref%~ == "sppr417"}	// Just in case.
     m.cure.clone{s_price = 450;;s_resref := "sppr417"|match=~"%s_resref%" == "sppr404"~}
 
     // Cure Critical Wounds
-    m.cure.delete{s_resref=="sppr502"}	// Some already have it.
+    m.cure.delete{~%s_resref%~ == "sppr502"}	// Just in case.
     m.cure.clone{s_price = 200;;s_resref := "sppr502"|match=~"%s_resref%" == "sppr504"~}
   ]
 END
