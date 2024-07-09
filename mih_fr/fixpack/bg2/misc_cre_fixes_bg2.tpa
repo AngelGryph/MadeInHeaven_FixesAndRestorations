@@ -11,6 +11,13 @@ BEGIN
   ]
 
 
+  // Winter Wolves are not using their dedicated script.
+  cre.edit[obsice03 wolfwi01 wolfwisu wolfwwsu]
+  [
+    m_script_default := "wntrwolf"
+  ]
+
+
   // Mark mummies as actually, y'know, mummies.
 
   cre.edit[fsmumm fsmumm2 fsmumm3 mumgre01 mummy mummy01 riftcr03]

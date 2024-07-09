@@ -19,6 +19,17 @@ BEGIN
   ]
 
 
+  // Winter wolves should do piercing damage with their bites.
+  // Wether or not their bite does additional cold damage is unclear
+  // in 2e, but 3.5e makes it a frost weapen (1d6) so let's do that.
+
+  itm.edit[wolfwi2]
+  [
+    m.ab.alter{s_dicenumber = 2;;s_dicesize = 4;;s_damage_type := "piercing"}
+    m.ab_fx.alter{s_dicenumber = 1;;s_dicesize = 6|match=~s_opcode = 12~}
+  ]
+
+
   // Wraith Spiders drain levels with their bite in P&P, and a leftover
   // file indicates that this was planned for BG1 as well, but got canned
   // due to BG1 not having a proper level drain opcode.  This makes wraith

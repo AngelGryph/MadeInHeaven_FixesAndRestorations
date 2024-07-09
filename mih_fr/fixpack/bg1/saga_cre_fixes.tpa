@@ -11,6 +11,13 @@ BEGIN
   ]
 
 
+  // Winter Wolves are not using their dedicated script.
+  cre.edit[wolfwi wolfwisu wolfwwsu]
+  [
+    m_script_default := "wntrwolf"
+  ]
+
+
   // Kryla is a wolfwere, not a werewolf.
 
   cre.edit[kryla]
