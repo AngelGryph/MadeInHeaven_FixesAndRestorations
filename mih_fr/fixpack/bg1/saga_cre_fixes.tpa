@@ -1,9 +1,27 @@
 DEFINE_ACTION_FUNCTION saga_cre_fixes
 BEGIN
-  // Dread Wolves and Wraith Spiders are undead,
-  // and should be immune to cold.
+  // Dread Wolves are undead and should use a proper paw.
+  cre.edit[wolfdi wolfdr]
+  [
+    m_general := "undead"
+    m_resist_cold = 100
+    m_resist_magic_cold = 100
+    m_resist_electricity = 50
+    m.cre_add_items{wolfdr1(weapon1) wolfdr1(weapon2)|replace:i=1}
+  ]
 
-  cre.edit[wolfdi wolfdr spidwr]
+
+  // Kryla is a wolfwere, not a werewolf.
+
+  cre.edit[kryla]
+  [
+    m_class := "wolfwere"
+  ]
+
+
+  // Wraith Spiders are undead and should be immune to cold.
+
+  cre.edit[spidwr ttspid]
   [
     m_general := "undead"
     m_resist_cold = 100
@@ -19,14 +37,6 @@ BEGIN
     m_level1 = 2
     m_hp = 15
     m_thac0 = 18
-  ]
-
-
-  // Kryla is a wolfwere, not a werewolf.
-
-  cre.edit[kryla]
-  [
-    m_class := "wolfwere"
   ]
 END
 

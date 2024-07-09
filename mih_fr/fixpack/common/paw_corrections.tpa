@@ -1,0 +1,40 @@
+DEFINE_ACTION_FUNCTION paw_corrections
+BEGIN
+  // Dread wolves don't have a correct "paw" and are missing their diseased
+  // bite and regeneration, making them too easy for their XP value.  The
+  // dread wolves in SoD fixed this, but this was not carried over to
+  // BG(2)EE proper.
+  //
+  // NB: Paws are assigned in game-specific fixes.
+  //
+  // NB: Actual troll-like regeneration is too controversial, not doing that
+  // here.  It's in Encounters & Quests instead.
+
+  itm.copy[p1-10=>wolfdr1]
+  [
+    m.fx.add{s_opcode = 98;;s_target := "Self";;s_timing := "Equipped";;s_parameter1 = 2;;s_parameter2 = 3}
+    m.ab_fx.add{s_opcode = 78;;s_target := "PresetTarget";;s_duration = 50400;;s_parameter1 = 300;;s_parameter2 = 3;;s_save_vs_poison = 1}
+    m.ab_fx.add{s_opcode = 142;;s_target := "PresetTarget";;s_duration = 50400;;s_parameter2 = 7;;s_save_vs_poison = 1}
+    m.ab_fx.add{s_opcode = 139;;s_target := "PresetTarget";;s_timing := "InstantPermanent";;s_parameter1 = GAME_IS "bgee" ? 26453 : 39752;;s_save_vs_poison = 1}
+  ]
+
+
+  // Wraith Spiders drain levels with their bite in P&P, and a leftover
+  // file indicates that this was planned for BG1 as well, but got canned
+  // due to BG1 not having a proper level drain opcode.  This makes wraith
+  // spiders way too easy for their XP value.
+  //
+  // Since we now do have a proper level drain in EE, let's fix that.
+
+  itm.edit[spidwr1]
+  [
+    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0}
+    m.ab_fx.delete{}
+    m.ab_fx.add{s_opcode = 12;;s_target = 2;;s_timing = 1;;s_parameter2 = 0x00020000;;s_dicenumber = 1;;s_dicesize = 4}
+    m.ab_fx.add{s_opcode = 78;;s_target = 2;;s_timing = 1;;s_parameter1 = 3;;s_parameter2 = 6}
+    m.ab_fx.add{s_opcode = 139;;s_target = 2;;s_timing = 1;;s_parameter1 = GAME_IS "bgee" ? 26453 : 41495}
+    m.ab_fx.add{s_opcode = 142;;s_target = 2;;s_timing = 1;;s_parameter2 = 7}
+    m.ab_fx.add{s_opcode = 216;;s_target = 2;;s_timing = 1;;s_parameter1 = 1}
+    m.ab_fx.add{s_opcode = 139;;s_target = 2;;s_timing = 1;;s_parameter1 = GAME_IS "bgee" ? 25802 : 39752}
+  ]
+END	// paw_corrections

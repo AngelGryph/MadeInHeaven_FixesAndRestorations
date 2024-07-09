@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION polymorph_fixes
+BEGIN
+  // Wolf-form (N)PC should be a normal wolf, not a dread wolf.
+
+  cre.edit[plywolf wolfchar]
+  [
+    PATCH_IF "%m_class%" == "wolf_dread"
+    BEGIN
+      m_class := "wolf"
+    END
+  ]
+END	// polymorph_fixes
+
+

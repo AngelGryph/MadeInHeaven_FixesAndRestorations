@@ -1,5 +1,16 @@
 DEFINE_ACTION_FUNCTION misc_cre_fixes_bg2
 BEGIN
+  // Dread Wolves are undead and should use a proper paw.
+  cre.edit[wolfdr01]
+  [
+    m_general := "undead"
+    m_resist_cold = 100
+    m_resist_magic_cold = 100
+    m_resist_electricity = 50
+    m.cre_add_items{wolfdr1(weapon1) wolfdr1(weapon2)|replace:i = 1}
+  ]
+
+
   // Mark mummies as actually, y'know, mummies.
 
   cre.edit[fsmumm fsmumm2 fsmumm3 mumgre01 mummy mummy01 riftcr03]
@@ -15,4 +26,16 @@ BEGIN
   [
     class := "green_dragon"
   ]
+
+
+  // Wraith Spiders are undead and should be immune to cold.
+
+  cre.edit[spidwr01 ttspid]
+  [
+    m_general := "undead"
+    m_resist_cold = 100
+    m_resist_magic_cold = 100
+  ]
 END	// misc_cre_fixes_bg2
+
+
