@@ -1,7 +1,7 @@
 DEFINE_ACTION_FUNCTION saga_cre_fixes
 BEGIN
   // Dread Wolves are undead and should use a proper paw.
-  cre.edit[wolfdi wolfdr]
+  cre.edit[wolfd1 wolfdr]
   [
     m_general := "undead"
     m_resist_cold = 100

@@ -59,6 +59,7 @@ BEGIN
 
   COPY_EXISTING "%CLERIC_BLESS%a.bam" "override/iscrl19.bam"
   COPY_EXISTING "%CLERIC_BARKSKIN%a.bam" "override/iscrl30.bam"
+  COPY_EXISTING "%CLERIC_CURE_BLIND_DEAF%a.bam" "override/iscrl43.bam"
   COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_1%a.bam" "override/iscrl57.bam"
   COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_2%a.bam" "override/iscrl60.bam"
   
