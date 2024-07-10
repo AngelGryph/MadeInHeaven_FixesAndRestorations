@@ -7,4 +7,19 @@ BEGIN
     m_general := "plant"
     m_race := "shambling_mound"
   ]
+
+
+  // Black Pits ochre jelly resistances correction.
+
+  cre.edit[bpjloc01]
+  [
+    m_resist_fire = 0
+    m_resist_magic_fire = 0
+    m_resist_cold = 0
+    m_resist_magic_cold = 0
+    m_resist_electricity = 100
+    m_resist_magic = 0
+  ]
 END	// bp_cre_fixes
+
+

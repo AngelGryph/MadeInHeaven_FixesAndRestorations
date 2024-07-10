@@ -1,5 +1,35 @@
 DEFINE_ACTION_FUNCTION paw_corrections
 BEGIN
+  // Mustard Jelly should deal 5d4 acid damage, not 5d4 blunt.
+  //
+  // NB: Other effects aren't quite right either, but good enough.
+  // Let's leave the big changes that need scripting for E&Q.
+
+  itm.edit[jellmu1 jellmu2]
+  [
+    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0;;s_damage_bonus = 0;;s_damage_type := "None"}
+    m.ab_fx.add{s_opcode = 12;;s_target := "PresetTarget";;s_timing := "InstantPermanent";;s_parameter1 = 2;;s_damage_type := "acid";;s_dicenumber = 5;;s_dicesize = 4}
+  ]
+  
+
+  // Ochre Jelly should deal 1d10+2 acid damage, not 3d4 blunt.
+
+  itm.edit[jelloc1]
+  [
+    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0;;s_damage_bonus = 0;;s_damage_type := "None"}
+    m.ab_fx.add{s_opcode = 12;;s_target := "PresetTarget";;s_timing := "InstantPermanent";;s_parameter1 = 2;;s_damage_type := "acid";;s_dicenumber = 1;;s_dicesize = 10}
+  ]
+
+  
+  // Gray Ooze should deal 2d8 acid damage, not 2d8 ranged.
+
+  itm.edit[oozegr1]
+  [
+    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0;;s_damage_bonus = 0;;s_damage_type := "None"}
+    m.ab_fx.add{s_opcode = 12;;s_target := "PresetTarget";;s_timing := "InstantPermanent";;s_parameter1 = 2;;s_damage_type := "acid";;s_dicenumber = 2;;s_dicesize = 8}
+  ]
+
+
   // Dread wolves don't have a correct "paw" and are missing their diseased
   // bite and regeneration, making them too easy for their XP value.  The
   // dread wolves in SoD fixed this, but this was not carried over to

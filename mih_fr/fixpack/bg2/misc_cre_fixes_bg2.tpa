@@ -4,10 +4,7 @@ BEGIN
   cre.edit[wolfdr01]
   [
     m_general := "undead"
-    m_resist_cold = 100
-    m_resist_magic_cold = 100
-    m_resist_electricity = 50
-    m.cre_add_items{wolfdr1(weapon1) wolfdr1(weapon2)|replace:i = 1}
+    m.cre_add_items{wolfdr1(weapon1) wolfdr1(weapon2)|replace:i=1}
   ]
 
 

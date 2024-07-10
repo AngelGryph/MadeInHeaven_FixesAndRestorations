@@ -1,0 +1,32 @@
+DEFINE_ACTION_FUNCTION ooze_resistances_bg1
+BEGIN
+  // Mustard Jelly
+  //
+  // Mustard jellies are not supposed to be magic immune
+  // (that's gray ooze), only 10% magic resistant.
+  //
+  // NB: jellmusu had this already correct.
+
+  cre.edit[jellmu jellmul jellymu]
+  [
+    m_resist_magic = 10
+  ]
+
+
+  // Ochre Jelly
+  //
+  // Ochre jellies are supposed to be immune to lightning,
+  // but should not have fire-, cold- or magic resistance.
+
+  cre.edit[jelloc jellyco]
+  [
+    m_resist_fire = 0
+    m_resist_magic_fire = 0
+    m_resist_cold = 0
+    m_resist_magic_cold = 0
+    m_resist_electricity = 100
+    m_resist_magic = 0
+  ]
+END	// ooze_resistances_bg1
+
+
