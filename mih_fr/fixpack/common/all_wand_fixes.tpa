@@ -1,5 +1,16 @@
 DEFINE_ACTION_FUNCTION all_wand_fixes
 BEGIN
+  // Wand of Fear
+  //
+  // This wand forces a save vs. spell instead of save vs. wand.
+
+  itm.edit[wand02|edit_strrefs_in_place:i=1]
+  [
+    m_identified_description := @6
+    m.ab_fx.alter{s_save_vs_spell = 0;;s_save_vs_wand = 1|match="s_save_vs_spell = 1"}
+  ]
+
+
   // Wand of Magic Missiles
   //
   // As per P&P, this wand should launch two Magic Missiles,
