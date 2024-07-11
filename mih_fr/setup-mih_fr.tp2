@@ -78,6 +78,22 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Optional: Lore-Friendly Spell Names
+
+BEGIN @13
+GROUP @1
+
+LABEL MH#-MiH_FR-Lore_Friendly_Spell_Names
+
+REQUIRE_PREDICATE FILE_EXISTS "%MOD_FOLDER%/language/%LANGUAGE%/lore_friendly_spell_names.tpa" @6
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "lore_friendly_spell_names"
+  location	= "language/%LANGUAGE%"
+END
+
+
 // ============
 // Restorations
 // ============

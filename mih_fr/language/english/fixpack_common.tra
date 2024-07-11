@@ -61,3 +61,17 @@ STATISTICS:
 Special: Cures poison, disease, blindness and deafness, and heals 10 Hit Points
 
 Weight: 1~
+@6    = ~A Wand of Fear strikes terror into the heart of any creature within its target area. This panic is not universal, however, as the stout of heart have been known to resist its magic. Like all wands, the Wand of Fear can only be used a limited number of times before it is destroyed.
+
+STATISTICS:
+
+Charge abilities:
+- Causes enemies to run in fear unless they save vs. Wand
+  Range: 100 ft.
+  Area of Effect: 15-ft. radius
+  Duration: 15 rounds
+
+Requires:
+ 9 Intelligence
+
+Weight: 1~

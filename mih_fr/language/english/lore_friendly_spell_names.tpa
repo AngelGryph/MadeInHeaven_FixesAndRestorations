@@ -1,0 +1,27 @@
+// This one is language dependent, so putting it here in the language folder.
+
+DEFINE_ACTION_FUNCTION lore_friendly_spell_names
+BEGIN
+  ALTER_TLK
+  BEGIN
+    REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+     ~Spell Thrust~ ~Storm's Spell Thrust~
+
+    REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+     ~Minor Sequencer~ ~Laeral's Gesture~
+
+    REPLACE_TEXTUALLY CASE_SENSITIVE EVALUATE_REGEXP
+     ~Protection From \(Normal\|Magical\) Weapons~ ~Invulnerability to \1 Weapons~
+
+    REPLACE_TEXTUALLY CASE_SENSITIVE EVALUATE_REGEXP
+     ~\(Improved \|\)Mantle~ ~Alustriel's \1Mantle~
+
+    REPLACE_TEXTUALLY CASE_SENSITIVE EVALUATE_REGEXP
+     ~Spell \(Sequencer\|Trigger\)~ ~The Simbul's Spell \1~
+
+    REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+     ~Absolute Immunity~ ~Sylune's Absolute Immunity~
+  END
+END	// correct_spell_names
+
+
