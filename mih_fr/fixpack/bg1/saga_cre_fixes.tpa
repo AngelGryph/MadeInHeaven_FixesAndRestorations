@@ -25,7 +25,7 @@ BEGIN
 
   // Wraith Spiders are undead and should be immune to cold.
 
-  cre.edit[spidwr ttspid]
+  cre.edit[spidwr]
   [
     m_general := "undead"
     m_resist_cold = 100

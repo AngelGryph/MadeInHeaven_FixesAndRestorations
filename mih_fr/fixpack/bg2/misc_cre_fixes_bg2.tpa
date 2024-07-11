@@ -33,12 +33,23 @@ BEGIN
 
 
   // Wraith Spiders are undead and should be immune to cold.
+  //
+  // NB: Leave ttspid alone, it's for the tutorial.
 
-  cre.edit[spidwr01 ttspid]
+  cre.edit[spidwr01]
   [
     m_general := "undead"
     m_resist_cold = 100
     m_resist_magic_cold = 100
+  ]
+
+
+  // Vortex Spiders have incorrect number of HD, should be 7.
+  // The rest of their stats do match.
+
+  cre.edit[ohbmena7 smspid02 spidvo01]
+  [
+    m_level1 = 7
   ]
 END	// misc_cre_fixes_bg2
 
