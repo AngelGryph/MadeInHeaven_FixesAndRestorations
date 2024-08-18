@@ -297,3 +297,19 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Revised Spell_Damage_Caps
+
+BEGIN @53
+GROUP @3
+
+LABEL MH#-MiH_FR-Revised_Spell_Damage_Caps
+
+REQUIRE_PREDICATE GAME_IS "bgee bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_spell_damage_caps"
+  location	= "tweaks/spell_damage_caps"
+END
+
+

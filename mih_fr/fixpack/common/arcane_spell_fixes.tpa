@@ -16,14 +16,21 @@ BEGIN
 
   // SPWI313 - Skull Trap
   //
-  // Damage dice are wrong and the spell scales way further than Mystra
-  // would allow in 1678 DR; Skull Trap should do 2d4 + 1d4/level, capped
-  // to 12d4 at level 10.
+  // Damage dice are wrong, it's supposed to be 2d4 + 1d4/level.
 
   spl.edit[spwi313|edit_strrefs_in_place:i=1]
   [
     m_description := @1
-    m.ab.delete{s_level > 10}
-    m.ab_fx.alter{s_dicenumber = (p_level > 1) ? p_level + 2 : 5;;s_dicesize = 4}
+    m.ab_fx.alter{s_dicenumber = (p_level > 1) ? p_level + 2 : 7;;s_dicesize = 4|match="s_opcode = 12"}
+  ]
+
+
+  // SPWI712 - Delayed Blast Fireball
+  //
+  // Damage is supposed to be 15d6+15, not 15d6.
+
+  spl.edit[spwi313|edit_strrefs_in_place:i=1]
+  [
+    m.ab_fx.alter{s_parameter1 = 15|match="s_opcode = 12"}
   ]
 END	// arcane_spell_fixes

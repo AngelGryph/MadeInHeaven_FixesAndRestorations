@@ -42,4 +42,15 @@ BEGIN
   [
     m.ab_fx.clone{s_resource := "#curedrk"|match=~"%s_resource%" == "#curepsn"~}
   ]
+
+
+  // SPPR709 - Confusion
+  //
+  // This spell has a unique icon, but doesn't actually use it.
+
+  spl.edit[sppr709]
+  [
+    m_icon := "sppr709c"
+    m.ab.alter{s_icon := "sppr709b"}
+  ]
 END	// divine_spell_fixes

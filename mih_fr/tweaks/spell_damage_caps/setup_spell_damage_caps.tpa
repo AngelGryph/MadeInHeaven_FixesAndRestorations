@@ -1,0 +1,9 @@
+DEFINE_ACTION_FUNCTION setup_spell_damage_caps
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "arcane_spell_caps divine_spell_caps"
+  END
+END	// spell_damage_caps
+
+
