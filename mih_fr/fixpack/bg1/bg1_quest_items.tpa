@@ -1,0 +1,37 @@
+DEFINE_ACTION_FUNCTION bg1_quest_items
+BEGIN
+  // AMUL13CO	- Colquetle's Family Amulet
+  // DAGG06	- Nester's Dagger
+  // DAGG07	- Kylee's Dagger
+  // DAGG08	- Hentold's Dagger
+  // RINGJOIA	- Joia's Flamedance Ring
+  // RINGJOS	- Joseph's Greenstone Ring
+  // SW1H12	- Hull's Long Sword
+  // SW1H17	- Perdue's Short Sword
+  // 
+  // In BG1, it is possible to lose certain quest items by
+  // taking certain actions or doing things in a specific
+  // order, thus making it impossible to complete the quest.
+  // This marks such items as plot critical and unbreakable.
+
+  itm.edit[amul13co dagg06 dagg07 dagg08 ringjoia ringjos sw1h12 sw1h17]
+  [
+    m_critical_item = 1
+    m.ab.alter{s_breakable = 0}
+    m.ab_fx.delete{~%s_resource%~ == "%SOURCE_RES%"}
+  ]
+
+<<<<<<<< .../stratagems-inline/bg1_quest_items.d
+ADD_TRANS_ACTION "mtbe11"
+BEGIN 5 6 7 END	// States
+BEGIN END	// Transactions
+  ~TakePartyItem("amul11co") DestroyItem("amul11co") GiveItemCreate("amul11", LastTalkedToBy(Myself), 0,0, 0)~
+
+ADD_TRANS_ACTION "ftown2"
+BEGIN 7 END	// States
+BEGIN END	// Transactions
+  ~TakePartyItem("ringjos") DestroyItem("ringjos") GiveItemCreate("ring14", LastTalkedToBy(Myself), 0,0, 0)~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "bg1_quest_items.d" END
+END	// bg1_quest_items
