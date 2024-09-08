@@ -4,7 +4,7 @@ BEGIN
   //
   // According to P&P sources, these should give a +1 to saving throws.
 
-  itm.edit[clck25]
+  itm.edit[clck25|edit_strrefs_in_place:i=1]
   [
     PATCH_FOR_EACH opcode IN 33 34 35 36 37
     BEGIN    
@@ -33,5 +33,23 @@ BEGIN
   [
     m_both_names := @3
     m_unidentified_description := @4
+  ]
+
+
+  // HAMM06 - Dwarven Thrower +3
+  // HAMM07 - Hammer of Thunderbolts +3
+  // HAMM09 - Crom Faeyr +5
+  // HAMM10 - Rune Hammer +4
+  // HAMM11 - Rune Hammer +5
+  //
+  // All these get the base damage of hammers wrong.  The base damage
+  // of hammer is 1d4+1, not 1d4, so double base damage should be 2d4+2,
+  // not 2d4 like all of these assume.
+
+  itm.edit[hamm06 hamm07 hamm09 hamm10 hamm11|edit_strrefs_in_place:i=1]
+  [
+    SET dmg_bonus = m_enchantment + 2
+    m.ab.alter{s_damage_bonus = dmg_bonus|match=~"%s_type%" == "melee" OR "%s_type%" == "ranged"~}
+    m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "2d4+%m_enchantment%" "2d4+%dmg-bonus%"}
   ]
 END	// item_corrections_bg2
