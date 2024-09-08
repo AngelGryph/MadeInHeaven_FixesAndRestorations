@@ -10,8 +10,13 @@ BEGIN
     PATCH_IF category = 0x1d AND proficiency = 0x62
     BEGIN
       LPF struct_read RET_ARRAY m = struct END
-      m_unidentified_description-string = 16283
-      m.ab.alter{s_damage_bonus = m_enchantment + 1|match="s_dicenumber > 0"}
+      m_unidentified_description-string = 16283	// Already correct desc
+      SET dmg_bonus = m_enchantment + 1
+      m.ab.alter{s_damage_bonus = dmg_bonus|match="s_dicenumber > 0"}
+      PATCH_IF m_magical AND m_enchantment > 0
+      BEGIN
+        m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "1d6+%m_enchantment%" "1d6+%dmg_bonus%"}
+      END
       LPF struct_write STR_VAR struct = "m" END
     END
 

@@ -5,7 +5,7 @@ BEGIN
 
   cre.edit[friwen serwen]
   [
-    m_dialog := "%SOURCE_RES%"
+    m_dialog := "%sfo_filename%"
   ]
 
   are.edit[%NEBaldursGate_BlushingMermaid_L1% %EBaldursGate_ElfsongTavern_L1%]
@@ -24,7 +24,7 @@ BEGIN
 
   cre.edit[mtob4 mtob5]
   [
-    m_dialog := "%SOURCE_RES%"
+    m_dialog := "%sfo_filename%"
   ]
 
   are.edit[%NEBaldursGate_SplurgingSturgeon_L2%]

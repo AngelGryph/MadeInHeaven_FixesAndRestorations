@@ -9,12 +9,12 @@ BEGIN
   // MiH Tweaks, alters the base rules.
 
   COPY_EXISTING_REGEXP "^.+\.cre$" "override"
-    LPF struct_get STR_VAR arguments = "race" RET race = value END
-    LPF struct_get STR_VAR arguments = "str_base" RET str = value END
+    READ_BYTE 0x272 race
+    READ_BYTE 0x238 str
 
     PATCH_IF race = IDS_OF_SYMBOL("race" "gnoll") AND str < 14
     BEGIN
-      WRITE_BYTE 0x238 14	// Let's not mess with structs for speed.
+      WRITE_BYTE 0x238 14
     END
 
     BUT_ONLY_IF_IT_CHANGES
