@@ -1,5 +1,13 @@
 DEFINE_ACTION_FUNCTION paw_corrections
 BEGIN
+  // Ghoul- and ghast paws should deal slashing damage and use strength.
+
+  itm.edit[ghoul1 ghast1]
+  [
+    m.ab.alter{s_damage_type := "slashing";;s_add_strength_bonus = 1}
+  ]
+
+
   // Mustard Jelly should deal 5d4 acid damage, not 5d4 blunt.
   //
   // NB: Other effects aren't quite right either, but good enough.
