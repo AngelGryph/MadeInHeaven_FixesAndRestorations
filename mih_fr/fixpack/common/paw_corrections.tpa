@@ -1,6 +1,6 @@
 DEFINE_ACTION_FUNCTION paw_corrections
 BEGIN
-  // Ghoul- and ghast paws should deal slashing damage and use strength.
+  // Ghouls and ghasts should deal slashing damage and use strength.
 
   itm.edit[ghoul1 ghast1]
   [
@@ -68,6 +68,14 @@ BEGIN
   ]
 
 
+  // Huge-, giant- and sword spiders should get a strength bonus.
+
+  itm.edit[spidgi1 spidhu1 spidsw1]
+  [
+    m.ab.alter{s_add_strength_bonus = 1}
+  ]
+
+
   // Wraith Spiders drain levels with their bite in P&P, and a leftover
   // file indicates that this was planned for BG1 as well, but got canned
   // due to BG1 not having a proper level drain opcode.  This makes wraith
@@ -77,7 +85,7 @@ BEGIN
 
   itm.edit[spidwr1]
   [
-    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0}
+    m.ab.alter{s_dicenumber = 0;;s_dicesize = 0;;s_add_strength_bonus = 1}
     m.ab_fx.delete{}
     m.ab_fx.add{s_opcode = 12;;s_target = 2;;s_timing = 1;;s_parameter2 = 0x00020000;;s_dicenumber = 1;;s_dicesize = 4}
     m.ab_fx.add{s_opcode = 78;;s_target = 2;;s_timing = 1;;s_parameter1 = 3;;s_parameter2 = 6}

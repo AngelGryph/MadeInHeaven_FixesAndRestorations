@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION sod_paw_fixes
+BEGIN
+  // Huge- and giant spiders should get a strength bonus.
+  // (Likely copied from original saga.)
+
+  itm.edit[bdspidgi bdspidhu]
+  [
+    m.ab.alter{s_add_strength_bonus = 1}
+  ]
+END	// sod_paw_fixes
+
+
