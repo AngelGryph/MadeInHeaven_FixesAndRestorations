@@ -1,5 +1,17 @@
 DEFINE_ACTION_FUNCTION item_corrections_bg2
 BEGIN
+  // CHAN11 - Crimson Chain +5
+  //
+  // The *crimson* chain is not actually crimson.
+
+  itm.edit[chan11]
+  [
+    m.fx.alter{s_parameter1 = 195|match="s_opcode = 7 && s_parameter2 = 0"}
+    m.fx.alter{s_parameter1 = 19|match="s_opcode = 7 && s_parameter2 = 4"}
+    m.fx.alter{s_parameter1 = 101|match="s_opcode = 7 && s_parameter2 = 5"}
+  ]
+
+
   // CLCK25 - Cloak of the Stars
   //
   // According to P&P sources, these should give a +1 to saving throws.
