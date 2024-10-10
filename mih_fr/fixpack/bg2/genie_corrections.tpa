@@ -10,20 +10,30 @@ BEGIN
 
 
   // Djinni should have 7+3 HD, not 5, and the proper saves for that.
+  // Their attack should also count as magical.
 
   cre.edit[djinnisu gendji01 sumdjinn]
   [
     m_level1 = 7
     m.cre_enforce_saves{}
+    m.cre_add_items{b2-16m3(weapon1)|replace:i=1}
   ]
 
 
   // Efreet should have 10 HD, not 5, and the proper saves for that.
+  // Their attack should also count as magical.
+
+  itm.copy[b3-24=>b3-24m3]
+  [
+    m_magical = 1
+    m_enchantment = 3
+  ]
 
   cre.edit[efreetsu genefr01 sumefree]
   [
     m_level1 = 10
     m.cre_enforce_saves{}
+    m.cre_add_items{b3-24m3(weapon1)|replace:i=1}
   ]
 END	// genie_corrections
 
