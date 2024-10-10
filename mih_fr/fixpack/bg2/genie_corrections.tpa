@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION genie_corrections
+BEGIN
+  // Dao should have 8+3 HD, not 5, and the proper saves for that.
+
+  cre.edit[gendao01 trgeni01 trgeni02 trgeni03]
+  [
+    m_level1 = 8
+    m.cre_enforce_saves{}
+  ]
+
+
+  // Djinni should have 7+3 HD, not 5, and the proper saves for that.
+
+  cre.edit[djinnisu gendji01 sumdjinn]
+  [
+    m_level1 = 7
+    m.cre_enforce_saves{}
+  ]
+
+
+  // Efreet should have 10 HD, not 5, and the proper saves for that.
+
+  cre.edit[efreetsu genefr01 sumefree]
+  [
+    m_level1 = 10
+    m.cre_enforce_saves{}
+  ]
+END	// genie_corrections
+
+
