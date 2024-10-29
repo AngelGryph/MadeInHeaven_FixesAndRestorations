@@ -5,8 +5,8 @@ BEGIN
     LAUNCH_ACTION_FUNCTION HANDLE_AUDIO
       STR_VAR
       audio_path	= "%MOD_FOLDER%/%component_loc%/bg2/sounds"
-      oggdec_path	= "bin"
-      sox_path		= "bin"
+      oggdec_path	= "bin/win32"
+      sox_path		= "bin/osx"
     END
   END
 END	// setup_sound_fixes
