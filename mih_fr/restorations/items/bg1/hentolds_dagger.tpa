@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION hentolds_dagger
+BEGIN
+  cre.edit[hentol hentold]
+  [
+    m.cre_remove_items{dagg03 dagg08}
+    m.cre_add_items{dagg08}
+  ]
+
+  COPY_EXISTING "hentol.dlg" "override"
+                "reven2.dlg" "override"
+                "reven3.dlg" "override"
+    DECOMPILE_AND_PATCH
+    BEGIN
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "dagg03" "dagg08"
+    END
+END
+
+
