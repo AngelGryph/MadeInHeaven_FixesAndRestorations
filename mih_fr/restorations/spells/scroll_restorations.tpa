@@ -50,6 +50,9 @@ BEGIN
     // "scrl61" is CLERIC_CURE_CRITICAL_WOUNDS, which is present
     // "scrl62" is CLERIC_FLAME_STRIKE, which is present
     // "scrl63" is CLERIC_RAISE_DEAD, which is present
+    "scrl64" => "%CLERIC_TRUE_SIGHT%"
+    "scrl65" => "%CLERIC_IRONSKIN%"
+    // From scrl66 onwards, wizard spells start.
     "scrl88" => "%WIZARD_FOG_CLOUD%"
   END
 
@@ -62,6 +65,8 @@ BEGIN
   COPY_EXISTING "%CLERIC_CURE_BLIND_DEAF%a.bam" "override/iscrl43.bam"
   COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_1%a.bam" "override/iscrl57.bam"
   COPY_EXISTING "%CLERIC_ANIMAL_SUMMONING_2%a.bam" "override/iscrl60.bam"
+  COPY_EXISTING "%CLERIC_TRUE_SIGHT%a.bam" "override/iscrl64.bam"
+  COPY_EXISTING "%CLERIC_IRONSKIN%a.bam" "override/iscrl65.bam"
   
 
   ACTION_PHP_EACH spell_scrolls AS scroll=>spell

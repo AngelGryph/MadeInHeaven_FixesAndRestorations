@@ -6,7 +6,7 @@ BEGIN
 
     PATCH_IF type = 3 AND sells_items
     BEGIN
-      REMOVE_STORE_ITEM "scrl56" "scrl58" "scrl59" "scrl61" "scrl62" "scrl63"
+      REMOVE_STORE_ITEM "scrl56" "scrl58" "scrl59" "scrl5a" "scrl5b" "scrl5c" "scrl5d" "scrl5e" "scrl5f" "scrl61" "scrl62" "scrl63"
 
       // Scrolls for level 1 spells
       ADD_STORE_ITEM "scrl19" LAST #1 #0 #0 "identified" #2
@@ -56,12 +56,20 @@ BEGIN
       ADD_STORE_ITEM "scrl57" LAST #1 #0 #0 "identified" #1
       ADD_STORE_ITEM "scrl58" LAST #1 #0 #0 "identified" #1
       ADD_STORE_ITEM "scrl59" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5a" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5b" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5c" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5d" LAST #1 #0 #0 "identified" #1
 
       // Scrolls for level 5 spells
       ADD_STORE_ITEM "scrl60" LAST #1 #0 #0 "identified" #1
       ADD_STORE_ITEM "scrl61" LAST #1 #0 #0 "identified" #1
       ADD_STORE_ITEM "scrl62" LAST #1 #0 #0 "identified" #1
       ADD_STORE_ITEM "scrl63" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl64" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl65" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5e" LAST #1 #0 #0 "identified" #1
+      ADD_STORE_ITEM "scrl5f" LAST #1 #0 #0 "identified" #1
     END
 
     BUT_ONLY_IF_IT_CHANGES
