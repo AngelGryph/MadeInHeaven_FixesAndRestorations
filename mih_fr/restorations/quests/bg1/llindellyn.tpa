@@ -1,0 +1,106 @@
+DEFINE_ACTION_FUNCTION llindellyn
+BEGIN
+  itm.copy[arow11=>mharowll]
+  [
+    m_identified_name := @12
+    m_identified_description := @13
+    m_critical_item = 1
+    m_magical = 0
+    m_enchantment = 0
+    m_category = 0
+    m_max_in_stack = 1
+    m.ab.delete{}
+  ]
+
+  cre.edit[llinde]
+  [
+    m.cre_remove_items{arow01}
+    m.cre_add_items{arow12(20,quiver1) arow10(20,quiver2) arow06(3,quiver3)}
+  ]
+
+  cre.copy[bearca=>mhbearll]
+  [
+    m.cre_add_items{mharowll}
+  ]
+
+  are.edit[%Larswood%]
+  [
+    m.actor.add{s_name:="Llindellyn" s_resref:="llinde" s_x=920 s_y=725 s_face:="SSW"}
+    m.actor.add{s_name:="Cave Bear" s_resref:="mhbearll" s_x=2820 s_y=2215 s_face:="W"}
+  ]
+
+
+<<<<<<<< .../stratagems-inline/llindelyn_fixes.d
+REPLACE_STATE_TRIGGER "llinde" 0
+  ~NumTimesTalkedTo(0) !PartyHasItem("mharowll")~
+
+ALTER_TRANS "llinde"
+BEGIN 0 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "EPILOGUE"	~GOTO 1~
+END
+
+ALTER_TRANS "llinde"
+BEGIN 1 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "EPILOGUE"	~GOTO 2~
+END
+
+ALTER_TRANS "llinde"
+BEGIN 2 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "ACTION"		~SetGlobal("HelpLlindellyn", "GLOBAL", 1)~
+  "UNSOLVED_JOURNAL"	~@14~
+END
+
+REPLACE_STATE_TRIGGER "llinde" 3
+  ~Global("HelpLlindellyn", "GLOBAL", 1) !PartyHasItem("mharowll")~
+
+REPLACE_STATE_TRIGGER "llinde" 4
+  ~Global("HelpLlindellyn", "GLOBAL", 1) PartyHasItem("mharowll") ReactionLT(LastTalkedToBy(Myself), NEUTRAL_LOWER)~
+
+ALTER_TRANS "llinde"
+BEGIN 4 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "ACTION"		~GiveItem("arow12", LastTalkedToBy(Myself)) SetGlobal("HelpLlindellyn", "GLOBAL", 2) EraseJournalEntry(@14)~
+  "SOLVED_JOURNAL"	~@15~
+END
+
+REPLACE_STATE_TRIGGER "llinde" 5
+  ~Global("HelpLlindellyn", "GLOBAL", 1) PartyHasItem("mharowll") ReactionLT(LastTalkedToBy(Myself), FRIENDLY_LOWER)~
+
+ALTER_TRANS "llinde"
+BEGIN 5 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "ACTION"		~GiveItem("arow10", LastTalkedToBy(Myself)) SetGlobal("HelpLlindellyn", "GLOBAL", 2) EraseJournalEntry(@14)~
+  "SOLVED_JOURNAL"	~@15~
+END
+
+REPLACE_STATE_TRIGGER "llinde" 6
+  ~Global("HelpLlindellyn", "GLOBAL", 1) PartyHasItem("mharowll")~
+
+ALTER_TRANS "llinde"
+BEGIN 6 END	// State(s)
+BEGIN END	// Transaction(s)
+BEGIN
+  "ACTION"		~GiveItem("arow06", LastTalkedToBy(Myself)) SetGlobal("HelpLlindellyn", "GLOBAL", 2) EraseJournalEntry(@14)~
+  "SOLVED_JOURNAL"	~@15~
+END
+
+REPLACE_STATE_TRIGGER "llinde" 8
+  ~True()~
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "llindelyn_fixes.d" END
+
+  ADD_JOURNAL @14 @15
+
+  LAF erase_journal_entries_on_bg2_transition STR_VAR dialog = "llinde" END
+END	// llindellyn
+
+
