@@ -52,9 +52,9 @@ BEGIN
   // Preclaim ids for spells with known spell ids. (Due to found icons.)
 
   APPEND "spell.ids" "2706    WIZARD_MONSTER_SUMMONING_5"	UNLESS "^2706"
-  APPEND "spell.ids" "2801    WIZARD_MONSTER_SUMMONING_6"	UNLESS "^2706"
+  APPEND "spell.ids" "2801    WIZARD_MONSTER_SUMMONING_6"	UNLESS "^2801"
   APPEND "spell.ids" "2901    WIZARD_SPELL_INVULNERABILITY"	UNLESS "^2901"
-  APPEND "spell.ids" "2904    WIZARD_MONSTER_SUMMONING_7"	UNLESS "^2706"
+  APPEND "spell.ids" "2904    WIZARD_MONSTER_SUMMONING_7"	UNLESS "^2904"
   APPEND "spell.ids" "2906    WIZARD_SANDFORM"			UNLESS "^2906"
 
   LAM data_spell_resrefs

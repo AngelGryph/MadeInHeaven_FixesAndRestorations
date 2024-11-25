@@ -10,11 +10,6 @@ From Sword Coast Stratagems v35.21, updated November 21st 2024:
 sfo2e/		- SFO 2e function library, by DavidW.
 
 
-From G3 BG2 Fixpack v13, updated December 16th 2023:
-
-lib/bg2fp_effect_batches	- Effect batches by CamDawg.
-
-
 My sincere thanks to my fellow modders for all their help and hard work.
 
 
