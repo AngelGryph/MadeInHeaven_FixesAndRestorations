@@ -50,7 +50,7 @@ BEGIN
 
     m.item.clone{s_resref := "sw1h02";;s_number_in_stock = 1|match=~"%s_resref%" == "sw1h01"~}
     m.item.clone{s_resref := "sw1h05";;s_number_in_stock = 1|match=~"%s_resref%" == "sw1h04"~}
-    m.item.clone{s_resref := "sw1h05";;s_number_in_stock = 1|match=~"%s_resref%" == "sw1h04"~}
+    m.item.clone{s_resref := "sw1h08";;s_number_in_stock = 1|match=~"%s_resref%" == "sw1h07"~}
     m.item.clone{s_resref := "sw2h02";;s_number_in_stock = 1|match=~"%s_resref%" == "sw2h01"~}
 
     m.item.clone{s_resref := "xbow02";;s_number_in_stock = 1|match=~"%s_resref%" == "xbow01"~}
