@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION spear_damage_fix
+DEFINE_ACTION_FUNCTION spear_fixes
 BEGIN
   // Spears are two-handed weapons in the game, but they don't
   // use the proper damage values for two-handed spears.
@@ -12,7 +12,8 @@ BEGIN
       LPF struct_read RET_ARRAY m = struct END
       m_unidentified_description-string = 16283	// Already correct desc
       SET dmg_bonus = m_enchantment + 1
-      m.ab.alter{s_damage_bonus = dmg_bonus|match="s_dicenumber > 0"}
+      SET speed_factor = 8 - m_enchantment
+      m.ab.alter{s_damage_bonus = dmg_bonus;;s_speed = speed_factor|match="s_dicenumber > 0"}
       PATCH_IF m_magical AND m_enchantment > 0
       BEGIN
         m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "1d6+%m_enchantment%" "1d6+%dmg_bonus%"}
@@ -21,4 +22,4 @@ BEGIN
     END
 
     BUT_ONLY_IF_IT_CHANGES
-END	// spear_damage_fix
+END	// spear_fixes

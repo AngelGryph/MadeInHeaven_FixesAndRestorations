@@ -11,6 +11,16 @@ BEGIN
   ]
 
 
+  // BULL04 - Sunstone +1
+  //
+  // Has a death effect that is not in the description or hinted at
+  // anywhere.
+
+  itm.edit[bull04]
+  [
+    m.fx.delete{s_opcode == 55}
+  ]
+
   // RING22 - Ring of Holiness
   //
   // According to P&P rules, this should add +1 to turn undead attempts.
