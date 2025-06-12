@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION bg2_non_proficiency_fixes
+BEGIN
+  // Found by Royal Protector:
+  // Several BG2 creatures wield weapons with which they are not proficient.
+
+  // Daggers
+
+  cre.edit[ar18thif arnman09 beeloo bshop01 drim01 genth02 gentmg01 shth05]
+  [
+    m.cre_set_proficiencies{dagger=>1}
+  ]
+
+
+  // Long Swords
+
+  cre.edit[arntra01]
+  [
+    m.cre_set_proficiencies{long_sword=>1}
+  ]
+
+
+  // Short Swords
+
+  cre.edit[dshop01 genth01 gpthief1 irethf03 ishclo01 ishthf01 parthf uddoor08 uddoor09 waylane sarthf01]
+  [
+    m.cre_set_proficiencies{short_sword=>1}
+  ]
+
+
+  // Short Bows
+
+  cre.edit[irethf04 ishthf03]
+  [
+    m.cre_set_proficiencies{short_bow=>1}
+  ]
+END	// bg2_non_proficiency_fixes

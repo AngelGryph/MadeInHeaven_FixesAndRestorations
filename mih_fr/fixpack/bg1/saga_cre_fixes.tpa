@@ -23,6 +23,16 @@ BEGIN
   ]
 
 
+  // Riggilo was probably badly copied from Pratt, wields a weapon
+  // he has no proficiency in and has an item he should not have.
+
+  cre.edit[riggilo]
+  [
+    m.cre_remove_items{scrl2n}
+    m.cre_set_proficiencies{short_sword=>4}
+  ]
+
+
   // Wraith Spiders are undead and should be immune to cold.
 
   cre.edit[spidwr]
