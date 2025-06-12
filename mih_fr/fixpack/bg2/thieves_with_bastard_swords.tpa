@@ -1,0 +1,23 @@
+DEFINE_ACTION_FUNCTION thieves_with_bastard_swords
+BEGIN
+  // Found by Royal Protector: Several thieves using bastard swords
+  // with which they aren't (and should not be) proficient.
+
+  // Random thieves (should not be proficient)
+
+  cre.edit[arntra06 bmugg1 genthf01 pirpir05]
+  [
+    m.cre_swap_items{sw1h01=>sw1h07}
+    m.cre_set_proficiencies{short_sword=>1 bastard_sword=>0}
+  ]
+
+
+  // Cambions (they can keep their bastard swords)
+
+  cre.edit[cambion1 telcam1]
+  [
+    m.cre_set_proficiencies{bastard_sword=>1}
+  ]
+END	// thieves_with_bastard_swords
+
+
