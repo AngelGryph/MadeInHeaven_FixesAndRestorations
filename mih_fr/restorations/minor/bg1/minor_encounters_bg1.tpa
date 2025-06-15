@@ -10,8 +10,8 @@ BEGIN
     m_ac = 10
     m_str = 14
     m_dex = 16
-    m.cre_enforce_thac0{at_worst}
-    m.cre_enforce_saves{at_worst}
+    m.cre_enforce_thac0{at_best}
+    m.cre_enforce_saves{at_best}
     m.cre_add_items{bow04(weapon1) arow02(quiver1,20) sw1h08(weapon2) leat05(armor)|replace:i=1}
     m.cre_set_proficiencies{bow=>3 short_sword=>3}
   ]

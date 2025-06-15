@@ -1,5 +1,6 @@
 DEFINE_ACTION_FUNCTION setup_int_19_rule
 BEGIN
+  ACTION_CLEAR_ARRAY int_table	// start with a clean slate
   OUTER_TEXT_SPRINT $int_table("MAX_SPELLS_PER_LEVEL" "19") "24"
   OUTER_TEXT_SPRINT $int_table("MAX_SPELLS_PER_LEVEL" "20") "30"
 
