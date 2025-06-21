@@ -1,0 +1,17 @@
+DEFINE_ACTION_FUNCTION setup_protection_scroll_fixes
+BEGIN
+  // Canonically, protection scrolls should affect only the reader, and
+  // should take some time to read.
+  //
+  // This also closes the exploit of using protection scrolls offensively.
+  //
+  // Made optional since not everyone may want this fix.
+
+  itm.edit[scrl03 scrl04 scrl05 scrl06 scrl07 scrl08 scrl09 scrl15]
+  [
+    m.ab.alter{s_target := "Caster" s_speed = 8}
+    m.ab_fx.alter{s_target := "Self"}
+  ]
+END	// setup_protection_scroll_fixes
+
+

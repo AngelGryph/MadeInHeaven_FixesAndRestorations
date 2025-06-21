@@ -94,6 +94,21 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Optional: Protection Scroll Fixes
+
+BEGIN @14
+GROUP @1
+
+LABEL MH#-MiH_FR-Protection_Scroll_Fixes
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_protection_scroll_fixes"
+  location	= "fixpack"
+END
+
+
+// ============
 // ============
 // Restorations
 // ============
