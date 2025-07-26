@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION bg1_quest_items
+DEFINE_ACTION_FUNCTION saga_item_fixes
 BEGIN
   // AMUL13CO	- Colquetle's Family Amulet
   // DAGG06	- Nester's Dagger
@@ -34,4 +34,4 @@ BEGIN END	// Transactions
 >>>>>>>>
 
   LAF install INT_VAR inline = 1 STR_VAR file = "bg1_quest_items.d" END
-END	// bg1_quest_items
+END	// saga_item_fixes

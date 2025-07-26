@@ -26,14 +26,6 @@ BEGIN
   ]
 
 
-  // MISC2X - Jaheira's Harper Pin
-  //
-  // For some reason, EE does not use item_use.2da for this item
-  // even though it does for the other NPC exclusives.
-
-  APPEND "item_use.2da" "MISC5X  JAHEIRA 9382    2       9382    -1" UNLESS "MISC5X"
-
-
   // SPER04 - Javelin
   //
   // This item exists in BG2EE with the correct stats, but has the

@@ -1,0 +1,64 @@
+DEFINE_ACTION_FUNCTION item_use_fixes
+BEGIN
+  COPY_EXISTING "item_use.2da" "override"
+    LPF 2da_read STR_VAR type = "2da" RET_ARRAY item_use_array = array END
+
+
+    // item_use in BG2EE uses wrong DEATHVAR for The Winged.
+
+    PATCH_IF is_bg2
+    BEGIN
+      TEXT_SPRINT $str_table("OHBGLOV1" "USER") "OHBWING"
+    END
+
+
+    // item_use with FLAG 2 is much better handled by opcode #319
+
+    LAUNCH_PATCH_FUNCTION 2da_column_to_array
+      STR_VAR
+      array		= item_use_array
+      column		= "FLAG"
+      RET_ARRAY
+      item_use_flag	= array_out
+    END
+
+    PHP_EACH item_use_flag AS item=>flag
+    BEGIN
+      PATCH_IF FILE_EXISTS_IN_GAME "%item%.itm" AND "%flag%" STRING_EQUAL "2"
+      BEGIN
+        INNER_ACTION
+	BEGIN
+	  COPY_EXISTING "%item%.itm" "override"
+	    LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 319 END
+	    LAUNCH_PATCH_FUNCTION ADD_ITEM_EQEFFECT
+	      INT_VAR
+	      opcode		= 319
+	      target		= 1
+	      timing		= 2
+	      parameter2	= 11
+	      power		= 1
+	      special		= $item_use_array("%item%" "STRREF")
+	      STR_VAR
+	      resource		= $item_use_array("%item%" "USER")
+	    END
+	    BUT_ONLY_IF_IT_CHANGES
+	END
+      END
+    END
+
+    LAUNCH_PATCH_FUNCTION 2da_delete_row
+      STR_VAR
+      array		= item_use_array
+      row		= "2"	// Yes, string value.
+      lookup_column	= "FLAG"
+      RET_ARRAY
+      item_use_array	= array
+    END
+
+
+    LPF 2da_write STR_VAR type = "2da" array = item_use_array END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// item_use_fixes
+
+
