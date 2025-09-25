@@ -26,20 +26,6 @@ BEGIN
   ]
 
 
-  // SPER04 - Javelin
-  //
-  // This item exists in BG2EE with the correct stats, but has the
-  // description of a throwing axe.  Let's fix that.
-  //
-  // Item is currently unused, but the restorations make it available.
-
-  itm.edit[sper04]
-  [
-    m_both_names := @3
-    m_unidentified_description := @4
-  ]
-
-
   // HAMM06 - Dwarven Thrower +3
   // HAMM07 - Hammer of Thunderbolts +3
   // HAMM09 - Crom Faeyr +5
@@ -56,4 +42,31 @@ BEGIN
     m.ab.alter{s_damage_bonus = dmg_bonus|match=~"%s_type%" == "melee" OR "%s_type%" == "ranged"~}
     m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "2d4+%m_enchantment%" "2d4+%dmg-bonus%"}
   ]
+
+
+  // SPER04 - Javelin
+  //
+  // This item exists in BG2EE with the correct stats, but has the
+  // description of a throwing axe.  Let's fix that.
+  //
+  // Item is currently unused, but the restorations make it available.
+
+  itm.edit[sper04]
+  [
+    m_both_names := @3
+    m_unidentified_description := @4
+  ]
+
+
+  // STAF14 - Staff of the Woodlands
+  //
+  // The staff grants permanent Barkskin to the wielder, and should therefor
+  // block the Barkskin spell from taking effect.
+
+  itm.edit[staf14]
+  [
+    m.fx.add{s_opcode = 206;;s_timing := "Equipped";;s_resource := "SPPR202"}
+  ]
 END	// item_corrections_bg2
+
+

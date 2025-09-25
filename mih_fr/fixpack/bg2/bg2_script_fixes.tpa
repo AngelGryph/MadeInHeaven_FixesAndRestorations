@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION bg2_script_fixes
+BEGIN
+  // baldur.bcs
+  //
+  // References an area (AR2906) and cutscene (CUT101A) that don't exist.
+  //
+  // Area reference seems to already have been handled by EE Fixpack.
+  //
+  // Script block using the cutscene also sets globals so I can't cut it
+  // entirely without breaking stuff, so provide an empty cutscene script.
+
+<<<<<<<< .../stratagems-inline/cut101a.baf
+>>>>>>>>
+
+  LAF install INT_VAR inline = 1 STR_VAR file = "cut101a.baf" END
+END	// bg2_script_fixes
+
+

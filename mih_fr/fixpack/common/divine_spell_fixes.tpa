@@ -33,6 +33,17 @@ BEGIN
   ]
 
 
+  // SPPR202 - Barkskin
+  //
+  // The saving throw bonus granted by this spell stacks with multiple
+  // castings, which it should not.  (AC is fixed to a value, not a bonus.)
+
+  spl.edit[sppr202]
+  [
+    m.ab_fx.add{s_opcode = 321;;s_resource := "SPPR202";;s_target := "PresetTarget";;s_timing := "InstantPermanent"}
+  ]
+
+
   // SPPR404 - Neutralize Poison
   //
   // Slow Poison cures drunkenness, but Neutralize Poison does not.  Let's

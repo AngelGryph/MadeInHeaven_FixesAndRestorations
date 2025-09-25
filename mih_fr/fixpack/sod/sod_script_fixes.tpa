@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION sod_script_fixes
+BEGIN
+  // bdbaldur.bcs
+  //
+  // References a cutscene (D_SDD117) that doesn't exist.
+  //
+  // Appears to be some debugging code left in, so should be safe to delete.
+
+  LAUNCH_ACTION_FUNCTION DELETE_SCRIPT_BLOCK
+    STR_VAR
+    script	= "bdbaldur"
+    match	= "d_sdd117"
+  END
+END	// sod_script_fixes
+
+
