@@ -17,7 +17,7 @@ BEGIN
      ~\(Improved \|\)Mantle~ ~Alustriel's \1Mantle~
 
     REPLACE_TEXTUALLY CASE_SENSITIVE EVALUATE_REGEXP
-     ~Spell \(Sequencer\|Trigger\)~ ~The Simbul's Spell \1~
+     ~Spell \(Sequencer\|Trigger\)~ ~Simbul's Spell \1~
 
     REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
      ~Absolute Immunity~ ~Sylune's Absolute Immunity~
