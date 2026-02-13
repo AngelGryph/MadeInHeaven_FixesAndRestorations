@@ -2,47 +2,12 @@ DEFINE_ACTION_FUNCTION spell_restorations_postproc
 BEGIN
   // Create Tattoos of Power innates
 
-  spl.copy[spwi420d=>%WIZARD_TATTOOS_OF_POWER%d]
-  [
-    m_name := @21
-    m_icon := "%WIZARD_TATTOOS_OF_POWER%c"
-    m.ab.alter{s_icon := "%WIZARD_TATTOOS_OF_POWER%b"}
-    m.ab_fx.alter{resource := "%WIZARD_TATTOOS_OF_POWER%"|match="s_opcode = 258"}
-    m.ab_fx.alter{resource := "%WIZARD_TATTOOS_OF_POWER%d"|match="s_opcode = 172"}
-  ]
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    spl.copy[spwi420p=>%WIZARD_TATTOOS_OF_POWER%p]
-    [
-      m_name := @21
-      m_icon := "%WIZARD_TATTOOS_OF_POWER%c"
-      m.ab.alter{s_icon := "%WIZARD_TATTOOS_OF_POWER%b"}
-      m.ab_fx.alter{resource := "%WIZARD_TATTOOS_OF_POWER%"|match="s_opcode = 260"}
-      m.ab_fx.alter{resource := "%WIZARD_TATTOOS_OF_POWER%p"|match="s_opcode = 172"}
-    ]
-
-    ACTION_TO_UPPER WIZARD_TATTOOS_OF_POWER
-
-    OUTER_SPRINT tattoos_of_power_title @21
-    OUTER_SPRINT add_spells_tattoos_label @23
-    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
-
-    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-        ~uiStrings = {~
-        ~uiStrings = {%WNL%%TAB%TATTOOS_OF_POWER_TITLE = "%tattoos_of_power_title%",%WNL%%TAB%ADD_SPELLS_TATTOOS_LABEL = "%add_spells_tattoos_label%",~
-
-    COPY_EXISTING "bgee.lua" "override"
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-        ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%WIZARD_TATTOOS_OF_POWER% = {tip = %sequencer_tip_strref%, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
-  END
+  LAF create_sequencer_innates STR_VAR spell_name = "WIZARD_TATTOOS_OF_POWER" END
 
 
   // Append some spells to contingx
 
-  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_TATTOOS_OF_POWER" END
+  LAF add_spell_to_contingx STR_VAR spell_name = "WIZARD_TATTOOS_OF_POWER" END
 END	// spell_restorations_postproc
 
 
