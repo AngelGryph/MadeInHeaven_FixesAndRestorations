@@ -1,6 +1,7 @@
 DEFINE_ACTION_FUNCTION misc_cre_fixes_bg2
 BEGIN
   // Dread Wolves are undead and should use a proper paw.
+
   cre.edit[wolfdr01]
   [
     m_general := "undead"
@@ -9,6 +10,7 @@ BEGIN
 
 
   // Winter Wolves are not using their dedicated script.
+
   cre.edit[obsice03 wolfwi01 wolfwisu wolfwwsu]
   [
     m_script_default := "wntrwolf"
@@ -50,6 +52,14 @@ BEGIN
   cre.edit[ohbmena7 smspid02 spidvo01]
   [
     m_level1 = 7
+  ]
+
+
+  // Some skeleton waariors have human as human as race instead of skeleton.
+
+  cre.edit[d1skel ohdportl riftcr02 sewsw]
+  [
+    m_race := "skeleton"
   ]
 END	// misc_cre_fixes_bg2
 

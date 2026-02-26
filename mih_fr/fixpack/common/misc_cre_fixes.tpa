@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION misc_cre_fixes
+BEGIN
+  // Some skeleton waariors have human as human as race instead of skeleton.
+  //
+  // NB: skelwasu only has this error in BGEE, it's correct in BG2EE.
+
+  cre.edit[skelsu01 skelsu07 skelsu11 skelwasu]
+  [
+    m_race := "skeleton"
+  ]
+END
+
+
