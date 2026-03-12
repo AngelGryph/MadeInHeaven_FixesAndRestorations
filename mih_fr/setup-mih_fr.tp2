@@ -327,3 +327,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Revert Harbinger to The World's Edge
+
+BEGIN @54
+GROUP @3
+
+LABEL MH#-MiH_FR-Revert_Harbinger
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "revert_harbinger_to_worlds_edge"
+  location	= "tweaks"
+  tra		= "the_worlds_edge"
+END
+
+

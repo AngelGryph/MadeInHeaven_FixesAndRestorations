@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION revert_harbinger_to_worlds_edge
+BEGIN
+  itm.edit[sw2h07|edit_strrefs_in_place:i=1]
+  [
+    m_identified_name := @0
+    m_identified_description := @1
+    m_price = 3500
+    m_weight = 9
+    m.fx.add{s_opcode = 9;;s_timing := "Equipped";;s_parameter1 = 0x60274200;;s_parameter2 = 0x001e0015}
+    m.ab_fx.delete{}
+  ]
+END	// revert_harbinger_to_worlds_edge
+
+
