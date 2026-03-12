@@ -1,0 +1,23 @@
+DEFINE_ACTION_FUNCTION setup_move_shadow_armor_bg2
+BEGIN
+  // Mae'var is a thief/mage 13/15
+  //
+  // As such it makes no sense for him to wear the Shadow Armor
+  // which doesn't allow arcane spell use.  This moves the
+  // Shadow Armor to one of his flunkies and gives Mae'var an
+  // Elven Chain +1 instead.
+
+  cre.edit[maevar]
+  [
+    m.cre_remove_items{leat08}
+    m.cre_add_items{chan13}
+  ]
+
+  cre.edit[thief6]
+  [
+    m.cre_remove_items{leat04}
+    m.cre_add_items{leat08(armor)}
+  ]
+END	// setup_move_shadow_armor_bg2
+
+

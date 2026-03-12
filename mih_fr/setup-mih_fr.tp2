@@ -108,6 +108,22 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Optional: Move Shadow Armor from Mae'var
+
+BEGIN @15
+GROUP @1
+
+LABEL MH#-MiH_FR-Move_Shadow_Armor_BG2
+
+REQUIRE_PREDICATE GAME_IS "bg2ee eet" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_move_shadow_armor_bg2"
+  location	= "fixpack"
+END
+
+
 // ============
 // Restorations
 // ============
