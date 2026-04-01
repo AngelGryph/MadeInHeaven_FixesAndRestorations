@@ -63,16 +63,13 @@ BEGIN
   ]
 
 
-  // Sirines are humanoids, not monsters and certainly not basilisks.
-  // They are supposed to have at least 20% magic resistance.
+  // Sirines are supposed to have at least 20% magic resistance.
   // They also have a base armor class of 7, not 10 due to "innate magic".
   //
   // NB: Seems to be unused in unmodded game.
 
   cre.edit[sirine01]
   [
-    m_general := "humanoid"
-    m_race := "fairy"
     m_ac = 7	// Effectively 3 in game due to 18 dex, on par with MM.
     m_resist_magic = m_resist_magic < 20 ? 20 : m_resist_magic
   ]

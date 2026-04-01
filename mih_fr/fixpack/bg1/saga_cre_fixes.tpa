@@ -54,15 +54,22 @@ BEGIN
   ]
 
 
-  // Sirines are humanoids, not monsters.
-  // They are supposed to have at least 20% magic resistance.
+  // Sirines are supposed to have at least 20% magic resistance.
   // They also have a base armor class of 7, not 10 due to "innate magic".
 
   cre.edit[larria meiala islsir sil sirine sirine_a sirine_b sirine02]
   [
-    m_general := "humanoid"
     m_ac = 7	// Effectively 3 in game due to 18 dex, on par with MM.
     m_resist_magic = m_resist_magic < 20 ? 20 : m_resist_magic
+  ]
+
+
+  // Zordral (mage at the Nashkel Carnival) has an impossible spell save of 3,
+  // fully 7 points above par for his level and with no known justification.
+
+  cre.edit[zordra]
+  [
+    m_save_vs_spells = 10
   ]
 END	// saga_cre_fixes
 
