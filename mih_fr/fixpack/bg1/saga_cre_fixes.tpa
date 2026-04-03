@@ -56,9 +56,15 @@ BEGIN
 
   // Sirines are supposed to have at least 20% magic resistance.
   // They also have a base armor class of 7, not 10 due to "innate magic".
+  // These sirines all have 5 HD except Sil who has 6 HD, their correct
+  // thac0 should be 15.  Most had 12 except Sil who had 17.
+  // Note that they already get a +2 to hit with their bows from 18 dex.
+  //
+  // NB: Not editing Sirine Queen, she's supposed to have better stats.
 
-  cre.edit[larria meiala islsir sil sirine sirine_a sirine_b sirine02]
+  cre.edit[larria meiala sil sirine sirine_a sirine_b sirine02]
   [
+    m_thac0 = 15	// Correct thac0 for 5/6 HD sirines.
     m_ac = 7	// Effectively 3 in game due to 18 dex, on par with MM.
     m_resist_magic = m_resist_magic < 20 ? 20 : m_resist_magic
   ]
@@ -70,6 +76,14 @@ BEGIN
   cre.edit[zordra]
   [
     m_save_vs_spells = 10
+  ]
+
+
+  // Umber Hulks have 8+8 HD, which is equivalent to 10 HD.
+
+  cre.edit[neumber umbhul01]
+  [
+    m_level1 = 10
   ]
 END	// saga_cre_fixes
 

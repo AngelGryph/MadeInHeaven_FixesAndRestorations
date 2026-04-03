@@ -65,13 +65,29 @@ BEGIN
 
   // Sirines are supposed to have at least 20% magic resistance.
   // They also have a base armor class of 7, not 10 due to "innate magic".
+  // Since this is BG2, using the best stats for 7 HD srinine.
   //
   // NB: Seems to be unused in unmodded game.
 
   cre.edit[sirine01]
   [
+    m_level1 = 7	// Highest possible according to 2e MM.
+    m_thac0 = 13	// Note that 18 dex gives them +2 to hit with bows.
     m_ac = 7	// Effectively 3 in game due to 18 dex, on par with MM.
-    m_resist_magic = m_resist_magic < 20 ? 20 : m_resist_magic
+    m_resist_magic = 20	// No need to do it conditionally here.
+  ]
+
+
+  // Umber Hulks have 8+8 HD, which is equivalent to 10 HD.
+
+  cre.edit[amumber daumber kpumb01 ohhumber ppumb02 udill02 udumb02 udumber umbhul01]
+  [
+    m_level1 = 10
+  ]
+
+  cre.edit[ohbumb01 umbhul02]	// Umber Hulk Elder, +6 HD
+  [
+    m_level1 = 16
   ]
 END	// misc_cre_fixes_bg2
 

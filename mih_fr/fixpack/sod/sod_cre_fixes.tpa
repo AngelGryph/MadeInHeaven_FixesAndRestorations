@@ -1,0 +1,11 @@
+DEFINE_ACTION_FUNCTION sod_cre_fixes
+BEGIN
+  // Umber Hulks have 8+8 HD, which is equivalent to 10 HD.
+
+  cre.edit[bdumber1]
+  [
+    m_level1 = 10
+  ]
+END	// sod_cre_fixes
+
+
