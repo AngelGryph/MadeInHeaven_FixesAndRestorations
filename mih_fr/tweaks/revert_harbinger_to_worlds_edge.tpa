@@ -9,6 +9,12 @@ BEGIN
     m.fx.add{s_opcode = 9;;s_timing := "Equipped";;s_parameter1 = 0x60274200;;s_parameter2 = 0x001e0015}
     m.ab_fx.delete{}
   ]
+
+  cre.edit[c6eric c6eric3]
+  [
+    m.cre_remove_items{sw2h07 cdsw2h07}
+    m.cre_add_items{sw2h07(weapon1)}
+  ]
 END	// revert_harbinger_to_worlds_edge
 
 
