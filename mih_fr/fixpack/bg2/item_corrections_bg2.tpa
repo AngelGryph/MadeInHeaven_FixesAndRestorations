@@ -40,7 +40,7 @@ BEGIN
   [
     SET dmg_bonus = m_enchantment + 2
     m.ab.alter{s_damage_bonus = dmg_bonus|match=~"%s_type%" == "melee" OR "%s_type%" == "ranged"~}
-    m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "2d4+%m_enchantment%" "2d4+%dmg-bonus%"}
+    m_identified_description = m_identified_description.patch{REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "2d4+%m_enchantment%" "2d4+%dmg_bonus%"}
   ]
 
 

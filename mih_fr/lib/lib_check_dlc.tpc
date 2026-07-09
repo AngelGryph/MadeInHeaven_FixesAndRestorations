@@ -1,0 +1,12 @@
+// =============================
+// Test for unsupported versions
+// =============================
+
+PRINT "Checking if merging SoD is required..."
+
+ACTION_IF FILE_EXISTS "dlc/sod-dlc.zip" OR FILE_EXISTS "sod-dlc.zip"
+BEGIN
+  FAIL ~You need to run modmerge or install A7-DlcMerger before installing this mod.~
+END
+
+
