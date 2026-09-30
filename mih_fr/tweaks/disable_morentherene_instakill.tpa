@@ -1,0 +1,13 @@
+DEFINE_ACTION_FUNCTION disable_morentherene_instakill
+BEGIN
+  LAUNCH_ACTION_FUNCTION DELETE_SCRIPT_BLOCK
+  STR_VAR
+    script	= "bdmorent"
+    match1	= "dagg05"
+    match2	= "dagg11"
+    match3	= "dagg25"
+    match4	= "bddagg04"
+  END
+END	// disable_morentherene_instakill
+
+

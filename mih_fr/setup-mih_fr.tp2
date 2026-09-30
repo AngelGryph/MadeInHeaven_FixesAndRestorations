@@ -364,3 +364,19 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Disable Morentherene Insta-Kill
+
+BEGIN @55
+GROUP @3
+
+LABEL MH#-MiH_FR-Disable_Morentherene_Instakill
+
+REQUIRE_PREDICATE GAME_INCLUDES "sod" @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "disable_morentherene_instakill"
+  location	= "tweaks"
+END
+
+
