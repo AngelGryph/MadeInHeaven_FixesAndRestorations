@@ -12,7 +12,15 @@ BEGIN
     m_critical_item = 1
   ]
 
-  cre.copy[pilar ghelde|source_location="resources"]
+  cre.copy[pilar|source_location="resources"]
+  [
+    m.cre_add_items{mhboot06(inv)}
+  ]
+
+  cre.copy[ghelde|source_location="resources"]
+  [
+    m.cre_add_items{mhring13(inv)}
+  ]
 
   LAUNCH_ACTION_FUNCTION extend_area_script
     STR_VAR

@@ -9,13 +9,18 @@ BEGIN
 
 <<<<<<<< .../stratagems-inline/wilton_fixes.d
   REPLACE_STATE_TRIGGER "wilton" 0
-  ~Global("GaveAnkheg", "GLOBAL", 1) HasItem("clck03", Myself())~
+    ~Global("GaveAnkheg", "GLOBAL", 1)~
+
+  ADD_TRANS_ACTION "wilton"
+  BEGIN 0 END	// State(s)
+  BEGIN END	// Transaction(s)
+    ~SetGlobal("GaveAnkheg", "GLOBAL", 2)~
 
   REPLACE_STATE_TRIGGER "wilton" 1
-  ~ReactionGT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
+    ~ReactionGT(LastTalkedToBy(Myself()), NEUTRAL_LOWER)~
 
   REPLACE_STATE_TRIGGER "wilton" 3
-  ~True()~
+    ~True()~
 >>>>>>>>
 
 LAF install INT_VAR inline = 1 STR_VAR file = "wilton_fixes.d" END
@@ -24,7 +29,6 @@ LAF install INT_VAR inline = 1 STR_VAR file = "wilton_fixes.d" END
 IF
   See([PC])
   Global("GaveAnkheg", "GLOBAL", 1)
-  HasItem("clck03", Myself())
 THEN
   RESPONSE #100
     DisplayStringHead(Myself(), #4821)
