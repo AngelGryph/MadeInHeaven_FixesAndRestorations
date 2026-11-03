@@ -1,0 +1,33 @@
+@0    = ~dummy~
+@1    = ~Optional Fixes~
+@2    = ~Restorations~
+@3    = ~Tweaks~
+@4    = ~This mod component is not compatible with your game.~
+@5    = ~This component requires the core fixes from G3 EE Fixpack.~
+@6    = ~This component is not available in your language.~
+
+@10   = ~MiH P&P-based Fixpack~
+@11   = ~Intelligence 19 Rule~
+@12   = ~Sound Volume Fixes~
+@13   = ~Lore-Friendly Spell Names~
+@14   = ~Protection Scroll Fixes~
+@15   = ~Move Shadow Armor from Mae'var~
+
+@21   = ~Item Restorations~
+@22   = ~Spell Restorations~
+@23   = ~Store Restorations (BG1)~
+@24   = ~Store Restorations (BG2)~
+@25   = ~Quest Restorations (BG1)~
+@26   = ~Quest Restorations (BG2)~
+@27   = ~Minor Restorations (BG1)~
+@28   = ~Minor Restorations (BG2)~
+@30   = ~Volo's Travels~
+@31   = ~d'Arnise Keep Text Screens~
+@32   = ~Artemis Entreri Encounter~
+@33   = ~Restored Bhaalspawn Powers~
+
+@51   = ~Better Prepared Allies~
+@52   = ~Obtain Obscure Items~
+@53   = ~Revised Spell Damage Caps~
+@54   = ~Revert Harbinger to The World's Edge~
+@55   = ~Disable Morentherene Insta-Kill~

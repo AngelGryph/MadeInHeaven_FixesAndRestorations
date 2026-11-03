@@ -23,6 +23,10 @@ LANGUAGE "English"
 	 "mih_fr/language/english/setup-mih_fr.tra"
 	 "weidu_external/lang/mih_fr/english/setup-mih_fr.tra"
 
+LANGUAGE "Schinese"
+         "schinese"
+	 "mih_fr/language/schinese/setup-mih_fr.tra"
+	 "weidu_external/lang/mih_fr/schinese/setup-mih_fr.tra"
 
 // ========================
 // Fixpack & Optional Fixes
@@ -378,5 +382,3 @@ LAUNCH_ACTION_FUNCTION run
   file		= "disable_morentherene_instakill"
   location	= "tweaks"
 END
-
-
